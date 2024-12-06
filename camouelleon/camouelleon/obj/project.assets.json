@@ -8,7 +8,7 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\rtijou\\.nuget\\packages\\": {},
+    "C:\\Users\\tmicetic\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -24,7 +24,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\rtijou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tmicetic\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
