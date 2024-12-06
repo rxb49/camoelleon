@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\rtijou\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\rtijou\\.nuget\\packages",
+      "C:\\Users\\tmicetic\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\tmicetic\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "configProperties": {

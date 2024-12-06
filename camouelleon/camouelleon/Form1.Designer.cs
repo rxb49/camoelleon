@@ -28,12 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            components = new System.ComponentModel.Container();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            menuStrip1 = new MenuStrip();
+            nTRVisualStudioToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { nTRVisualStudioToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // nTRVisualStudioToolStripMenuItem
+            // 
+            nTRVisualStudioToolStripMenuItem.Name = "nTRVisualStudioToolStripMenuItem";
+            nTRVisualStudioToolStripMenuItem.Size = new Size(112, 20);
+            nTRVisualStudioToolStripMenuItem.Text = "NTR Visual Studio";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "Form1";
+            Text = "Form1";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ContextMenuStrip contextMenuStrip1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem nTRVisualStudioToolStripMenuItem;
     }
 }
