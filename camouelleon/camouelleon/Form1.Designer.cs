@@ -33,42 +33,53 @@
             menuStrip1 = new MenuStrip();
             nTRVisualStudioToolStripMenuItem = new ToolStripMenuItem();
             nTMToolStripMenuItem = new ToolStripMenuItem();
+            ntmAussiVsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { nTRVisualStudioToolStripMenuItem, nTMToolStripMenuItem });
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { nTRVisualStudioToolStripMenuItem, nTMToolStripMenuItem, ntmAussiVsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(914, 30);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
             // 
             // nTRVisualStudioToolStripMenuItem
             // 
             nTRVisualStudioToolStripMenuItem.Name = "nTRVisualStudioToolStripMenuItem";
-            nTRVisualStudioToolStripMenuItem.Size = new Size(112, 20);
+            nTRVisualStudioToolStripMenuItem.Size = new Size(141, 24);
             nTRVisualStudioToolStripMenuItem.Text = "NTR Visual Studio";
             // 
             // nTMToolStripMenuItem
             // 
             nTMToolStripMenuItem.Name = "nTMToolStripMenuItem";
-            nTMToolStripMenuItem.Size = new Size(45, 20);
+            nTMToolStripMenuItem.Size = new Size(55, 24);
             nTMToolStripMenuItem.Text = "NTM";
+            // 
+            // ntmAussiVsToolStripMenuItem
+            // 
+            ntmAussiVsToolStripMenuItem.Name = "ntmAussiVsToolStripMenuItem";
+            ntmAussiVsToolStripMenuItem.Size = new Size(102, 24);
+            ntmAussiVsToolStripMenuItem.Text = "ntm aussi vs";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             menuStrip1.ResumeLayout(false);
@@ -83,5 +94,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem nTRVisualStudioToolStripMenuItem;
         private ToolStripMenuItem nTMToolStripMenuItem;
+        private ToolStripMenuItem ntmAussiVsToolStripMenuItem;
     }
 }
