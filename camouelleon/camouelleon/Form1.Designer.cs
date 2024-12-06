@@ -28,12 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            menuStrip1 = new MenuStrip();
+            commandeToolStripMenuItem = new ToolStripMenuItem();
+            stockToolStripMenuItem = new ToolStripMenuItem();
+            gestionDesClientsToolStripMenuItem = new ToolStripMenuItem();
+            gsetionDseAdministrateursToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { commandeToolStripMenuItem, stockToolStripMenuItem, gestionDesClientsToolStripMenuItem, gsetionDseAdministrateursToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // commandeToolStripMenuItem
+            // 
+            commandeToolStripMenuItem.Name = "commandeToolStripMenuItem";
+            commandeToolStripMenuItem.Size = new Size(82, 20);
+            commandeToolStripMenuItem.Text = "Commande";
+            // 
+            // stockToolStripMenuItem
+            // 
+            stockToolStripMenuItem.Name = "stockToolStripMenuItem";
+            stockToolStripMenuItem.Size = new Size(48, 20);
+            stockToolStripMenuItem.Text = "Stock";
+            // 
+            // gestionDesClientsToolStripMenuItem
+            // 
+            gestionDesClientsToolStripMenuItem.Name = "gestionDesClientsToolStripMenuItem";
+            gestionDesClientsToolStripMenuItem.Size = new Size(116, 20);
+            gestionDesClientsToolStripMenuItem.Text = "gestion des clients";
+            // 
+            // gsetionDseAdministrateursToolStripMenuItem
+            // 
+            gsetionDseAdministrateursToolStripMenuItem.Name = "gsetionDseAdministrateursToolStripMenuItem";
+            gsetionDseAdministrateursToolStripMenuItem.Size = new Size(164, 20);
+            gsetionDseAdministrateursToolStripMenuItem.Text = "gsetion dse administrateurs";
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "Form1";
+            Text = "Form1";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem commandeToolStripMenuItem;
+        private ToolStripMenuItem stockToolStripMenuItem;
+        private ToolStripMenuItem gestionDesClientsToolStripMenuItem;
+        private ToolStripMenuItem gsetionDseAdministrateursToolStripMenuItem;
     }
 }
