@@ -32,6 +32,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             menuStrip1 = new MenuStrip();
             nTRVisualStudioToolStripMenuItem = new ToolStripMenuItem();
+            nTMToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { nTRVisualStudioToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { nTRVisualStudioToolStripMenuItem, nTMToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -54,6 +55,12 @@
             nTRVisualStudioToolStripMenuItem.Name = "nTRVisualStudioToolStripMenuItem";
             nTRVisualStudioToolStripMenuItem.Size = new Size(112, 20);
             nTRVisualStudioToolStripMenuItem.Text = "NTR Visual Studio";
+            // 
+            // nTMToolStripMenuItem
+            // 
+            nTMToolStripMenuItem.Name = "nTMToolStripMenuItem";
+            nTMToolStripMenuItem.Size = new Size(45, 20);
+            nTMToolStripMenuItem.Text = "NTM";
             // 
             // Form1
             // 
@@ -75,5 +82,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem nTRVisualStudioToolStripMenuItem;
+        private ToolStripMenuItem nTMToolStripMenuItem;
     }
 }
