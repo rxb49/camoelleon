@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\camouelleon",
+    "\\camouelleon\\camouelleon"
   ],
-  "SelectedNode": "\\camouelleon.sln",
+  "SelectedNode": "\\camouelleon\\camouelleon\\Login.cs",
   "PreviewInSolutionExplorer": false
 }
