@@ -15,9 +15,9 @@ namespace camouelleon.Entities
             monModel = new CamoelleonContext();
         }
 
-        public static Allergie PremiereAllergie()
+        public static List<Allergie> Allergies()
         {
-            return monModel.Allergies.FirstOrDefault();
+            return monModel.Allergies.ToList();
         }
 
 
