@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using BCrypt.Net;
 
 namespace camouelleon
 {
@@ -36,7 +37,26 @@ namespace camouelleon
             {
                 lbl_error_id.Text = "";
                 lbl_error_login.Text = "";
-                MessageBox.Show("Connexion réussie !");//À vérifier si c'est utilisé
+
+                //TODO : Vérifier si l'utilisateur existe dans la base de données
+                if (Entities.Modele.Utilisateur(tb_identifient.Text) == null)
+                {
+                    lbl_error_login.Text = "Identifiant ou mot de passe incorrect";
+                    return;
+                }
+                // Remplacez la vérification du mot de passe par cette ligne
+                else if (!BCrypt.Net.BCrypt.Verify(tb_mdp.Text, Entities.Modele.Utilisateur(tb_identifient.Text).Password))
+                {
+                    lbl_error_login.Text = "Identifiant ou mot de passe incorrect";
+                    return;
+                }
+                else
+                {
+                    //TODO : Rediriger vers la page d'accueil
+                    this.Hide();
+                    
+                    new Form1().Show();
+                }
             }
             else
             {

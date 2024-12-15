@@ -20,6 +20,11 @@ namespace camouelleon.Entities
             return monModel.Allergies.ToList();
         }
 
+        public static Utilisateur Utilisateur(string email)
+        {
+            return monModel.Utilisateurs.FirstOrDefault(u => u.Email == email);
+        }
+
 
     }
 }

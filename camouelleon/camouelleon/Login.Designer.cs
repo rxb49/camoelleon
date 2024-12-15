@@ -88,16 +88,17 @@
             // 
             lbl_error_id.AutoSize = true;
             lbl_error_id.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_id.Location = new Point(98, 212);
+            lbl_error_id.Location = new Point(98, 201);
             lbl_error_id.Name = "lbl_error_id";
             lbl_error_id.Size = new Size(0, 20);
             lbl_error_id.TabIndex = 5;
             // 
             // lbl_error_login
             // 
+            lbl_error_login.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             lbl_error_login.AutoSize = true;
             lbl_error_login.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_login.Location = new Point(234, 335);
+            lbl_error_login.Location = new Point(118, 332);
             lbl_error_login.Name = "lbl_error_login";
             lbl_error_login.Size = new Size(0, 20);
             lbl_error_login.TabIndex = 6;
