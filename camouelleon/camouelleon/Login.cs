@@ -71,7 +71,7 @@ namespace camouelleon
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            lbl_error_id.Text = Entities.Modele.PremiereAllergie().Lblallergie;
         }
     }
 }
