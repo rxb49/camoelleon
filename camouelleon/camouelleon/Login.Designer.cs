@@ -36,11 +36,13 @@
             lbl_error_id = new Label();
             lbl_error_login = new Label();
             lbl_error_mdp = new Label();
+            pb_pp = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pb_pp).BeginInit();
             SuspendLayout();
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(188, 373);
+            btn_login.Location = new Point(193, 459);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(94, 29);
             btn_login.TabIndex = 0;
@@ -51,7 +53,7 @@
             // lbl_mdp
             // 
             lbl_mdp.AutoSize = true;
-            lbl_mdp.Location = new Point(188, 257);
+            lbl_mdp.Location = new Point(193, 343);
             lbl_mdp.Name = "lbl_mdp";
             lbl_mdp.Size = new Size(104, 20);
             lbl_mdp.TabIndex = 1;
@@ -61,7 +63,7 @@
             // lbl_identifient
             // 
             lbl_identifient.AutoSize = true;
-            lbl_identifient.Location = new Point(204, 148);
+            lbl_identifient.Location = new Point(210, 242);
             lbl_identifient.Name = "lbl_identifient";
             lbl_identifient.Size = new Size(77, 20);
             lbl_identifient.TabIndex = 2;
@@ -70,7 +72,7 @@
             // 
             // tb_identifient
             // 
-            tb_identifient.Location = new Point(98, 171);
+            tb_identifient.Location = new Point(104, 265);
             tb_identifient.Name = "tb_identifient";
             tb_identifient.Size = new Size(299, 27);
             tb_identifient.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // tb_mdp
             // 
-            tb_mdp.Location = new Point(98, 280);
+            tb_mdp.Location = new Point(103, 366);
             tb_mdp.Name = "tb_mdp";
             tb_mdp.Size = new Size(299, 27);
             tb_mdp.TabIndex = 4;
@@ -88,7 +90,7 @@
             // 
             lbl_error_id.AutoSize = true;
             lbl_error_id.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_id.Location = new Point(98, 201);
+            lbl_error_id.Location = new Point(104, 295);
             lbl_error_id.Name = "lbl_error_id";
             lbl_error_id.Size = new Size(0, 20);
             lbl_error_id.TabIndex = 5;
@@ -98,7 +100,7 @@
             lbl_error_login.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             lbl_error_login.AutoSize = true;
             lbl_error_login.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_login.Location = new Point(118, 332);
+            lbl_error_login.Location = new Point(123, 418);
             lbl_error_login.Name = "lbl_error_login";
             lbl_error_login.Size = new Size(0, 20);
             lbl_error_login.TabIndex = 6;
@@ -108,16 +110,26 @@
             // 
             lbl_error_mdp.AutoSize = true;
             lbl_error_mdp.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_mdp.Location = new Point(98, 310);
+            lbl_error_mdp.Location = new Point(103, 396);
             lbl_error_mdp.Name = "lbl_error_mdp";
             lbl_error_mdp.Size = new Size(0, 20);
             lbl_error_mdp.TabIndex = 7;
+            // 
+            // pb_pp
+            // 
+            pb_pp.ImageLocation = "B:\\BTSSIO_2nd_Annee\\AP4\\camoelleon_csharp\\camouelleon\\camouelleon\\Images\\pp.png";
+            pb_pp.Location = new Point(72, -11);
+            pb_pp.Name = "pb_pp";
+            pb_pp.Size = new Size(359, 286);
+            pb_pp.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb_pp.TabIndex = 8;
+            pb_pp.TabStop = false;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(506, 450);
+            ClientSize = new Size(506, 542);
             Controls.Add(lbl_error_mdp);
             Controls.Add(lbl_error_login);
             Controls.Add(lbl_error_id);
@@ -126,9 +138,11 @@
             Controls.Add(lbl_identifient);
             Controls.Add(lbl_mdp);
             Controls.Add(btn_login);
+            Controls.Add(pb_pp);
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
+            ((System.ComponentModel.ISupportInitialize)pb_pp).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,5 +157,6 @@
         private Label lbl_error_id;
         private Label lbl_error_login;
         private Label lbl_error_mdp;
+        private PictureBox pb_pp;
     }
 }

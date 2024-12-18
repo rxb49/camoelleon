@@ -202,3 +202,4 @@ B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8
 B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.pdb
 B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.genruntimeconfig.cache
 B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\ref\camouelleon.dll
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.Properties.Resources.resources
