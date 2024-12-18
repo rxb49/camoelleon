@@ -118,9 +118,9 @@
             // pb_pp
             // 
             pb_pp.ImageLocation = "B:\\BTSSIO_2nd_Annee\\AP4\\camoelleon_csharp\\camouelleon\\camouelleon\\Images\\pp.png";
-            pb_pp.Location = new Point(72, -11);
+            pb_pp.Location = new Point(72, -34);
             pb_pp.Name = "pb_pp";
-            pb_pp.Size = new Size(359, 286);
+            pb_pp.Size = new Size(359, 326);
             pb_pp.SizeMode = PictureBoxSizeMode.StretchImage;
             pb_pp.TabIndex = 8;
             pb_pp.TabStop = false;
