@@ -99,3 +99,4 @@ B:\BTSSIO_2nd_Annee\AP4\camoelleon-csharp\camouelleon\camouelleon\obj\Debug\net8
 B:\BTSSIO_2nd_Annee\AP4\camoelleon-csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouell.861D3656.Up2Date
 B:\BTSSIO_2nd_Annee\AP4\camoelleon-csharp\camouelleon\camouelleon\bin\Debug\net8.0-windows\MySqlConnector.dll
 B:\BTSSIO_2nd_Annee\AP4\camoelleon-csharp\camouelleon\camouelleon\bin\Debug\net8.0-windows\Pomelo.EntityFrameworkCore.MySql.dll
+B:\BTSSIO_2nd_Annee\AP4\camoelleon-csharp\camouelleon\camouelleon\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll

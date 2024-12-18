@@ -86,7 +86,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idallergie).HasName("PRIMARY");
 
-            entity.ToTable("ALLERGIE");
+            entity.ToTable("allergie");
 
             entity.Property(e => e.Idallergie).HasColumnName("IDALLERGIE");
             entity.Property(e => e.Lblallergie)
@@ -100,7 +100,7 @@ public partial class CamoelleonContext : DbContext
                 .HasName("PRIMARY")
                 .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
-            entity.ToTable("ATTRIBUER");
+            entity.ToTable("attribuer");
 
             entity.HasIndex(e => e.Idcommande, "I_FK_ATTRIBUER_COMMANDE");
 
@@ -125,7 +125,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idavis).HasName("PRIMARY");
 
-            entity.ToTable("AVIS");
+            entity.ToTable("avis");
 
             entity.Property(e => e.Idavis).HasColumnName("IDAVIS");
             entity.Property(e => e.Commentaire)
@@ -149,7 +149,7 @@ public partial class CamoelleonContext : DbContext
                         j.HasKey("Idavis", "Idutilisateur")
                             .HasName("PRIMARY")
                             .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("DONNER");
+                        j.ToTable("donner");
                         j.HasIndex(new[] { "Idavis" }, "I_FK_DONNER_AVIS");
                         j.HasIndex(new[] { "Idutilisateur" }, "I_FK_DONNER_UTILISATEUR");
                         j.IndexerProperty<int>("Idavis").HasColumnName("IDAVIS");
@@ -191,7 +191,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idcommande).HasName("PRIMARY");
 
-            entity.ToTable("COMMANDE");
+            entity.ToTable("commande");
 
             entity.Property(e => e.Idcommande).HasColumnName("IDCOMMANDE");
             entity.Property(e => e.Nbclient).HasColumnName("NBCLIENT");
@@ -212,7 +212,7 @@ public partial class CamoelleonContext : DbContext
                         j.HasKey("Idcommande", "Idtable")
                             .HasName("PRIMARY")
                             .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("COMMANDER");
+                        j.ToTable("commander");
                         j.HasIndex(new[] { "Idcommande" }, "I_FK_COMMANDER_COMMANDE");
                         j.HasIndex(new[] { "Idtable" }, "I_FK_COMMANDER_TABLES");
                         j.IndexerProperty<int>("Idcommande").HasColumnName("IDCOMMANDE");
@@ -224,7 +224,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Iddechet).HasName("PRIMARY");
 
-            entity.ToTable("DECHET");
+            entity.ToTable("dechet");
 
             entity.Property(e => e.Iddechet).HasColumnName("IDDECHET");
             entity.Property(e => e.Datejeter).HasColumnName("DATEJETER");
@@ -246,7 +246,7 @@ public partial class CamoelleonContext : DbContext
                         j.HasKey("Iddechet", "Idproduit")
                             .HasName("PRIMARY")
                             .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("JETER");
+                        j.ToTable("jeter");
                         j.HasIndex(new[] { "Iddechet" }, "I_FK_JETER_DECHET");
                         j.HasIndex(new[] { "Idproduit" }, "I_FK_JETER_PRODUIT");
                         j.IndexerProperty<int>("Iddechet").HasColumnName("IDDECHET");
@@ -258,7 +258,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idetat).HasName("PRIMARY");
 
-            entity.ToTable("ETAT");
+            entity.ToTable("etat");
 
             entity.Property(e => e.Idetat).HasColumnName("IDETAT");
             entity.Property(e => e.Lbletat)
@@ -270,7 +270,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idfacture).HasName("PRIMARY");
 
-            entity.ToTable("FACTURE");
+            entity.ToTable("facture");
 
             entity.HasIndex(e => e.Idcommande, "I_FK_FACTURE_COMMANDE");
 
@@ -362,7 +362,7 @@ public partial class CamoelleonContext : DbContext
                 .HasName("PRIMARY")
                 .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
-            entity.ToTable("LIER");
+            entity.ToTable("lier");
 
             entity.HasIndex(e => e.Idcommande, "I_FK_LIER_COMMANDE");
 
@@ -421,7 +421,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idproduit).HasName("PRIMARY");
 
-            entity.ToTable("PRODUIT");
+            entity.ToTable("produit");
 
             entity.HasIndex(e => new { e.Idunite, e.Lblunite }, "I_FK_PRODUIT_UNITE");
 
@@ -456,7 +456,7 @@ public partial class CamoelleonContext : DbContext
                         j.HasKey("Idproduit", "Idallergie")
                             .HasName("PRIMARY")
                             .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("SUSCEPTIBLE");
+                        j.ToTable("susceptible");
                         j.HasIndex(new[] { "Idallergie" }, "I_FK_SUSCEPTIBLE_ALLERGIE");
                         j.HasIndex(new[] { "Idproduit" }, "I_FK_SUSCEPTIBLE_PRODUIT");
                         j.IndexerProperty<int>("Idproduit").HasColumnName("IDPRODUIT");
@@ -470,7 +470,7 @@ public partial class CamoelleonContext : DbContext
                 .HasName("PRIMARY")
                 .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
-            entity.ToTable("RANGER");
+            entity.ToTable("ranger");
 
             entity.HasIndex(e => e.Idproduit, "I_FK_RANGER_PRODUIT");
 
@@ -495,7 +495,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idreaprovisionnement).HasName("PRIMARY");
 
-            entity.ToTable("REAPROVISIONNEMENT");
+            entity.ToTable("reaprovisionnement");
 
             entity.Property(e => e.Idreaprovisionnement).HasColumnName("IDREAPROVISIONNEMENT");
             entity.Property(e => e.Datereaprovisionnement).HasColumnName("DATEREAPROVISIONNEMENT");
@@ -507,7 +507,7 @@ public partial class CamoelleonContext : DbContext
                 .HasName("PRIMARY")
                 .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
-            entity.ToTable("REAPROVISIONNER");
+            entity.ToTable("reaprovisionner");
 
             entity.HasIndex(e => e.Idproduit, "I_FK_REAPROVISIONNER_PRODUIT");
 
@@ -532,7 +532,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idreservation).HasName("PRIMARY");
 
-            entity.ToTable("RESERVATION");
+            entity.ToTable("reservation");
 
             entity.HasIndex(e => e.Idutilisateur, "I_FK_RESERVATION_UTILISATEUR");
 
@@ -558,7 +558,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idrole).HasName("PRIMARY");
 
-            entity.ToTable("ROLE");
+            entity.ToTable("role");
 
             entity.Property(e => e.Idrole).HasColumnName("IDROLE");
             entity.Property(e => e.Lblrole)
@@ -581,7 +581,7 @@ public partial class CamoelleonContext : DbContext
                         j.HasKey("Idrole", "Idutilisateur")
                             .HasName("PRIMARY")
                             .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("ETRE");
+                        j.ToTable("etre");
                         j.HasIndex(new[] { "Idrole" }, "I_FK_ETRE_ROLE");
                         j.HasIndex(new[] { "Idutilisateur" }, "I_FK_ETRE_UTILISATEUR");
                         j.IndexerProperty<int>("Idrole").HasColumnName("IDROLE");
@@ -617,7 +617,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idstock).HasName("PRIMARY");
 
-            entity.ToTable("STOCK");
+            entity.ToTable("stock");
 
             entity.Property(e => e.Idstock).HasColumnName("IDSTOCK");
             entity.Property(e => e.Lblstock)
@@ -629,7 +629,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idtable).HasName("PRIMARY");
 
-            entity.ToTable("TABLES");
+            entity.ToTable("tables");
 
             entity.HasIndex(e => e.Idzone, "I_FK_TABLES_ZONE");
 
@@ -659,7 +659,7 @@ public partial class CamoelleonContext : DbContext
                         j.HasKey("Idtable", "Idreservation")
                             .HasName("PRIMARY")
                             .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
-                        j.ToTable("PRESERVER");
+                        j.ToTable("preserver");
                         j.HasIndex(new[] { "Idreservation" }, "I_FK_PRESERVER_RESERVATION");
                         j.HasIndex(new[] { "Idtable" }, "I_FK_PRESERVER_TABLES");
                         j.IndexerProperty<int>("Idtable").HasColumnName("IDTABLE");
@@ -673,7 +673,7 @@ public partial class CamoelleonContext : DbContext
                 .HasName("PRIMARY")
                 .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
 
-            entity.ToTable("UNITE");
+            entity.ToTable("unite");
 
             entity.Property(e => e.Idunite)
                 .ValueGeneratedOnAdd()
@@ -719,7 +719,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idutilisateur).HasName("PRIMARY");
 
-            entity.ToTable("UTILISATEUR");
+            entity.ToTable("utilisateur");
 
             entity.Property(e => e.Idutilisateur).HasColumnName("IDUTILISATEUR");
             entity.Property(e => e.Email)
@@ -743,7 +743,7 @@ public partial class CamoelleonContext : DbContext
         {
             entity.HasKey(e => e.Idzone).HasName("PRIMARY");
 
-            entity.ToTable("ZONE");
+            entity.ToTable("zone");
 
             entity.Property(e => e.Idzone).HasColumnName("IDZONE");
             entity.Property(e => e.Lblzone)
