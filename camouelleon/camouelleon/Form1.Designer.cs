@@ -30,14 +30,19 @@
         {
             menuStrip1 = new MenuStrip();
             commandeToolStripMenuItem = new ToolStripMenuItem();
+            priseDeCommandeToolStripMenuItem = new ToolStripMenuItem();
+            suivieDesCommandesToolStripMenuItem = new ToolStripMenuItem();
+            gestionDesCommandesToolStripMenuItem = new ToolStripMenuItem();
             stockToolStripMenuItem = new ToolStripMenuItem();
             gestionDesClientsToolStripMenuItem = new ToolStripMenuItem();
             gsetionDseAdministrateursToolStripMenuItem = new ToolStripMenuItem();
+            pnl_SF = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
+            menuStrip1.BackColor = SystemColors.ControlLight;
             menuStrip1.Items.AddRange(new ToolStripItem[] { commandeToolStripMenuItem, stockToolStripMenuItem, gestionDesClientsToolStripMenuItem, gsetionDseAdministrateursToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
@@ -47,9 +52,31 @@
             // 
             // commandeToolStripMenuItem
             // 
+            commandeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { priseDeCommandeToolStripMenuItem, suivieDesCommandesToolStripMenuItem, gestionDesCommandesToolStripMenuItem });
             commandeToolStripMenuItem.Name = "commandeToolStripMenuItem";
             commandeToolStripMenuItem.Size = new Size(82, 20);
             commandeToolStripMenuItem.Text = "Commande";
+            // 
+            // priseDeCommandeToolStripMenuItem
+            // 
+            priseDeCommandeToolStripMenuItem.Name = "priseDeCommandeToolStripMenuItem";
+            priseDeCommandeToolStripMenuItem.Size = new Size(204, 22);
+            priseDeCommandeToolStripMenuItem.Text = "Prise de commande";
+            priseDeCommandeToolStripMenuItem.Click += priseDeCommandeToolStripMenuItem_Click;
+            // 
+            // suivieDesCommandesToolStripMenuItem
+            // 
+            suivieDesCommandesToolStripMenuItem.Name = "suivieDesCommandesToolStripMenuItem";
+            suivieDesCommandesToolStripMenuItem.Size = new Size(204, 22);
+            suivieDesCommandesToolStripMenuItem.Text = "Suivie des commandes";
+            suivieDesCommandesToolStripMenuItem.Click += suivieDesCommandesToolStripMenuItem_Click;
+            // 
+            // gestionDesCommandesToolStripMenuItem
+            // 
+            gestionDesCommandesToolStripMenuItem.Name = "gestionDesCommandesToolStripMenuItem";
+            gestionDesCommandesToolStripMenuItem.Size = new Size(204, 22);
+            gestionDesCommandesToolStripMenuItem.Text = "Gestion des commandes";
+            gestionDesCommandesToolStripMenuItem.Click += gestionDesCommandesToolStripMenuItem_Click;
             // 
             // stockToolStripMenuItem
             // 
@@ -69,11 +96,19 @@
             gsetionDseAdministrateursToolStripMenuItem.Size = new Size(164, 20);
             gsetionDseAdministrateursToolStripMenuItem.Text = "gsetion dse administrateurs";
             // 
+            // pnl_SF
+            // 
+            pnl_SF.Location = new Point(0, 27);
+            pnl_SF.Name = "pnl_SF";
+            pnl_SF.Size = new Size(800, 426);
+            pnl_SF.TabIndex = 1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pnl_SF);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
@@ -91,5 +126,9 @@
         private ToolStripMenuItem stockToolStripMenuItem;
         private ToolStripMenuItem gestionDesClientsToolStripMenuItem;
         private ToolStripMenuItem gsetionDseAdministrateursToolStripMenuItem;
+        private ToolStripMenuItem priseDeCommandeToolStripMenuItem;
+        private ToolStripMenuItem suivieDesCommandesToolStripMenuItem;
+        private ToolStripMenuItem gestionDesCommandesToolStripMenuItem;
+        private Panel pnl_SF;
     }
 }
