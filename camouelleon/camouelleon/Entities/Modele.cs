@@ -29,6 +29,11 @@ namespace camouelleon.Entities
             return monModel.Utilisateurs.FirstOrDefault(u => u.Email == email);
         }
 
+        public static List<Commande> Commande()
+        {
+            return monModel.Commandes.ToList();
+        }
+
         public static List<Produit> GetProduitByType(int type)
         {
             List <Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype ==

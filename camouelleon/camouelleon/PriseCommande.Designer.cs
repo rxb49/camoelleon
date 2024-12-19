@@ -47,18 +47,22 @@
             button3 = new Button();
             checkBox1 = new CheckBox();
             bsCommande = new BindingSource(components);
+            label6 = new Label();
+            cbCommande = new ComboBox();
+            bsListCommande = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)bsEntree).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPlat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsDessert).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsBoisson).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsListCommande).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(290, 58);
+            label1.Location = new Point(292, 9);
             label1.Name = "label1";
             label1.Size = new Size(220, 28);
             label1.TabIndex = 0;
@@ -176,11 +180,31 @@
             checkBox1.Text = "Menu du jour";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(146, 61);
+            label6.Name = "label6";
+            label6.Size = new Size(76, 15);
+            label6.TabIndex = 13;
+            label6.Text = "Commande :";
+            // 
+            // cbCommande
+            // 
+            cbCommande.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCommande.FormattingEnabled = true;
+            cbCommande.Location = new Point(280, 55);
+            cbCommande.Name = "cbCommande";
+            cbCommande.Size = new Size(247, 23);
+            cbCommande.TabIndex = 14;
+            // 
             // PriseCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 426);
+            Controls.Add(cbCommande);
+            Controls.Add(label6);
             Controls.Add(checkBox1);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -203,6 +227,7 @@
             ((System.ComponentModel.ISupportInitialize)bsDessert).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsBoisson).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsListCommande).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,5 +252,8 @@
         private Button button3;
         private CheckBox checkBox1;
         private BindingSource bsCommande;
+        private Label label6;
+        private ComboBox cbCommande;
+        private BindingSource bsListCommande;
     }
 }

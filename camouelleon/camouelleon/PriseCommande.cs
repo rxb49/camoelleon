@@ -25,6 +25,11 @@ namespace camouelleon
 
         private void PriseCommande_Load(object sender, EventArgs e)
         {
+            cbCommande.ValueMember = "IDCOMMANDE";
+            cbCommande.DisplayMember = "NBCLIENT";
+            bsListCommande.DataSource = Modele.Commande();
+            cbCommande.DataSource = bsListCommande;
+
             cbEntree.ValueMember = "IDPRODUIT";
             cbEntree.DisplayMember = "LBLPRODUIT";
             bsEntree.DataSource = Modele.GetProduitByType(1);
@@ -48,11 +53,10 @@ namespace camouelleon
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int idCommande = 1;
             int quantite = 1;
             try
             {
-                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbEntree.SelectedValue), idCommande);
+                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbEntree.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
                 MessageBox.Show("Ajout réussi");
             }
             catch
@@ -60,6 +64,11 @@ namespace camouelleon
                 MessageBox.Show("Erreur lors de l\'ajout");
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
