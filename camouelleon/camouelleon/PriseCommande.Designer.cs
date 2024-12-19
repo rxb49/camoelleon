@@ -45,10 +45,13 @@
             bsBoisson = new BindingSource(components);
             button2 = new Button();
             button3 = new Button();
+            checkBox1 = new CheckBox();
+            bsCommande = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)bsEntree).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPlat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsDessert).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsBoisson).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -64,7 +67,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(145, 138);
+            label2.Location = new Point(148, 102);
             label2.Name = "label2";
             label2.Size = new Size(46, 15);
             label2.TabIndex = 1;
@@ -73,7 +76,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(145, 190);
+            label3.Location = new Point(148, 154);
             label3.Name = "label3";
             label3.Size = new Size(33, 15);
             label3.TabIndex = 2;
@@ -82,7 +85,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(145, 241);
+            label4.Location = new Point(148, 205);
             label4.Name = "label4";
             label4.Size = new Size(51, 15);
             label4.TabIndex = 3;
@@ -91,7 +94,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(145, 289);
+            label5.Location = new Point(148, 253);
             label5.Name = "label5";
             label5.Size = new Size(54, 15);
             label5.TabIndex = 4;
@@ -101,7 +104,7 @@
             // 
             cbEntree.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEntree.FormattingEnabled = true;
-            cbEntree.Location = new Point(276, 135);
+            cbEntree.Location = new Point(279, 99);
             cbEntree.Name = "cbEntree";
             cbEntree.Size = new Size(248, 23);
             cbEntree.TabIndex = 5;
@@ -110,7 +113,7 @@
             // 
             cbPlat.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPlat.FormattingEnabled = true;
-            cbPlat.Location = new Point(276, 187);
+            cbPlat.Location = new Point(279, 151);
             cbPlat.Name = "cbPlat";
             cbPlat.Size = new Size(248, 23);
             cbPlat.TabIndex = 6;
@@ -119,7 +122,7 @@
             // 
             cbDessert.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDessert.FormattingEnabled = true;
-            cbDessert.Location = new Point(276, 238);
+            cbDessert.Location = new Point(279, 202);
             cbDessert.Name = "cbDessert";
             cbDessert.Size = new Size(248, 23);
             cbDessert.TabIndex = 7;
@@ -128,7 +131,7 @@
             // 
             cbBoisson.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBoisson.FormattingEnabled = true;
-            cbBoisson.Location = new Point(276, 286);
+            cbBoisson.Location = new Point(279, 250);
             cbBoisson.Name = "cbBoisson";
             cbBoisson.Size = new Size(248, 23);
             cbBoisson.TabIndex = 8;
@@ -152,6 +155,7 @@
             button2.TabIndex = 10;
             button2.Text = "Ajouter une nouvelle commande";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -159,14 +163,25 @@
             button3.Name = "button3";
             button3.Size = new Size(152, 57);
             button3.TabIndex = 11;
-            button3.Text = "Termnier la commande";
+            button3.Text = "Terminer la commande";
             button3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(336, 297);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(98, 19);
+            checkBox1.TabIndex = 12;
+            checkBox1.Text = "Menu du jour";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // PriseCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 426);
+            Controls.Add(checkBox1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -187,6 +202,7 @@
             ((System.ComponentModel.ISupportInitialize)bsPlat).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsDessert).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsBoisson).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsCommande).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -209,5 +225,7 @@
         private BindingSource bsBoisson;
         private Button button2;
         private Button button3;
+        private CheckBox checkBox1;
+        private BindingSource bsCommande;
     }
 }

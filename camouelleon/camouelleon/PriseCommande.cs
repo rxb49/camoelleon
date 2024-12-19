@@ -45,5 +45,21 @@ namespace camouelleon
             bsBoisson.DataSource = Modele.GetProduitByType(4);
             cbBoisson.DataSource = bsBoisson;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int idCommande = 1;
+            int quantite = 1;
+            try
+            {
+                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbEntree.SelectedValue), idCommande);
+                MessageBox.Show("Ajout réussi");
+            }
+            catch
+            {
+                MessageBox.Show("Erreur lors de l\'ajout");
+
+            }
+        }
     }
 }

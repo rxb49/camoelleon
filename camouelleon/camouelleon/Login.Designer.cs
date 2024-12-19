@@ -42,9 +42,10 @@
             // 
             // btn_login
             // 
-            btn_login.Location = new Point(193, 459);
+            btn_login.Location = new Point(169, 344);
+            btn_login.Margin = new Padding(3, 2, 3, 2);
             btn_login.Name = "btn_login";
-            btn_login.Size = new Size(94, 29);
+            btn_login.Size = new Size(82, 22);
             btn_login.TabIndex = 0;
             btn_login.Text = "Connexion";
             btn_login.UseVisualStyleBackColor = true;
@@ -53,9 +54,9 @@
             // lbl_mdp
             // 
             lbl_mdp.AutoSize = true;
-            lbl_mdp.Location = new Point(193, 343);
+            lbl_mdp.Location = new Point(169, 257);
             lbl_mdp.Name = "lbl_mdp";
-            lbl_mdp.Size = new Size(104, 20);
+            lbl_mdp.Size = new Size(82, 15);
             lbl_mdp.TabIndex = 1;
             lbl_mdp.Text = "Mots de passe";
             lbl_mdp.TextAlign = ContentAlignment.TopCenter;
@@ -63,26 +64,28 @@
             // lbl_identifient
             // 
             lbl_identifient.AutoSize = true;
-            lbl_identifient.Location = new Point(210, 242);
+            lbl_identifient.Location = new Point(184, 182);
             lbl_identifient.Name = "lbl_identifient";
-            lbl_identifient.Size = new Size(77, 20);
+            lbl_identifient.Size = new Size(61, 15);
             lbl_identifient.TabIndex = 2;
             lbl_identifient.Text = "Identifient";
             lbl_identifient.TextAlign = ContentAlignment.TopCenter;
             // 
             // tb_identifient
             // 
-            tb_identifient.Location = new Point(104, 265);
+            tb_identifient.Location = new Point(91, 199);
+            tb_identifient.Margin = new Padding(3, 2, 3, 2);
             tb_identifient.Name = "tb_identifient";
-            tb_identifient.Size = new Size(299, 27);
+            tb_identifient.Size = new Size(262, 23);
             tb_identifient.TabIndex = 3;
             tb_identifient.TextChanged += tb_identifient_TextChanged;
             // 
             // tb_mdp
             // 
-            tb_mdp.Location = new Point(103, 366);
+            tb_mdp.Location = new Point(90, 274);
+            tb_mdp.Margin = new Padding(3, 2, 3, 2);
             tb_mdp.Name = "tb_mdp";
-            tb_mdp.Size = new Size(299, 27);
+            tb_mdp.Size = new Size(262, 23);
             tb_mdp.TabIndex = 4;
             tb_mdp.UseSystemPasswordChar = true;
             // 
@@ -90,9 +93,9 @@
             // 
             lbl_error_id.AutoSize = true;
             lbl_error_id.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_id.Location = new Point(104, 295);
+            lbl_error_id.Location = new Point(91, 221);
             lbl_error_id.Name = "lbl_error_id";
-            lbl_error_id.Size = new Size(0, 20);
+            lbl_error_id.Size = new Size(0, 15);
             lbl_error_id.TabIndex = 5;
             // 
             // lbl_error_login
@@ -100,9 +103,9 @@
             lbl_error_login.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             lbl_error_login.AutoSize = true;
             lbl_error_login.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_login.Location = new Point(123, 418);
+            lbl_error_login.Location = new Point(108, 314);
             lbl_error_login.Name = "lbl_error_login";
-            lbl_error_login.Size = new Size(0, 20);
+            lbl_error_login.Size = new Size(0, 15);
             lbl_error_login.TabIndex = 6;
             lbl_error_login.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -110,26 +113,27 @@
             // 
             lbl_error_mdp.AutoSize = true;
             lbl_error_mdp.ForeColor = Color.FromArgb(192, 0, 0);
-            lbl_error_mdp.Location = new Point(103, 396);
+            lbl_error_mdp.Location = new Point(90, 297);
             lbl_error_mdp.Name = "lbl_error_mdp";
-            lbl_error_mdp.Size = new Size(0, 20);
+            lbl_error_mdp.Size = new Size(0, 15);
             lbl_error_mdp.TabIndex = 7;
             // 
             // pb_pp
             // 
             pb_pp.ImageLocation = "B:\\BTSSIO_2nd_Annee\\AP4\\camoelleon_csharp\\camouelleon\\camouelleon\\Images\\pp.png";
-            pb_pp.Location = new Point(72, -34);
+            pb_pp.Location = new Point(63, -26);
+            pb_pp.Margin = new Padding(3, 2, 3, 2);
             pb_pp.Name = "pb_pp";
-            pb_pp.Size = new Size(359, 326);
+            pb_pp.Size = new Size(314, 244);
             pb_pp.SizeMode = PictureBoxSizeMode.StretchImage;
             pb_pp.TabIndex = 8;
             pb_pp.TabStop = false;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(506, 542);
+            ClientSize = new Size(443, 406);
             Controls.Add(lbl_error_mdp);
             Controls.Add(lbl_error_login);
             Controls.Add(lbl_error_id);
@@ -139,6 +143,7 @@
             Controls.Add(lbl_mdp);
             Controls.Add(btn_login);
             Controls.Add(pb_pp);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Login";
             Text = "Login";
             Load += Login_Load;
