@@ -169,6 +169,7 @@
             button3.TabIndex = 11;
             button3.Text = "Terminer la commande";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
             // 
             // checkBox1
             // 

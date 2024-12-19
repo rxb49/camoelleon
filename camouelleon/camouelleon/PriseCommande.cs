@@ -57,6 +57,9 @@ namespace camouelleon
             try
             {
                 bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbEntree.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
+                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbPlat.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
+                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbDessert.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
+                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbBoisson.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
                 MessageBox.Show("Ajout réussi");
             }
             catch
@@ -66,7 +69,7 @@ namespace camouelleon
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
