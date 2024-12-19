@@ -238,7 +238,6 @@ P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\System.
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\System.Composition.Runtime.dll
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\System.Composition.TypedParts.dll
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
-P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\System.Text.Json.dll
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.resources.dll
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.resources.dll
@@ -310,3 +309,4 @@ P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\ref\cam
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.GestionCommande.resources
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.PriseCommande.resources
 P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.SuivieCommande.resources
+P:\AP\AP4\camouelleon-c\camouelleon\camouelleon\bin\Debug\net8.0-windows\System.Text.Json.dll

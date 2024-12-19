@@ -15,7 +15,11 @@ public partial class Produit
 
     public short? Menudujour { get; set; }
 
+    public int? Idtype { get; set; }
+
     public virtual ICollection<Attribuer> Attribuers { get; set; } = new List<Attribuer>();
+
+    public virtual Typeproduit? IdtypeNavigation { get; set; }
 
     public virtual ICollection<Ranger> Rangers { get; set; } = new List<Ranger>();
 

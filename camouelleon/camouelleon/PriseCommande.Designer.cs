@@ -28,16 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
-            comboBox4 = new ComboBox();
+            cbEntree = new ComboBox();
+            cbPlat = new ComboBox();
+            cbDessert = new ComboBox();
+            cbBoisson = new ComboBox();
             button1 = new Button();
+            bsEntree = new BindingSource(components);
+            bsPlat = new BindingSource(components);
+            bsDessert = new BindingSource(components);
+            bsBoisson = new BindingSource(components);
+            button2 = new Button();
+            button3 = new Button();
+            ((System.ComponentModel.ISupportInitialize)bsEntree).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsPlat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsDessert).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsBoisson).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -86,37 +97,41 @@
             label5.TabIndex = 4;
             label5.Text = "Boisson :";
             // 
-            // comboBox1
+            // cbEntree
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(276, 135);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(248, 23);
-            comboBox1.TabIndex = 5;
+            cbEntree.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEntree.FormattingEnabled = true;
+            cbEntree.Location = new Point(276, 135);
+            cbEntree.Name = "cbEntree";
+            cbEntree.Size = new Size(248, 23);
+            cbEntree.TabIndex = 5;
             // 
-            // comboBox2
+            // cbPlat
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(276, 187);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(248, 23);
-            comboBox2.TabIndex = 6;
+            cbPlat.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPlat.FormattingEnabled = true;
+            cbPlat.Location = new Point(276, 187);
+            cbPlat.Name = "cbPlat";
+            cbPlat.Size = new Size(248, 23);
+            cbPlat.TabIndex = 6;
             // 
-            // comboBox3
+            // cbDessert
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(276, 241);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(248, 23);
-            comboBox3.TabIndex = 7;
+            cbDessert.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbDessert.FormattingEnabled = true;
+            cbDessert.Location = new Point(276, 238);
+            cbDessert.Name = "cbDessert";
+            cbDessert.Size = new Size(248, 23);
+            cbDessert.TabIndex = 7;
             // 
-            // comboBox4
+            // cbBoisson
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(276, 286);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(248, 23);
-            comboBox4.TabIndex = 8;
+            cbBoisson.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbBoisson.FormattingEnabled = true;
+            cbBoisson.Location = new Point(276, 286);
+            cbBoisson.Name = "cbBoisson";
+            cbBoisson.Size = new Size(248, 23);
+            cbBoisson.TabIndex = 8;
             // 
             // button1
             // 
@@ -129,16 +144,36 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(174, 333);
+            button2.Name = "button2";
+            button2.Size = new Size(142, 57);
+            button2.TabIndex = 10;
+            button2.Text = "Ajouter une nouvelle commande";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(466, 333);
+            button3.Name = "button3";
+            button3.Size = new Size(152, 57);
+            button3.TabIndex = 11;
+            button3.Text = "Termnier la commande";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // PriseCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 426);
+            Controls.Add(button3);
+            Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(comboBox4);
-            Controls.Add(comboBox3);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(cbBoisson);
+            Controls.Add(cbDessert);
+            Controls.Add(cbPlat);
+            Controls.Add(cbEntree);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -147,6 +182,11 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "PriseCommande";
             Text = "PriseCommande";
+            Load += PriseCommande_Load;
+            ((System.ComponentModel.ISupportInitialize)bsEntree).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsPlat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsDessert).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsBoisson).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,10 +198,16 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
-        private ComboBox comboBox4;
+        private ComboBox cbEntree;
+        private ComboBox cbPlat;
+        private ComboBox cbDessert;
+        private ComboBox cbBoisson;
         private Button button1;
+        private BindingSource bsEntree;
+        private BindingSource bsPlat;
+        private BindingSource bsDessert;
+        private BindingSource bsBoisson;
+        private Button button2;
+        private Button button3;
     }
 }
