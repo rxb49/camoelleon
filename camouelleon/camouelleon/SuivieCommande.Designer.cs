@@ -37,9 +37,14 @@
             cbEtat = new ComboBox();
             bsEtat = new BindingSource(components);
             label2 = new Label();
+            label3 = new Label();
+            nmMontant = new NumericUpDown();
+            bsMontant = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvSuivie).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsSuivie).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsEtat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsMontant).BeginInit();
             SuspendLayout();
             // 
             // dgvSuivie
@@ -102,11 +107,30 @@
             label2.TabIndex = 20;
             label2.Text = "Etat :";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(8, 163);
+            label3.Name = "label3";
+            label3.Size = new Size(115, 15);
+            label3.TabIndex = 22;
+            label3.Text = "Montant minimum :";
+            // 
+            // nmMontant
+            // 
+            nmMontant.Location = new Point(8, 194);
+            nmMontant.Name = "nmMontant";
+            nmMontant.Size = new Size(120, 23);
+            nmMontant.TabIndex = 23;
+            nmMontant.ValueChanged += nmMontant_ValueChanged;
+            // 
             // SuivieCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 387);
+            Controls.Add(nmMontant);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(cbEtat);
             Controls.Add(button5);
@@ -120,6 +144,8 @@
             ((System.ComponentModel.ISupportInitialize)dgvSuivie).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsSuivie).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsEtat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsMontant).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -134,5 +160,8 @@
         private ComboBox cbEtat;
         private BindingSource bsEtat;
         private Label label2;
+        private Label label3;
+        private NumericUpDown nmMontant;
+        private BindingSource bsMontant;
     }
 }

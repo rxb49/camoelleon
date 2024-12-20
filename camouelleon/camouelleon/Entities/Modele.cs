@@ -87,6 +87,17 @@ namespace camouelleon.Entities
                   .ToList();
         }
 
+        public static List<Commande> CommandeByMontant(decimal montant)
+        {
+            return monModel.Commandes
+                .Include(c => c.Liers)
+                  .ThenInclude(l => l.IdetatNavigation)
+                  .Include(t => t.Idtables)
+                  .Include(f => f.Factures)
+                  .Where(c => c.Factures.Any(f => f.Montant >= montant))
+                  .ToList();
+        }
+
     }
 
 
