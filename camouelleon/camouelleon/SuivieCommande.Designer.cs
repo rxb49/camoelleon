@@ -118,7 +118,7 @@
             // 
             // nmMontant
             // 
-            nmMontant.Location = new Point(8, 194);
+            nmMontant.Location = new Point(9, 194);
             nmMontant.Name = "nmMontant";
             nmMontant.Size = new Size(120, 23);
             nmMontant.TabIndex = 23;
