@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -32,6 +33,15 @@ namespace camouelleon.Entities
         public static List<Commande> Commande()
         {
             return monModel.Commandes.ToList();
+        }
+
+        public static List<Commande> CommandeWithEtat()
+        {
+            return monModel.Commandes.Include(c => c.Liers)
+                  .ThenInclude(l => l.IdetatNavigation)
+                  .Include(t => t.Idtables)
+                  .Include(f => f.Factures)
+                  .ToList();
         }
 
         public static List<Produit> GetProduitByType(int type)

@@ -28,19 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            components = new System.ComponentModel.Container();
+            dgvSuivie = new DataGridView();
             button1 = new Button();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            bsSuivie = new BindingSource(components);
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvSuivie).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsSuivie).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvSuivie
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(103, 120);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(505, 221);
-            dataGridView1.TabIndex = 14;
+            dgvSuivie.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSuivie.Location = new Point(135, 111);
+            dgvSuivie.Name = "dgvSuivie";
+            dgvSuivie.Size = new Size(505, 221);
+            dgvSuivie.TabIndex = 14;
             // 
             // button1
             // 
@@ -63,26 +69,62 @@
             label1.TabIndex = 12;
             label1.Text = "Suivie des commandes";
             // 
+            // button2
+            // 
+            button2.Location = new Point(31, 122);
+            button2.Name = "button2";
+            button2.Size = new Size(87, 23);
+            button2.TabIndex = 15;
+            button2.Text = "commander";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(31, 165);
+            button3.Name = "button3";
+            button3.Size = new Size(87, 23);
+            button3.TabIndex = 16;
+            button3.Text = "en cours";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(31, 206);
+            button4.Name = "button4";
+            button4.Size = new Size(87, 23);
+            button4.TabIndex = 17;
+            button4.Text = "finit";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // SuivieCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 387);
-            Controls.Add(dataGridView1);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(dgvSuivie);
             Controls.Add(button1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SuivieCommande";
             Text = "SuivieCommande";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += SuivieCommande_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvSuivie).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsSuivie).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvSuivie;
         private Button button1;
         private Label label1;
+        private BindingSource bsSuivie;
+        private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }
