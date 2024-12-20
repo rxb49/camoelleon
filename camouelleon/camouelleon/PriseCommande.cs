@@ -25,6 +25,11 @@ namespace camouelleon
 
         private void PriseCommande_Load(object sender, EventArgs e)
         {
+            cbEntree.Enabled = false;
+            cbPlat.Enabled = false;
+            cbDessert.Enabled = false;
+            cbBoisson.Enabled = false;
+
             cbCommande.ValueMember = "IDCOMMANDE";
             cbCommande.DisplayMember = "NBCLIENT";
             bsListCommande.DataSource = Modele.Commande();
@@ -56,11 +61,26 @@ namespace camouelleon
             int quantite = 1;
             try
             {
-                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbEntree.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
-                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbPlat.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
-                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbDessert.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
-                bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbBoisson.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
-                MessageBox.Show("Ajout réussi");
+                if (checkEntree.Checked)
+                {
+                    bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbEntree.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
+                }
+                if (checkPlat.Checked)
+                {
+                    bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbPlat.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
+                }
+                if (checkDessert.Checked)
+                {
+                    bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbDessert.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
+                }
+                if (checkBoisson.Checked)
+                {
+                    bsCommande.DataSource = Modele.InsertCommande(quantite, Convert.ToInt32(cbBoisson.SelectedValue), Convert.ToInt32(cbCommande.SelectedValue));
+                }
+                if (checkBoisson.Checked || checkPlat.Checked || checkDessert.Checked || checkBoisson.Checked)
+                {
+                    MessageBox.Show("Ajout réussi");
+                }
             }
             catch
             {
@@ -72,6 +92,26 @@ namespace camouelleon
         private void button3_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void checkEntree_CheckedChanged(object sender, EventArgs e)
+        {
+            cbEntree.Enabled = true;
+        }
+
+        private void checkPlat_CheckedChanged(object sender, EventArgs e)
+        {
+            cbPlat.Enabled = true;
+        }
+
+        private void checkDessert_CheckedChanged(object sender, EventArgs e)
+        {
+            cbDessert.Enabled = true;
+        }
+
+        private void checkBoisson_CheckedChanged(object sender, EventArgs e)
+        {
+            cbBoisson.Enabled = true;
         }
     }
 }

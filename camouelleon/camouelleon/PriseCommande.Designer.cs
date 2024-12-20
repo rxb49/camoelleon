@@ -50,6 +50,10 @@
             label6 = new Label();
             cbCommande = new ComboBox();
             bsListCommande = new BindingSource(components);
+            checkEntree = new CheckBox();
+            checkPlat = new CheckBox();
+            checkDessert = new CheckBox();
+            checkBoisson = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)bsEntree).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPlat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsDessert).BeginInit();
@@ -186,9 +190,9 @@
             label6.AutoSize = true;
             label6.Location = new Point(146, 61);
             label6.Name = "label6";
-            label6.Size = new Size(76, 15);
+            label6.Size = new Size(40, 15);
             label6.TabIndex = 13;
-            label6.Text = "Commande :";
+            label6.Text = "Table :";
             // 
             // cbCommande
             // 
@@ -199,11 +203,55 @@
             cbCommande.Size = new Size(247, 23);
             cbCommande.TabIndex = 14;
             // 
+            // checkEntree
+            // 
+            checkEntree.AutoSize = true;
+            checkEntree.Location = new Point(117, 103);
+            checkEntree.Name = "checkEntree";
+            checkEntree.Size = new Size(15, 14);
+            checkEntree.TabIndex = 15;
+            checkEntree.UseVisualStyleBackColor = true;
+            checkEntree.CheckedChanged += checkEntree_CheckedChanged;
+            // 
+            // checkPlat
+            // 
+            checkPlat.AutoSize = true;
+            checkPlat.Location = new Point(117, 154);
+            checkPlat.Name = "checkPlat";
+            checkPlat.Size = new Size(15, 14);
+            checkPlat.TabIndex = 16;
+            checkPlat.UseVisualStyleBackColor = true;
+            checkPlat.CheckedChanged += checkPlat_CheckedChanged;
+            // 
+            // checkDessert
+            // 
+            checkDessert.AutoSize = true;
+            checkDessert.Location = new Point(117, 206);
+            checkDessert.Name = "checkDessert";
+            checkDessert.Size = new Size(15, 14);
+            checkDessert.TabIndex = 17;
+            checkDessert.UseVisualStyleBackColor = true;
+            checkDessert.CheckedChanged += checkDessert_CheckedChanged;
+            // 
+            // checkBoisson
+            // 
+            checkBoisson.AutoSize = true;
+            checkBoisson.Location = new Point(117, 254);
+            checkBoisson.Name = "checkBoisson";
+            checkBoisson.Size = new Size(15, 14);
+            checkBoisson.TabIndex = 18;
+            checkBoisson.UseVisualStyleBackColor = true;
+            checkBoisson.CheckedChanged += checkBoisson_CheckedChanged;
+            // 
             // PriseCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 426);
+            Controls.Add(checkBoisson);
+            Controls.Add(checkDessert);
+            Controls.Add(checkPlat);
+            Controls.Add(checkEntree);
             Controls.Add(cbCommande);
             Controls.Add(label6);
             Controls.Add(checkBox1);
@@ -256,5 +304,9 @@
         private Label label6;
         private ComboBox cbCommande;
         private BindingSource bsListCommande;
+        private CheckBox checkEntree;
+        private CheckBox checkPlat;
+        private CheckBox checkDessert;
+        private CheckBox checkBoisson;
     }
 }
