@@ -56,7 +56,18 @@ namespace camouelleon
         {
             int IDC = Convert.ToInt32(cbEtat.SelectedValue);
             int IdClient = Convert.ToInt32(cbEtat.SelectedValue);
-            bsSuivie.DataSource = Modele.CommandeByEtat(IdClient);
+            bsSuivie.DataSource = Modele.CommandeByEtat(IdClient).Select(x => new
+            {
+                x.Idcommande,
+                x.Nbclient,
+                Etat = x.Liers.Select(l => l.IdetatNavigation.Lbletat).FirstOrDefault(),
+                Motant = x.Factures.Select(f => f.Montant).FirstOrDefault(),
+                MotantPayé = x.Factures.Select(f => f.Montantpaye).FirstOrDefault(),
+                Table = x.Idtables.Select(f => f.Idtable).FirstOrDefault(),
+                Place = x.Idtables.Select(f => f.Nbplace).FirstOrDefault(),
+
+
+            }).ToList(); ;
             dgvSuivie.DataSource = bsSuivie;
         }
 
