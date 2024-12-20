@@ -34,6 +34,10 @@ namespace camouelleon.Entities
         {
             return monModel.Commandes.ToList();
         }
+        public static List<Etat> Etat()
+        {
+            return monModel.Etats.ToList();
+        }
 
         public static List<Commande> CommandeWithEtat()
         {
@@ -70,6 +74,17 @@ namespace camouelleon.Entities
                 MessageBox.Show("Erreur lors de l\'ajout");
             }
             return vretour;
+        }
+
+        public static List<Commande> CommandeByEtat(int etat)
+        {
+            return monModel.Commandes
+                .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == etat))
+                .Include(c => c.Liers)
+                  .ThenInclude(l => l.IdetatNavigation)
+                  .Include(t => t.Idtables)
+                  .Include(f => f.Factures)
+                  .ToList();
         }
 
     }

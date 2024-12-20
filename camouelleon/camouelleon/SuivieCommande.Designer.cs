@@ -33,11 +33,13 @@
             button1 = new Button();
             label1 = new Label();
             bsSuivie = new BindingSource(components);
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            button5 = new Button();
+            cbEtat = new ComboBox();
+            bsEtat = new BindingSource(components);
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvSuivie).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsSuivie).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsEtat).BeginInit();
             SuspendLayout();
             // 
             // dgvSuivie
@@ -69,41 +71,45 @@
             label1.TabIndex = 12;
             label1.Text = "Suivie des commandes";
             // 
-            // button2
+            // button5
             // 
-            button2.Location = new Point(31, 122);
-            button2.Name = "button2";
-            button2.Size = new Size(87, 23);
-            button2.TabIndex = 15;
-            button2.Text = "commander";
-            button2.UseVisualStyleBackColor = true;
+            button5.Location = new Point(31, 53);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 23);
+            button5.TabIndex = 18;
+            button5.Text = "afficher tout";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
-            // button3
+            // cbEtat
             // 
-            button3.Location = new Point(31, 165);
-            button3.Name = "button3";
-            button3.Size = new Size(87, 23);
-            button3.TabIndex = 16;
-            button3.Text = "en cours";
-            button3.UseVisualStyleBackColor = true;
+            cbEtat.FormattingEnabled = true;
+            cbEtat.Location = new Point(8, 123);
+            cbEtat.Name = "cbEtat";
+            cbEtat.Size = new Size(121, 23);
+            cbEtat.TabIndex = 19;
             // 
-            // button4
+            // bsEtat
             // 
-            button4.Location = new Point(31, 206);
-            button4.Name = "button4";
-            button4.Size = new Size(87, 23);
-            button4.TabIndex = 17;
-            button4.Text = "finit";
-            button4.UseVisualStyleBackColor = true;
+            bsEtat.CurrentChanged += bsEtat_CurrentChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 96);
+            label2.Name = "label2";
+            label2.Size = new Size(33, 15);
+            label2.TabIndex = 20;
+            label2.Text = "Etat :";
             // 
             // SuivieCommande
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 387);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(label2);
+            Controls.Add(cbEtat);
+            Controls.Add(button5);
             Controls.Add(dgvSuivie);
             Controls.Add(button1);
             Controls.Add(label1);
@@ -113,6 +119,7 @@
             Load += SuivieCommande_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSuivie).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsSuivie).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsEtat).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -123,8 +130,9 @@
         private Button button1;
         private Label label1;
         private BindingSource bsSuivie;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button button5;
+        private ComboBox cbEtat;
+        private BindingSource bsEtat;
+        private Label label2;
     }
 }
