@@ -417,3 +417,4 @@ C:\Users\rtijou\Documents\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0
 C:\Users\rtijou\Documents\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.pdb
 C:\Users\rtijou\Documents\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.genruntimeconfig.cache
 C:\Users\rtijou\Documents\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\ref\camouelleon.dll
+C:\Users\rtijou\Documents\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.Stock.resources

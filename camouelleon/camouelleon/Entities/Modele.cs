@@ -98,6 +98,15 @@ namespace camouelleon.Entities
                   .ToList();
         }
 
+
+        public static List<Ranger> ListAllStock()
+        {
+            return monModel.Rangers
+                .Include(p => p.IdproduitNavigation)
+                .Include(s => s.IdstockNavigation)
+                .ToList();
+        }
+
     }
 
 

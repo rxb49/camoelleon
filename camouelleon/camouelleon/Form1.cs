@@ -38,5 +38,10 @@ namespace camouelleon
             openChildForm(new GestionCommande());
 
         }
+
+        private void stockToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Stock());
+        }
     }
 }

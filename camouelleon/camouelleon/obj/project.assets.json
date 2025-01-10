@@ -2355,11 +2355,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+      "projectUniqueName": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
       "projectName": "camouelleon",
-      "projectPath": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+      "projectPath": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
       "packagesPath": "C:\\Users\\rtijou\\.nuget\\packages\\",
-      "outputPath": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
+      "outputPath": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
