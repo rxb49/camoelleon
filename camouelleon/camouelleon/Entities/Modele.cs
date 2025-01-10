@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -107,6 +108,14 @@ namespace camouelleon.Entities
                 .ToList();
         }
 
+        public static List<Ranger> ListStockById(int id)
+        {
+            return monModel.Rangers
+                .Include(p => p.IdproduitNavigation)
+                .Include(s => s.IdstockNavigation)
+                .Where(r => r.Idproduit ==  id)
+                .ToList();
+        }
     }
 
 

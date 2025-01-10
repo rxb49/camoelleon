@@ -43,5 +43,10 @@ namespace camouelleon
         {
             openChildForm(new Stock());
         }
+
+        private void pnl_SF_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
