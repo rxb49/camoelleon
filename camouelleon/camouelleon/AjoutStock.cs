@@ -19,17 +19,22 @@ namespace camouelleon
 
             txtProduit.Text = produit;
             txtStock.Text = stock;
-            txtQuantite.Text = quantite.ToString();
-        }
-
-        private void AjoutStock_Load(object sender, EventArgs e)
-        {
-
+            nmQuantite.Text = quantite.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AjoutStock_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

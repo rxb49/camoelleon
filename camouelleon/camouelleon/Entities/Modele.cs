@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -14,7 +15,7 @@ namespace camouelleon.Entities
 {
     public static class Modele
     {
-        
+
         private static CamoelleonContext monModel;
         public static void init()
         {
@@ -51,7 +52,7 @@ namespace camouelleon.Entities
 
         public static List<Produit> GetProduitByType(int type)
         {
-            List <Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype ==
+            List<Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype ==
            type).ToList();
             return lesPorduit;
         }
@@ -60,10 +61,11 @@ namespace camouelleon.Entities
         {
             Attribuer maCommande;
             bool vretour = true;
-            try { 
+            try
+            {
                 maCommande = new Attribuer();
                 maCommande.Quantite = quantite;
-                maCommande.Idproduit = idProduit; 
+                maCommande.Idproduit = idProduit;
                 maCommande.Idcommande = idCommande;
 
                 monModel.Attribuers.Add(maCommande);
@@ -113,11 +115,17 @@ namespace camouelleon.Entities
             return monModel.Rangers
                 .Include(p => p.IdproduitNavigation)
                 .Include(s => s.IdstockNavigation)
-                .Where(r => r.Idproduit ==  id)
+                .Where(r => r.Idproduit == id)
                 .ToList();
         }
+
+        public static bool UpdateStockById(int id, int quantite)
+        {
+            // A faire
+            bool vretour = true;
+            return vretour;
+        }
+
     }
-
-
 }
 
