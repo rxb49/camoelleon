@@ -16,4 +16,6 @@ public partial class Commande
     public virtual ICollection<Lier> Liers { get; set; } = new List<Lier>();
 
     public virtual ICollection<Table> Idtables { get; set; } = new List<Table>();
+
+
 }
