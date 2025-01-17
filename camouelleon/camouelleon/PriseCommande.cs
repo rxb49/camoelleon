@@ -54,6 +54,18 @@ namespace camouelleon
              cbBoisson.DisplayMember = "LBLPRODUIT";
              bsBoisson.DataSource = Modele.GetProduitByType(4);
              cbBoisson.DataSource = bsBoisson;*/
+
+            cb_Type.ValueMember = "ID";
+            cb_Type.DisplayMember = "LIBELLE";
+            bsType.DataSource = Modele.TypeProduits();
+            cb_Type.DataSource = bsType;
+
+
+            cb_Produit.ValueMember = "IDPRODUIT";
+            cb_Produit.DisplayMember = "LBLPRODUIT";
+            bsProduit.DataSource = Modele.Produits();
+            cb_Produit.DataSource = bsProduit;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -116,7 +128,7 @@ namespace camouelleon
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox1.Checked)
+            if (checkBox1.Checked)
             {
                 cb_Type.Enabled = false;
                 cb_Produit.Enabled = false;
@@ -127,6 +139,11 @@ namespace camouelleon
                 cb_Produit.Enabled = true;
             }
 
+        }
+
+        private void cb_Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bsProduit.DataSource = Modele.GetProduitByType(Convert.ToInt32(cb_Type.SelectedValue));
         }
     }
 }

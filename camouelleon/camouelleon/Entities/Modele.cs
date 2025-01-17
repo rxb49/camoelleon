@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -27,6 +28,16 @@ namespace camouelleon.Entities
             return monModel.Allergies.ToList();
         }
 
+        public static List<Produit> Produits()
+        {
+            return monModel.Produits.ToList();
+        }
+
+        public static List<Typeproduit> TypeProduits()
+        {
+            return monModel.Typeproduits.ToList();
+        }
+
         public static Utilisateur Utilisateur(string email)
         {
             return monModel.Utilisateurs.FirstOrDefault(u => u.Email == email);
@@ -50,10 +61,11 @@ namespace camouelleon.Entities
                   .ToList();
         }
 
+
+
         public static List<Produit> GetProduitByType(int type)
         {
-            List<Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype ==
-           type).ToList();
+            List<Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype == type).ToList();
             return lesPorduit;
         }
 

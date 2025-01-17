@@ -89,5 +89,10 @@ namespace camouelleon
             });
             dgvSuivie.DataSource = bsMontant;
         }
+
+        private void cbEtat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -62,6 +62,9 @@
             btn_LgnAdd = new Button();
             cb_Produit = new ComboBox();
             cb_Type = new ComboBox();
+            bsType = new BindingSource(components);
+            bsProduit = new BindingSource(components);
+            bsComAct = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)bsEntree).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsPlat).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsDessert).BeginInit();
@@ -71,6 +74,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvSuivie).BeginInit();
             gb_lngCom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nm_qty).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsType).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsProduit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsComAct).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -279,14 +285,14 @@
             gb_lngCom.Controls.Add(checkBox1);
             gb_lngCom.Location = new Point(546, 73);
             gb_lngCom.Name = "gb_lngCom";
-            gb_lngCom.Size = new Size(317, 410);
+            gb_lngCom.Size = new Size(317, 373);
             gb_lngCom.TabIndex = 20;
             gb_lngCom.TabStop = false;
             gb_lngCom.Text = "Ajouter à la commande";
             // 
             // nm_qty
             // 
-            nm_qty.Location = new Point(30, 307);
+            nm_qty.Location = new Point(25, 277);
             nm_qty.Margin = new Padding(3, 4, 3, 4);
             nm_qty.Name = "nm_qty";
             nm_qty.Size = new Size(264, 27);
@@ -295,7 +301,7 @@
             // lbl_qty
             // 
             lbl_qty.AutoSize = true;
-            lbl_qty.Location = new Point(126, 272);
+            lbl_qty.Location = new Point(121, 242);
             lbl_qty.Name = "lbl_qty";
             lbl_qty.Size = new Size(66, 20);
             lbl_qty.TabIndex = 6;
@@ -304,7 +310,7 @@
             // lbl_Produit
             // 
             lbl_Produit.AutoSize = true;
-            lbl_Produit.Location = new Point(134, 214);
+            lbl_Produit.Location = new Point(129, 184);
             lbl_Produit.Name = "lbl_Produit";
             lbl_Produit.Size = new Size(57, 20);
             lbl_Produit.TabIndex = 5;
@@ -314,7 +320,7 @@
             // lbl_Type
             // 
             lbl_Type.AutoSize = true;
-            lbl_Type.Location = new Point(105, 139);
+            lbl_Type.Location = new Point(100, 109);
             lbl_Type.Name = "lbl_Type";
             lbl_Type.Size = new Size(114, 20);
             lbl_Type.TabIndex = 4;
@@ -323,7 +329,7 @@
             // 
             // btn_LgnAdd
             // 
-            btn_LgnAdd.Location = new Point(73, 360);
+            btn_LgnAdd.Location = new Point(68, 330);
             btn_LgnAdd.Name = "btn_LgnAdd";
             btn_LgnAdd.Size = new Size(174, 29);
             btn_LgnAdd.TabIndex = 3;
@@ -333,7 +339,7 @@
             // cb_Produit
             // 
             cb_Produit.FormattingEnabled = true;
-            cb_Produit.Location = new Point(29, 237);
+            cb_Produit.Location = new Point(24, 207);
             cb_Produit.Name = "cb_Produit";
             cb_Produit.Size = new Size(264, 28);
             cb_Produit.TabIndex = 1;
@@ -341,10 +347,11 @@
             // cb_Type
             // 
             cb_Type.FormattingEnabled = true;
-            cb_Type.Location = new Point(29, 162);
+            cb_Type.Location = new Point(25, 132);
             cb_Type.Name = "cb_Type";
             cb_Type.Size = new Size(264, 28);
             cb_Type.TabIndex = 0;
+            cb_Type.SelectedIndexChanged += cb_Type_SelectedIndexChanged;
             // 
             // PriseCommande
             // 
@@ -385,6 +392,9 @@
             gb_lngCom.ResumeLayout(false);
             gb_lngCom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nm_qty).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsType).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsProduit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsComAct).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -424,5 +434,8 @@
         private Label lbl_Produit;
         private Label lbl_Type;
         private NumericUpDown nm_qty;
+        private BindingSource bsType;
+        private BindingSource bsProduit;
+        private BindingSource bsComAct;
     }
 }

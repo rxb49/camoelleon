@@ -97,6 +97,7 @@
             cbEtat.Name = "cbEtat";
             cbEtat.Size = new Size(138, 28);
             cbEtat.TabIndex = 19;
+            cbEtat.SelectedIndexChanged += cbEtat_SelectedIndexChanged;
             // 
             // bsEtat
             // 
