@@ -35,6 +35,7 @@
             bsStock = new BindingSource(components);
             pnl_SF = new Panel();
             label2 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsStock).BeginInit();
             pnl_SF.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(button2);
             pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(button1);
             pnl_SF.Controls.Add(dgvStock);
@@ -91,6 +93,16 @@
             label2.Size = new Size(375, 20);
             label2.TabIndex = 12;
             label2.Text = "* Double clique sur un produit pour le réapprovisionner";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(662, 107);
+            button2.Name = "button2";
+            button2.Size = new Size(97, 43);
+            button2.TabIndex = 13;
+            button2.Text = "Ajouter un produit";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Stock
             // 
@@ -117,5 +129,6 @@
         private BindingSource bsStock;
         private Panel pnl_SF;
         private Label label2;
+        private Button button2;
     }
 }

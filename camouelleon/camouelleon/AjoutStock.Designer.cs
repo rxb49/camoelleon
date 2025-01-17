@@ -39,6 +39,7 @@
             label3 = new Label();
             bsUpdate = new BindingSource(components);
             pnl_SF = new Panel();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)nmQuantite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsUpdate).BeginInit();
             pnl_SF.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label4);
             pnl_SF.Controls.Add(label3);
             pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(label1);
@@ -129,6 +131,16 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(783, 386);
             pnl_SF.TabIndex = 20;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 15F);
+            label4.Location = new Point(317, 24);
+            label4.Name = "label4";
+            label4.Size = new Size(158, 28);
+            label4.TabIndex = 20;
+            label4.Text = "Modifier le stock";
             // 
             // AjoutStock
             // 
@@ -159,5 +171,6 @@
         private Label label3;
         private BindingSource bsUpdate;
         private Panel pnl_SF;
+        private Label label4;
     }
 }
