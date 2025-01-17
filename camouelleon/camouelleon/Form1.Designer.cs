@@ -109,7 +109,6 @@
             gestionDesAdminMenuStrip.Name = "gestionDesAdminMenuStrip";
             gestionDesAdminMenuStrip.Size = new Size(205, 24);
             gestionDesAdminMenuStrip.Text = "gestion des administrateurs";
-            gestionDesAdminMenuStrip.Click += gsetionDseAdministrateursToolStripMenuItem_Click;
             // 
             // pnl_SF
             // 

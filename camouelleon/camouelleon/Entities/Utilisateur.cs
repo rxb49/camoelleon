@@ -17,6 +17,10 @@ public partial class Utilisateur
 
     public string Password { get; set; } = null!;
 
+    public int Idrole { get; set; }
+
+    public virtual Role IdroleNavigation { get; set; } = null!;
+
     public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 
     public virtual ICollection<Avi> Idavis { get; set; } = new List<Avi>();

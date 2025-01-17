@@ -41,7 +41,7 @@ namespace camouelleon
 
         private void btnAjout_Click(object sender, EventArgs e)
         {
-            bsProduit.DataSource = Modele.AddProduitStock(txtProduit.Text, cmbStock.SelectedValue, nmQuantite.Value);
-        }
+/*            bsProduit.DataSource = Modele.AddProduitStock(txtProduit.Text, cmbStock.SelectedValue, nmQuantite.Value);
+*/        }
     }
 }

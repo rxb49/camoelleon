@@ -114,7 +114,6 @@ public partial class CamoelleonContext : DbContext
 
             entity.HasOne(d => d.IdcommandeNavigation).WithMany(p => p.Attribuers)
                 .HasForeignKey(d => d.Idcommande)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("attribuer_ibfk_1");
 
             entity.HasOne(d => d.IdproduitNavigation).WithMany(p => p.Attribuers)
@@ -203,11 +202,9 @@ public partial class CamoelleonContext : DbContext
                     "Commander",
                     r => r.HasOne<Table>().WithMany()
                         .HasForeignKey("Idtable")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("commander_ibfk_2"),
                     l => l.HasOne<Commande>().WithMany()
                         .HasForeignKey("Idcommande")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("commander_ibfk_1"),
                     j =>
                     {
@@ -285,7 +282,6 @@ public partial class CamoelleonContext : DbContext
 
             entity.HasOne(d => d.IdcommandeNavigation).WithMany(p => p.Factures)
                 .HasForeignKey(d => d.Idcommande)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("facture_ibfk_1");
         });
 
@@ -370,7 +366,9 @@ public partial class CamoelleonContext : DbContext
 
             entity.HasIndex(e => e.Idetat, "I_FK_LIER_ETAT");
 
-            entity.Property(e => e.Idetat).HasColumnName("IDETAT");
+            entity.Property(e => e.Idetat)
+                .HasDefaultValueSql("'1'")
+                .HasColumnName("IDETAT");
             entity.Property(e => e.Idcommande).HasColumnName("IDCOMMANDE");
             entity.Property(e => e.Dateheure)
                 .HasColumnType("datetime")
@@ -378,7 +376,6 @@ public partial class CamoelleonContext : DbContext
 
             entity.HasOne(d => d.IdcommandeNavigation).WithMany(p => p.Liers)
                 .HasForeignKey(d => d.Idcommande)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("lier_ibfk_2");
 
             entity.HasOne(d => d.IdetatNavigation).WithMany(p => p.Liers)
@@ -439,6 +436,7 @@ public partial class CamoelleonContext : DbContext
                 .HasMaxLength(30)
                 .HasColumnName("LBLUNITE");
             entity.Property(e => e.Menudujour).HasColumnName("MENUDUJOUR");
+            entity.Property(e => e.Prixproduit).HasColumnName("PRIXPRODUIT");
 
             entity.HasOne(d => d.IdtypeNavigation).WithMany(p => p.Produits)
                 .HasForeignKey(d => d.Idtype)
@@ -742,10 +740,13 @@ public partial class CamoelleonContext : DbContext
 
             entity.ToTable("utilisateur");
 
+            entity.HasIndex(e => e.Idrole, "IDROLE");
+
             entity.Property(e => e.Idutilisateur).HasColumnName("IDUTILISATEUR");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .HasColumnName("EMAIL");
+            entity.Property(e => e.Idrole).HasColumnName("IDROLE");
             entity.Property(e => e.Nom)
                 .HasMaxLength(50)
                 .HasColumnName("NOM");
@@ -758,6 +759,11 @@ public partial class CamoelleonContext : DbContext
             entity.Property(e => e.Telephone)
                 .HasMaxLength(20)
                 .HasColumnName("TELEPHONE");
+
+            entity.HasOne(d => d.IdroleNavigation).WithMany(p => p.Utilisateurs)
+                .HasForeignKey(d => d.Idrole)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("utilisateur_fk1");
         });
 
         modelBuilder.Entity<Zone>(entity =>
