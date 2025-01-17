@@ -25,35 +25,47 @@ namespace camouelleon
 
         private void PriseCommande_Load(object sender, EventArgs e)
         {
-            cbEntree.Enabled = false;
+            /*cbEntree.Enabled = false;
             cbPlat.Enabled = false;
             cbDessert.Enabled = false;
-            cbBoisson.Enabled = false;
+            cbBoisson.Enabled = false;*/
 
             cbCommande.ValueMember = "IDCOMMANDE";
             cbCommande.DisplayMember = "NBCLIENT";
             bsListCommande.DataSource = Modele.Commande();
             cbCommande.DataSource = bsListCommande;
 
-            cbEntree.ValueMember = "IDPRODUIT";
-            cbEntree.DisplayMember = "LBLPRODUIT";
-            bsEntree.DataSource = Modele.GetProduitByType(1);
-            cbEntree.DataSource = bsEntree;
+            /* cbEntree.ValueMember = "IDPRODUIT";
+             cbEntree.DisplayMember = "LBLPRODUIT";
+             bsEntree.DataSource = Modele.GetProduitByType(1);
+             cbEntree.DataSource = bsEntree;
 
-            cbPlat.ValueMember = "IDPRODUIT";
-            cbPlat.DisplayMember = "LBLPRODUIT";
-            bsPlat.DataSource = Modele.GetProduitByType(2);
-            cbPlat.DataSource = bsPlat;
+             cbPlat.ValueMember = "IDPRODUIT";
+             cbPlat.DisplayMember = "LBLPRODUIT";
+             bsPlat.DataSource = Modele.GetProduitByType(2);
+             cbPlat.DataSource = bsPlat;
 
-            cbDessert.ValueMember = "IDPRODUIT";
-            cbDessert.DisplayMember = "LBLPRODUIT";
-            bsDessert.DataSource = Modele.GetProduitByType(3);
-            cbDessert.DataSource = bsDessert;
+             cbDessert.ValueMember = "IDPRODUIT";
+             cbDessert.DisplayMember = "LBLPRODUIT";
+             bsDessert.DataSource = Modele.GetProduitByType(3);
+             cbDessert.DataSource = bsDessert;
 
-            cbBoisson.ValueMember = "IDPRODUIT";
-            cbBoisson.DisplayMember = "LBLPRODUIT";
-            bsBoisson.DataSource = Modele.GetProduitByType(4);
-            cbBoisson.DataSource = bsBoisson;
+             cbBoisson.ValueMember = "IDPRODUIT";
+             cbBoisson.DisplayMember = "LBLPRODUIT";
+             bsBoisson.DataSource = Modele.GetProduitByType(4);
+             cbBoisson.DataSource = bsBoisson;*/
+
+            cb_Type.ValueMember = "ID";
+            cb_Type.DisplayMember = "LIBELLE";
+            bsType.DataSource = Modele.TypeProduits();
+            cb_Type.DataSource = bsType;
+
+
+            cb_Produit.ValueMember = "IDPRODUIT";
+            cb_Produit.DisplayMember = "LBLPRODUIT";
+            bsProduit.DataSource = Modele.Produits();
+            cb_Produit.DataSource = bsProduit;
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -112,6 +124,26 @@ namespace camouelleon
         private void checkBoisson_CheckedChanged(object sender, EventArgs e)
         {
             cbBoisson.Enabled = true;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                cb_Type.Enabled = false;
+                cb_Produit.Enabled = false;
+            }
+            else
+            {
+                cb_Type.Enabled = true;
+                cb_Produit.Enabled = true;
+            }
+
+        }
+
+        private void cb_Type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bsProduit.DataSource = Modele.GetProduitByType(Convert.ToInt32(cb_Type.SelectedValue));
         }
     }
 }
