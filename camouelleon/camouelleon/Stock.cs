@@ -59,12 +59,13 @@ namespace camouelleon
                 string produit = selectedRow.Cells["Produit"].Value.ToString();
                 string stock = selectedRow.Cells["Stock"].Value.ToString();
                 int quantite = Convert.ToInt32(selectedRow.Cells["Quantite"].Value);
-
                 openChildForm(new AjoutStock(produit, stock, quantite));
-
             }
         }
 
-        
+        private void pnl_SF_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

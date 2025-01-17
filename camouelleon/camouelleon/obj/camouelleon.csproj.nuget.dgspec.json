@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {}
+    "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {
+    "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+        "projectUniqueName": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
         "projectName": "camouelleon",
-        "projectPath": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+        "projectPath": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
         "packagesPath": "C:\\Users\\rtijou\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
+        "outputPath": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

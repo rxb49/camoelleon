@@ -34,6 +34,7 @@
             button1 = new Button();
             bsStock = new BindingSource(components);
             pnl_SF = new Panel();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsStock).BeginInit();
             pnl_SF.SuspendLayout();
@@ -52,7 +53,7 @@
             // dgvStock
             // 
             dgvStock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStock.Location = new Point(116, 107);
+            dgvStock.Location = new Point(116, 94);
             dgvStock.Name = "dgvStock";
             dgvStock.Size = new Size(530, 232);
             dgvStock.TabIndex = 1;
@@ -71,6 +72,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(button1);
             pnl_SF.Controls.Add(dgvStock);
             pnl_SF.Controls.Add(label1);
@@ -78,6 +80,17 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(783, 386);
             pnl_SF.TabIndex = 12;
+            pnl_SF.Paint += pnl_SF_Paint;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.Location = new Point(116, 346);
+            label2.Name = "label2";
+            label2.Size = new Size(375, 20);
+            label2.TabIndex = 12;
+            label2.Text = "* Double clique sur un produit pour le réapprovisionner";
             // 
             // Stock
             // 
@@ -103,5 +116,6 @@
         private Button button1;
         private BindingSource bsStock;
         private Panel pnl_SF;
+        private Label label2;
     }
 }

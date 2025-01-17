@@ -1,4 +1,6 @@
-﻿using System;
+﻿using camouelleon.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,21 @@ namespace camouelleon
 {
     public partial class AjoutStock : Form
     {
+        public Form activeForm = null;
+        public void openChildForm(Form formEnfant)
+        {
+            if (activeForm != null)
+                activeForm.Close();
+
+            activeForm = formEnfant;
+            formEnfant.TopLevel = false;
+            formEnfant.FormBorderStyle = FormBorderStyle.None;
+            formEnfant.Dock = DockStyle.Fill;
+            pnl_SF.Controls.Add(formEnfant);
+            pnl_SF.Tag = formEnfant;
+            formEnfant.BringToFront();
+            formEnfant.Show();
+        }
         public AjoutStock(string produit, string stock, int quantite)
         {
             InitializeComponent();
@@ -26,15 +43,15 @@ namespace camouelleon
         {
             this.Close();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void AjoutStock_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnModifier_Click_1(object sender, EventArgs e)
+        {
+            bsUpdate.DataSource = Modele.UpdateStockById(txtProduit.Text, Convert.ToInt32(nmQuantite.Value), txtStock.Text);
+            openChildForm(new Stock());
         }
     }
 }
