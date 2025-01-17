@@ -50,17 +50,20 @@
             // dgvSuivie
             // 
             dgvSuivie.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSuivie.Location = new Point(135, 111);
+            dgvSuivie.Location = new Point(154, 148);
+            dgvSuivie.Margin = new Padding(3, 4, 3, 4);
             dgvSuivie.Name = "dgvSuivie";
-            dgvSuivie.Size = new Size(505, 221);
+            dgvSuivie.RowHeadersWidth = 51;
+            dgvSuivie.Size = new Size(577, 295);
             dgvSuivie.TabIndex = 14;
             // 
             // button1
             // 
             button1.ForeColor = Color.Red;
-            button1.Location = new Point(657, 46);
+            button1.Location = new Point(751, 61);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(25, 23);
+            button1.Size = new Size(29, 31);
             button1.TabIndex = 13;
             button1.Text = "X";
             button1.UseVisualStyleBackColor = true;
@@ -70,17 +73,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(263, 46);
+            label1.Location = new Point(301, 61);
             label1.Name = "label1";
-            label1.Size = new Size(210, 28);
+            label1.Size = new Size(269, 35);
             label1.TabIndex = 12;
             label1.Text = "Suivie des commandes";
             // 
             // button5
             // 
-            button5.Location = new Point(31, 53);
+            button5.Location = new Point(35, 71);
+            button5.Margin = new Padding(3, 4, 3, 4);
             button5.Name = "button5";
-            button5.Size = new Size(94, 23);
+            button5.Size = new Size(107, 31);
             button5.TabIndex = 18;
             button5.Text = "afficher tout";
             button5.UseVisualStyleBackColor = true;
@@ -88,10 +92,10 @@
             // 
             // cbEtat
             // 
-            cbEtat.FormattingEnabled = true;
-            cbEtat.Location = new Point(8, 123);
+            cbEtat.Location = new Point(9, 164);
+            cbEtat.Margin = new Padding(3, 4, 3, 4);
             cbEtat.Name = "cbEtat";
-            cbEtat.Size = new Size(121, 23);
+            cbEtat.Size = new Size(138, 28);
             cbEtat.TabIndex = 19;
             // 
             // bsEtat
@@ -101,34 +105,35 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 96);
+            label2.Location = new Point(14, 128);
             label2.Name = "label2";
-            label2.Size = new Size(33, 15);
+            label2.Size = new Size(42, 20);
             label2.TabIndex = 20;
             label2.Text = "Etat :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(8, 163);
+            label3.Location = new Point(9, 217);
             label3.Name = "label3";
-            label3.Size = new Size(115, 15);
+            label3.Size = new Size(139, 20);
             label3.TabIndex = 22;
             label3.Text = "Montant minimum :";
             // 
             // nmMontant
             // 
-            nmMontant.Location = new Point(9, 194);
+            nmMontant.Location = new Point(10, 259);
+            nmMontant.Margin = new Padding(3, 4, 3, 4);
             nmMontant.Name = "nmMontant";
-            nmMontant.Size = new Size(120, 23);
+            nmMontant.Size = new Size(137, 27);
             nmMontant.TabIndex = 23;
             nmMontant.ValueChanged += nmMontant_ValueChanged;
             // 
             // SuivieCommande
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 387);
+            ClientSize = new Size(896, 516);
             Controls.Add(nmMontant);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -138,6 +143,7 @@
             Controls.Add(button1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SuivieCommande";
             Text = "SuivieCommande";
             Load += SuivieCommande_Load;
