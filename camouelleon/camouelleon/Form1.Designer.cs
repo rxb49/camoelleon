@@ -34,6 +34,7 @@
             suivieDesCommandesToolStripMenuItem = new ToolStripMenuItem();
             gestionDesCommandesToolStripMenuItem = new ToolStripMenuItem();
             stockToolStripMenuItem = new ToolStripMenuItem();
+            stockToolStripMenuItem1 = new ToolStripMenuItem();
             gestionDesClientsToolStripMenuItem = new ToolStripMenuItem();
             gsetionDseAdministrateursToolStripMenuItem = new ToolStripMenuItem();
             pnl_SF = new Panel();
@@ -80,9 +81,17 @@
             // 
             // stockToolStripMenuItem
             // 
+            stockToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stockToolStripMenuItem1 });
             stockToolStripMenuItem.Name = "stockToolStripMenuItem";
             stockToolStripMenuItem.Size = new Size(48, 20);
             stockToolStripMenuItem.Text = "Stock";
+            // 
+            // stockToolStripMenuItem1
+            // 
+            stockToolStripMenuItem1.Name = "stockToolStripMenuItem1";
+            stockToolStripMenuItem1.Size = new Size(103, 22);
+            stockToolStripMenuItem1.Text = "Stock";
+            stockToolStripMenuItem1.Click += stockToolStripMenuItem1_Click;
             // 
             // gestionDesClientsToolStripMenuItem
             // 
@@ -102,6 +111,7 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(800, 426);
             pnl_SF.TabIndex = 1;
+            pnl_SF.Paint += pnl_SF_Paint;
             // 
             // Form1
             // 
@@ -130,5 +140,6 @@
         private ToolStripMenuItem suivieDesCommandesToolStripMenuItem;
         private ToolStripMenuItem gestionDesCommandesToolStripMenuItem;
         private Panel pnl_SF;
+        private ToolStripMenuItem stockToolStripMenuItem1;
     }
 }

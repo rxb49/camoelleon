@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -13,7 +15,7 @@ namespace camouelleon.Entities
 {
     public static class Modele
     {
-        
+
         private static CamoelleonContext monModel;
         public static void init()
         {
@@ -50,7 +52,7 @@ namespace camouelleon.Entities
 
         public static List<Produit> GetProduitByType(int type)
         {
-            List <Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype ==
+            List<Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype ==
            type).ToList();
             return lesPorduit;
         }
@@ -59,10 +61,11 @@ namespace camouelleon.Entities
         {
             Attribuer maCommande;
             bool vretour = true;
-            try { 
+            try
+            {
                 maCommande = new Attribuer();
                 maCommande.Quantite = quantite;
-                maCommande.Idproduit = idProduit; 
+                maCommande.Idproduit = idProduit;
                 maCommande.Idcommande = idCommande;
 
                 monModel.Attribuers.Add(maCommande);
@@ -98,8 +101,31 @@ namespace camouelleon.Entities
                   .ToList();
         }
 
+
+        public static List<Ranger> ListAllStock()
+        {
+            return monModel.Rangers
+                .Include(p => p.IdproduitNavigation)
+                .Include(s => s.IdstockNavigation)
+                .ToList();
+        }
+
+        public static List<Ranger> ListStockById(int id)
+        {
+            return monModel.Rangers
+                .Include(p => p.IdproduitNavigation)
+                .Include(s => s.IdstockNavigation)
+                .Where(r => r.Idproduit == id)
+                .ToList();
+        }
+
+        public static bool UpdateStockById(int id, int quantite)
+        {
+            // A faire
+            bool vretour = true;
+            return vretour;
+        }
+
     }
-
-
 }
 
