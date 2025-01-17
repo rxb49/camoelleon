@@ -41,6 +41,7 @@ namespace camouelleon
 
         private void button1_Click(object sender, EventArgs e)
         {
+            openChildForm(new Stock());
             this.Close();
         }
         private void AjoutStock_Load(object sender, EventArgs e)
