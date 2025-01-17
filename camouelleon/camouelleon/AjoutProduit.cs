@@ -1,5 +1,4 @@
 ﻿using camouelleon.Entities;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +11,7 @@ using System.Windows.Forms;
 
 namespace camouelleon
 {
-    public partial class AjoutStock : Form
+    public partial class AjoutProduit : Form
     {
         public Form activeForm = null;
         public void openChildForm(Form formEnfant)
@@ -29,14 +28,9 @@ namespace camouelleon
             formEnfant.BringToFront();
             formEnfant.Show();
         }
-        public AjoutStock(string produit, string stock, int quantite)
+        public AjoutProduit()
         {
             InitializeComponent();
-
-
-            txtProduit.Text = produit;
-            txtStock.Text = stock;
-            nmQuantite.Text = quantite.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,15 +38,10 @@ namespace camouelleon
             openChildForm(new Stock());
             this.Close();
         }
-        private void AjoutStock_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void btnModifier_Click_1(object sender, EventArgs e)
+        private void btnAjout_Click(object sender, EventArgs e)
         {
-            bsUpdate.DataSource = Modele.UpdateStockById(txtProduit.Text, Convert.ToInt32(nmQuantite.Value), txtStock.Text);
-            openChildForm(new Stock());
+            bsProduit.DataSource = Modele.AddProduitStock(txtProduit.Text, cmbStock.SelectedValue, nmQuantite.Value);
         }
     }
 }

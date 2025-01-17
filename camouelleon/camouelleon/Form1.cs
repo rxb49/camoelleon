@@ -48,5 +48,10 @@ namespace camouelleon
         {
 
         }
+
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

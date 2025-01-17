@@ -85,11 +85,12 @@
             stockToolStripMenuItem.Name = "stockToolStripMenuItem";
             stockToolStripMenuItem.Size = new Size(48, 20);
             stockToolStripMenuItem.Text = "Stock";
+            stockToolStripMenuItem.Click += stockToolStripMenuItem_Click;
             // 
             // stockToolStripMenuItem1
             // 
             stockToolStripMenuItem1.Name = "stockToolStripMenuItem1";
-            stockToolStripMenuItem1.Size = new Size(103, 22);
+            stockToolStripMenuItem1.Size = new Size(180, 22);
             stockToolStripMenuItem1.Text = "Stock";
             stockToolStripMenuItem1.Click += stockToolStripMenuItem1_Click;
             // 

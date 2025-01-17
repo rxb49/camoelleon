@@ -119,10 +119,87 @@ namespace camouelleon.Entities
                 .ToList();
         }
 
-        public static bool UpdateStockById(int id, int quantite)
+        public static bool UpdateStockById(string produit, int quantite, string stock)
         {
-            // A faire
+            Produit monproduit = RecupererProduit(produit);
+            Stock monStock = RecupererStock(stock);
+
+            if (monproduit == null || monStock == null)
+            {
+                MessageBox.Show("Produit ou stock introuvable");
+                return false;
+            }
+
+            try
+            {
+                Ranger unrangement = monModel.Rangers.FirstOrDefault(r =>
+                    r.Idproduit == monproduit.Idproduit && r.Idstock == monStock.Idstock);
+
+                unrangement.Quantite = quantite;
+
+                monModel.SaveChanges();
+
+                MessageBox.Show("Modification réussie");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la modification : {ex.Message}");
+                return false;
+            }
+        }
+        public static Produit RecupererProduit(string produit)
+        {
+            Produit monProduit = new Produit();
+            try
+            {
+                monProduit = monModel.Produits.First(x =>
+               x.Lblproduit == produit);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return monProduit;
+        }
+
+        public static Stock RecupererStock(string stock)
+        {
+            Stock monStock = new Stock();
+            try
+            {
+                monStock = monModel.Stocks.First(x =>
+               x.Lblstock == stock);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            return monStock;
+        }
+
+        public static bool AddProduit(string lblunite, string produit, int idStock, string type)
+        {
+            Produit newProduit;
             bool vretour = true;
+            int idType = Convert.ToInt32(type);
+
+            try
+            {
+                newProduit = new Produit();
+                newProduit.Lblunite = lblunite;
+                newProduit.Lblproduit = produit;
+                newProduit.Idtype = idType;
+                
+
+                monModel.Produits.Add(newProduit);
+                monModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la modification : {ex.Message}");
+                vretour = false;
+            }
             return vretour;
         }
 
