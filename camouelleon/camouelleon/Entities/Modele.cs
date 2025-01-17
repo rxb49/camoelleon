@@ -178,6 +178,31 @@ namespace camouelleon.Entities
             return monStock;
         }
 
+        public static bool AddProduit(string lblunite, string produit, int idStock, string type)
+        {
+            Produit newProduit;
+            bool vretour = true;
+            int idType = Convert.ToInt32(type);
+
+            try
+            {
+                newProduit = new Produit();
+                newProduit.Lblunite = lblunite;
+                newProduit.Lblproduit = produit;
+                newProduit.Idtype = idType;
+                
+
+                monModel.Produits.Add(newProduit);
+                monModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de la modification : {ex.Message}");
+                vretour = false;
+            }
+            return vretour;
+        }
+
     }
 }
 

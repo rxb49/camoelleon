@@ -1,4 +1,5 @@
-﻿using System;
+﻿using camouelleon.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,11 @@ namespace camouelleon
         {
             openChildForm(new Stock());
             this.Close();
+        }
+
+        private void btnAjout_Click(object sender, EventArgs e)
+        {
+            bsProduit.DataSource = Modele.AddProduitStock(txtProduit.Text, cmbStock.SelectedValue, nmQuantite.Value);
         }
     }
 }
