@@ -6,6 +6,7 @@ using System.Collections.Immutable;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -28,14 +29,9 @@ namespace camouelleon.Entities
             return monModel.Allergies.ToList();
         }
 
-        public static List<Produit> Produits()
+        public static List<Unite> listeUnite()
         {
-            return monModel.Produits.ToList();
-        }
-
-        public static List<Typeproduit> TypeProduits()
-        {
-            return monModel.Typeproduits.ToList();
+            return monModel.Unites.ToList(); // Assurez-vous que `Unites` contient des données
         }
 
         public static Utilisateur Utilisateur(string email)
@@ -50,6 +46,11 @@ namespace camouelleon.Entities
         public static List<Etat> Etat()
         {
             return monModel.Etats.ToList();
+        }
+
+        public static List<Typeproduit> TypeProduit()
+        {
+            return monModel.Typeproduits.ToList(); // Assurez-vous que `TypeProduits` contient des données
         }
 
         public static List<Commande> CommandeWithEtat()
@@ -190,26 +191,33 @@ namespace camouelleon.Entities
             return monStock;
         }
 
-        public static bool AddProduit(string lblunite, string produit, int idStock, string type)
+        public static bool AddProduit(int lblunite, string produit, string type, int prix)
         {
             Produit newProduit;
             bool vretour = true;
-            int idType = Convert.ToInt32(type);
+            Typeproduit typeProduit = monModel.Typeproduits.FirstOrDefault(t => t.Id == Convert.ToInt32(type));
+            Unite unite = monModel.Unites.FirstOrDefault(u => u.Idunite == lblunite);
+
 
             try
             {
                 newProduit = new Produit();
-                newProduit.Lblunite = lblunite;
+                newProduit.Idunite = unite.Idunite;
+                newProduit.Lblunite = unite.Lblunite;
                 newProduit.Lblproduit = produit;
-                newProduit.Idtype = idType;
-                
+                newProduit.Prixproduit = prix;
+                newProduit.Menudujour = 0;
+                newProduit.Idtype = typeProduit.Id;
+
+
 
                 monModel.Produits.Add(newProduit);
                 monModel.SaveChanges();
+                MessageBox.Show($"Ajout du produit réussi");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la modification : {ex.Message}");
+                MessageBox.Show($"Erreur lors de la modification : {ex.Message}\n{ex.InnerException?.Message}");
                 vretour = false;
             }
             return vretour;

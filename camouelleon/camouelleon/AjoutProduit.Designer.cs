@@ -32,18 +32,26 @@
             label1 = new Label();
             button1 = new Button();
             pnl_SF = new Panel();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            txtProduit = new TextBox();
-            nmQuantite = new NumericUpDown();
-            cmbStock = new ComboBox();
+            cbType = new ComboBox();
+            label5 = new Label();
             btnAjout = new Button();
+            cmbUnite = new ComboBox();
+            nmPrix = new NumericUpDown();
+            txtProduit = new TextBox();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             bsProduit = new BindingSource(components);
+            bsUnite = new BindingSource(components);
+            bsType = new BindingSource(components);
             pnl_SF.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nmQuantite).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmPrix).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsProduit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsUnite).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsType).BeginInit();
             SuspendLayout();
+            this.Load += new System.EventHandler(this.AjoutProduit_Load);
+
             // 
             // label1
             // 
@@ -68,9 +76,11 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(cbType);
+            pnl_SF.Controls.Add(label5);
             pnl_SF.Controls.Add(btnAjout);
-            pnl_SF.Controls.Add(cmbStock);
-            pnl_SF.Controls.Add(nmQuantite);
+            pnl_SF.Controls.Add(cmbUnite);
+            pnl_SF.Controls.Add(nmPrix);
             pnl_SF.Controls.Add(txtProduit);
             pnl_SF.Controls.Add(label4);
             pnl_SF.Controls.Add(label3);
@@ -82,32 +92,47 @@
             pnl_SF.Size = new Size(783, 386);
             pnl_SF.TabIndex = 2;
             // 
-            // label2
+            // cbType
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(108, 126);
-            label2.Name = "label2";
-            label2.Size = new Size(99, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Nom du produit :";
+            cbType.FormattingEnabled = true;
+            cbType.Location = new Point(287, 263);
+            cbType.Name = "cbType";
+            cbType.Size = new Size(121, 23);
+            cbType.TabIndex = 11;
             // 
-            // label3
+            // label5
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(108, 180);
-            label3.Name = "label3";
-            label3.Size = new Size(88, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Nom du stock :";
+            label5.AutoSize = true;
+            label5.Location = new Point(108, 266);
+            label5.Name = "label5";
+            label5.Size = new Size(95, 15);
+            label5.TabIndex = 10;
+            label5.Text = "Type de produit :";
             // 
-            // label4
+            // btnAjout
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(108, 227);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 15);
-            label4.TabIndex = 4;
-            label4.Text = "Quantité :";
+            btnAjout.Location = new Point(302, 324);
+            btnAjout.Name = "btnAjout";
+            btnAjout.Size = new Size(113, 31);
+            btnAjout.TabIndex = 9;
+            btnAjout.Text = "Ajouter le produit";
+            btnAjout.UseVisualStyleBackColor = true;
+            btnAjout.Click += btnAjout_Click;
+            // 
+            // cmbUnite
+            // 
+            cmbUnite.FormattingEnabled = true;
+            cmbUnite.Location = new Point(288, 171);
+            cmbUnite.Name = "cmbUnite";
+            cmbUnite.Size = new Size(121, 23);
+            cmbUnite.TabIndex = 8;
+            // 
+            // nmPrix
+            // 
+            nmPrix.Location = new Point(287, 219);
+            nmPrix.Name = "nmPrix";
+            nmPrix.Size = new Size(122, 23);
+            nmPrix.TabIndex = 7;
             // 
             // txtProduit
             // 
@@ -116,30 +141,32 @@
             txtProduit.Size = new Size(122, 23);
             txtProduit.TabIndex = 5;
             // 
-            // nmQuantite
+            // label4
             // 
-            nmQuantite.Location = new Point(287, 219);
-            nmQuantite.Name = "nmQuantite";
-            nmQuantite.Size = new Size(122, 23);
-            nmQuantite.TabIndex = 7;
+            label4.AutoSize = true;
+            label4.Location = new Point(108, 227);
+            label4.Name = "label4";
+            label4.Size = new Size(33, 15);
+            label4.TabIndex = 4;
+            label4.Text = "Prix :";
             // 
-            // cmbStock
+            // label3
             // 
-            cmbStock.FormattingEnabled = true;
-            cmbStock.Location = new Point(288, 171);
-            cmbStock.Name = "cmbStock";
-            cmbStock.Size = new Size(121, 23);
-            cmbStock.TabIndex = 8;
+            label3.AutoSize = true;
+            label3.Location = new Point(108, 180);
+            label3.Name = "label3";
+            label3.Size = new Size(41, 15);
+            label3.TabIndex = 3;
+            label3.Text = "Unité :";
             // 
-            // btnAjout
+            // label2
             // 
-            btnAjout.Location = new Point(302, 291);
-            btnAjout.Name = "btnAjout";
-            btnAjout.Size = new Size(113, 31);
-            btnAjout.TabIndex = 9;
-            btnAjout.Text = "Ajouter le produit";
-            btnAjout.UseVisualStyleBackColor = true;
-            btnAjout.Click += btnAjout_Click;
+            label2.AutoSize = true;
+            label2.Location = new Point(108, 126);
+            label2.Name = "label2";
+            label2.Size = new Size(99, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Nom du produit :";
             // 
             // AjoutProduit
             // 
@@ -152,8 +179,10 @@
             Text = "AjoutProduit";
             pnl_SF.ResumeLayout(false);
             pnl_SF.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nmQuantite).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nmPrix).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsProduit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsUnite).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsType).EndInit();
             ResumeLayout(false);
         }
 
@@ -163,12 +192,16 @@
         private Button button1;
         private Panel pnl_SF;
         private Button btnAjout;
-        private ComboBox cmbStock;
-        private NumericUpDown nmQuantite;
+        private ComboBox cmbUnite;
+        private NumericUpDown nmPrix;
         private TextBox txtProduit;
         private Label label4;
         private Label label3;
         private Label label2;
         private BindingSource bsProduit;
+        private ComboBox cbType;
+        private Label label5;
+        private BindingSource bsUnite;
+        private BindingSource bsType;
     }
 }

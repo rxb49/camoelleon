@@ -41,7 +41,21 @@ namespace camouelleon
 
         private void btnAjout_Click(object sender, EventArgs e)
         {
-/*            bsProduit.DataSource = Modele.AddProduitStock(txtProduit.Text, cmbStock.SelectedValue, nmQuantite.Value);
-*/        }
+            bsProduit.DataSource = Modele.AddProduit(Convert.ToInt32(cmbUnite.SelectedValue), txtProduit.Text, Convert.ToString(cbType.SelectedValue), Convert.ToInt32(nmPrix.Value));
+            this.Close();
+        }
+
+        private void AjoutProduit_Load(object sender, EventArgs e)
+        {
+            cmbUnite.ValueMember = "Idunite";
+            cmbUnite.DisplayMember = "Lblunite";
+            bsUnite.DataSource = Modele.listeUnite();
+            cmbUnite.DataSource = bsUnite;
+
+            cbType.ValueMember = "Id";
+            cbType.DisplayMember = "Libelle";
+            bsType.DataSource = Modele.TypeProduit();
+            cbType.DataSource = bsType;
+        }
     }
 }
