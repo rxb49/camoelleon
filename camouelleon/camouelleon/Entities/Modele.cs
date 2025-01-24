@@ -50,7 +50,12 @@ namespace camouelleon.Entities
 
         public static List<Typeproduit> TypeProduit()
         {
-            return monModel.Typeproduits.ToList(); // Assurez-vous que `TypeProduits` contient des données
+            return monModel.Typeproduits.ToList(); 
+        }
+
+        public static List<Stock> ListStock()
+        {
+            return monModel.Stocks.ToList();
         }
 
         public static List<Commande> CommandeWithEtat()
@@ -148,6 +153,12 @@ namespace camouelleon.Entities
                 Ranger unrangement = monModel.Rangers.FirstOrDefault(r =>
                     r.Idproduit == monproduit.Idproduit && r.Idstock == monStock.Idstock);
 
+                if (unrangement == null)
+                {
+                    MessageBox.Show("Aucun rangement trouvé pour ce produit et ce stock.");
+                    return false; // ou gérer la situation autrement
+                }
+
                 unrangement.Quantite = quantite;
 
                 monModel.SaveChanges();
@@ -193,34 +204,80 @@ namespace camouelleon.Entities
 
         public static bool AddProduit(int lblunite, string produit, string type, int prix)
         {
-            Produit newProduit;
             bool vretour = true;
-            Typeproduit typeProduit = monModel.Typeproduits.FirstOrDefault(t => t.Id == Convert.ToInt32(type));
-            Unite unite = monModel.Unites.FirstOrDefault(u => u.Idunite == lblunite);
+            if (produit == "")
+            {
+                MessageBox.Show("Entrez un nom de produit");
+            }
+            if(prix <= 0)
+            {
+                MessageBox.Show("Rentrez une valeur supérieur à 0");
+            }else
+            {
+                Produit newProduit;
+                Typeproduit typeProduit = monModel.Typeproduits.FirstOrDefault(t => t.Id == Convert.ToInt32(type));
+                Unite unite = monModel.Unites.FirstOrDefault(u => u.Idunite == lblunite);
 
+
+                try
+                {
+                    newProduit = new Produit();
+                    newProduit.Idunite = unite.Idunite;
+                    newProduit.Lblunite = unite.Lblunite;
+                    newProduit.Lblproduit = produit;
+                    newProduit.Prixproduit = prix;
+                    newProduit.Menudujour = 0;
+                    newProduit.Idtype = typeProduit.Id;
+
+
+
+                    monModel.Produits.Add(newProduit);
+                    monModel.SaveChanges();
+                    MessageBox.Show($"Ajout du produit réussi");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Erreur lors de la modification : {ex.Message}\n{ex.InnerException?.Message}");
+                    vretour = false;
+                }
+            }
+            
+            return vretour;
+        }
+
+        public static bool AddProduitToStock(string produit, string stock)
+        {
+            Produit monproduit = RecupererProduit(produit);
+            Stock monStock = RecupererStock(stock);
+
+            if (monproduit == null || monStock == null)
+            {
+                MessageBox.Show("Produit ou stock introuvable");
+                return false;
+            }
 
             try
             {
-                newProduit = new Produit();
-                newProduit.Idunite = unite.Idunite;
-                newProduit.Lblunite = unite.Lblunite;
-                newProduit.Lblproduit = produit;
-                newProduit.Prixproduit = prix;
-                newProduit.Menudujour = 0;
-                newProduit.Idtype = typeProduit.Id;
+                Ranger unrangement = monModel.Rangers.FirstOrDefault(r =>
+                    r.Idproduit == monproduit.Idproduit && r.Idstock == monStock.Idstock);
+
+                if (unrangement == null)
+                {
+                    MessageBox.Show("Aucun rangement trouvé pour ce produit et ce stock.");
+                    return false; // ou gérer la situation autrement
+                }
 
 
-
-                monModel.Produits.Add(newProduit);
                 monModel.SaveChanges();
-                MessageBox.Show($"Ajout du produit réussi");
+
+                MessageBox.Show("Modification réussie");
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la modification : {ex.Message}\n{ex.InnerException?.Message}");
-                vretour = false;
+                MessageBox.Show($"Erreur lors de la modification : {ex.Message}");
+                return false;
             }
-            return vretour;
         }
 
     }

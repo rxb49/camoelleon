@@ -32,6 +32,8 @@
             label1 = new Label();
             button1 = new Button();
             pnl_SF = new Panel();
+            cbStock = new ComboBox();
+            label6 = new Label();
             cbType = new ComboBox();
             label5 = new Label();
             btnAjout = new Button();
@@ -44,14 +46,14 @@
             bsProduit = new BindingSource(components);
             bsUnite = new BindingSource(components);
             bsType = new BindingSource(components);
+            bsStock = new BindingSource(components);
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nmPrix).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsProduit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsUnite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsType).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsStock).BeginInit();
             SuspendLayout();
-            this.Load += new System.EventHandler(this.AjoutProduit_Load);
-
             // 
             // label1
             // 
@@ -76,6 +78,8 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(cbStock);
+            pnl_SF.Controls.Add(label6);
             pnl_SF.Controls.Add(cbType);
             pnl_SF.Controls.Add(label5);
             pnl_SF.Controls.Add(btnAjout);
@@ -92,10 +96,27 @@
             pnl_SF.Size = new Size(783, 386);
             pnl_SF.TabIndex = 2;
             // 
+            // cbStock
+            // 
+            cbStock.FormattingEnabled = true;
+            cbStock.Location = new Point(289, 262);
+            cbStock.Name = "cbStock";
+            cbStock.Size = new Size(121, 23);
+            cbStock.TabIndex = 13;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(110, 265);
+            label6.Name = "label6";
+            label6.Size = new Size(42, 15);
+            label6.TabIndex = 12;
+            label6.Text = "Stock :";
+            // 
             // cbType
             // 
             cbType.FormattingEnabled = true;
-            cbType.Location = new Point(287, 263);
+            cbType.Location = new Point(289, 222);
             cbType.Name = "cbType";
             cbType.Size = new Size(121, 23);
             cbType.TabIndex = 11;
@@ -103,7 +124,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(108, 266);
+            label5.Location = new Point(110, 225);
             label5.Name = "label5";
             label5.Size = new Size(95, 15);
             label5.TabIndex = 10;
@@ -111,7 +132,7 @@
             // 
             // btnAjout
             // 
-            btnAjout.Location = new Point(302, 324);
+            btnAjout.Location = new Point(194, 308);
             btnAjout.Name = "btnAjout";
             btnAjout.Size = new Size(113, 31);
             btnAjout.TabIndex = 9;
@@ -122,21 +143,21 @@
             // cmbUnite
             // 
             cmbUnite.FormattingEnabled = true;
-            cmbUnite.Location = new Point(288, 171);
+            cmbUnite.Location = new Point(290, 130);
             cmbUnite.Name = "cmbUnite";
             cmbUnite.Size = new Size(121, 23);
             cmbUnite.TabIndex = 8;
             // 
             // nmPrix
             // 
-            nmPrix.Location = new Point(287, 219);
+            nmPrix.Location = new Point(289, 178);
             nmPrix.Name = "nmPrix";
             nmPrix.Size = new Size(122, 23);
             nmPrix.TabIndex = 7;
             // 
             // txtProduit
             // 
-            txtProduit.Location = new Point(287, 124);
+            txtProduit.Location = new Point(289, 83);
             txtProduit.Name = "txtProduit";
             txtProduit.Size = new Size(122, 23);
             txtProduit.TabIndex = 5;
@@ -144,7 +165,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(108, 227);
+            label4.Location = new Point(110, 186);
             label4.Name = "label4";
             label4.Size = new Size(33, 15);
             label4.TabIndex = 4;
@@ -153,7 +174,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(108, 180);
+            label3.Location = new Point(110, 139);
             label3.Name = "label3";
             label3.Size = new Size(41, 15);
             label3.TabIndex = 3;
@@ -162,7 +183,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(108, 126);
+            label2.Location = new Point(110, 85);
             label2.Name = "label2";
             label2.Size = new Size(99, 15);
             label2.TabIndex = 2;
@@ -177,12 +198,14 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "AjoutProduit";
             Text = "AjoutProduit";
+            Load += AjoutProduit_Load;
             pnl_SF.ResumeLayout(false);
             pnl_SF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nmPrix).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsProduit).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsUnite).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsType).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsStock).EndInit();
             ResumeLayout(false);
         }
 
@@ -203,5 +226,8 @@
         private Label label5;
         private BindingSource bsUnite;
         private BindingSource bsType;
+        private BindingSource bsStock;
+        private Label label6;
+        private ComboBox cbStock;
     }
 }

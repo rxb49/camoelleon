@@ -56,6 +56,15 @@ namespace camouelleon
             cbType.DisplayMember = "Libelle";
             bsType.DataSource = Modele.TypeProduit();
             cbType.DataSource = bsType;
+
+            cbStock.ValueMember = "Idstock";
+            cbStock.DisplayMember = "Lblstock";
+            bsStock.DataSource = Modele.ListStock();
+            cbStock.DataSource = bsStock;
+
+
+
         }
+
     }
 }
