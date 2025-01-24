@@ -41,7 +41,7 @@ namespace camouelleon
 
         private void btnAjout_Click(object sender, EventArgs e)
         {
-            bsProduit.DataSource = Modele.AddProduit(Convert.ToInt32(cmbUnite.SelectedValue), txtProduit.Text, Convert.ToString(cbType.SelectedValue), Convert.ToInt32(nmPrix.Value));
+            bsProduit.DataSource = Modele.AddProduit(Convert.ToInt32(cmbUnite.SelectedValue), txtProduit.Text, Convert.ToString(cbType.SelectedValue), Convert.ToInt32(nmPrix.Value), Convert.ToInt32(cbStock.SelectedValue));
             this.Close();
         }
 

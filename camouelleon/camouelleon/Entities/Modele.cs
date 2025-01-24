@@ -202,7 +202,7 @@ namespace camouelleon.Entities
             return monStock;
         }
 
-        public static bool AddProduit(int lblunite, string produit, string type, int prix)
+        public static bool AddProduit(int lblunite, string produit, string type, int prix, int stock)
         {
             bool vretour = true;
             if (produit == "")
@@ -229,9 +229,14 @@ namespace camouelleon.Entities
                     newProduit.Menudujour = 0;
                     newProduit.Idtype = typeProduit.Id;
 
+                    Ranger unrangement = new Ranger();
+                    unrangement.Idstock = stock;
+                    unrangement.Idproduit = newProduit.Idproduit;
+                    unrangement.Quantite = 0;
 
 
                     monModel.Produits.Add(newProduit);
+                    monModel.Rangers.Add(unrangement);
                     monModel.SaveChanges();
                     MessageBox.Show($"Ajout du produit réussi");
                 }
