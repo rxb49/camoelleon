@@ -156,7 +156,7 @@ namespace camouelleon.Entities
                 if (unrangement == null)
                 {
                     MessageBox.Show("Aucun rangement trouvé pour ce produit et ce stock.");
-                    return false; // ou gérer la situation autrement
+                    return false;
                 }
 
                 unrangement.Quantite = quantite;
@@ -229,20 +229,21 @@ namespace camouelleon.Entities
                     newProduit.Menudujour = 0;
                     newProduit.Idtype = typeProduit.Id;
 
+                    monModel.Produits.Add(newProduit);
+                    monModel.SaveChanges();
+
                     Ranger unrangement = new Ranger();
                     unrangement.Idstock = stock;
                     unrangement.Idproduit = newProduit.Idproduit;
                     unrangement.Quantite = 0;
 
 
-                    monModel.Produits.Add(newProduit);
                     monModel.Rangers.Add(unrangement);
                     monModel.SaveChanges();
-                    MessageBox.Show($"Ajout du produit réussi");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erreur lors de la modification : {ex.Message}\n{ex.InnerException?.Message}");
+                    MessageBox.Show($"Erreur lors de l'ajout : {ex.Message}\n{ex.InnerException?.Message}");
                     vretour = false;
                 }
             }
