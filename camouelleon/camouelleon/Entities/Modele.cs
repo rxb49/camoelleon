@@ -137,33 +137,45 @@ namespace camouelleon.Entities
                 .ToList();
         }
 
-        public static bool UpdateStockById(string produit, int quantite, string stock)
+        public static bool UpdateStockById(string produit, int quantite, int stock)
         {
             Produit monproduit = RecupererProduit(produit);
             Stock monStock = RecupererStock(stock);
 
             if (monproduit == null || monStock == null)
             {
-                MessageBox.Show("Produit ou stock introuvable");
+                MessageBox.Show("Produit ou stock introuvable.");
                 return false;
             }
 
             try
             {
+                // Trouver le rangement existant pour ce produit
                 Ranger unrangement = monModel.Rangers.FirstOrDefault(r =>
-                    r.Idproduit == monproduit.Idproduit && r.Idstock == monStock.Idstock);
+                    r.Idproduit == monproduit.Idproduit);
 
                 if (unrangement == null)
                 {
-                    MessageBox.Show("Aucun rangement trouvé pour ce produit et ce stock.");
+                    MessageBox.Show("Aucun rangement trouvé pour ce produit.");
                     return false;
                 }
 
-                unrangement.Quantite = quantite;
+                // 🔹 Supprimer l'ancien rangement
+                monModel.Rangers.Remove(unrangement);
+                monModel.SaveChanges(); // Enregistrer la suppression du rangement existant
 
-                monModel.SaveChanges();
+                // 🔹 Créer un nouveau rangement avec les informations mises à jour
+                Ranger nouveauRangement = new Ranger
+                {
+                    Idproduit = monproduit.Idproduit,
+                    Idstock = monStock.Idstock, // Nouveau stock
+                    Quantite = quantite
+                };
 
-                MessageBox.Show("Modification réussie");
+                monModel.Rangers.Add(nouveauRangement);
+                monModel.SaveChanges(); // Enregistrer le nouveau rangement
+
+                MessageBox.Show("Modification réussie !");
                 return true;
             }
             catch (Exception ex)
@@ -172,32 +184,39 @@ namespace camouelleon.Entities
                 return false;
             }
         }
+
         public static Produit RecupererProduit(string produit)
         {
             Produit monProduit = new Produit();
             try
             {
-                monProduit = monModel.Produits.First(x =>
-               x.Lblproduit == produit);
+                monProduit = monModel.Produits.FirstOrDefault(x => x.Lblproduit == produit);
+                if (monProduit == null)
+                {
+                    MessageBox.Show($"Produit '{produit}' introuvable dans la base de données.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show($"Erreur lors de la récupération du produit : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return monProduit;
         }
 
-        public static Stock RecupererStock(string stock)
+        public static Stock RecupererStock(int stock)
         {
             Stock monStock = new Stock();
             try
             {
-                monStock = monModel.Stocks.First(x =>
-               x.Lblstock == stock);
+                monStock = monModel.Stocks.FirstOrDefault(x => x.Idstock == stock);
+                if (monStock == null)
+                {
+                    MessageBox.Show($"Stock '{stock}' introuvable dans la base de données.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show($"Erreur lors de la récupération du stock : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return monStock;
         }
@@ -251,7 +270,7 @@ namespace camouelleon.Entities
             return vretour;
         }
 
-        public static bool AddProduitToStock(string produit, string stock)
+        public static bool AddProduitToStock(string produit, int stock)
         {
             Produit monproduit = RecupererProduit(produit);
             Stock monStock = RecupererStock(stock);

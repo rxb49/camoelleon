@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             txtProduit = new TextBox();
-            txtStock = new TextBox();
             button1 = new Button();
             nmQuantite = new NumericUpDown();
             btnModifier = new Button();
@@ -39,10 +38,13 @@
             label3 = new Label();
             bsUpdate = new BindingSource(components);
             pnl_SF = new Panel();
+            cbStock = new ComboBox();
             label4 = new Label();
+            bsStock = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)nmQuantite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsUpdate).BeginInit();
             pnl_SF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bsStock).BeginInit();
             SuspendLayout();
             // 
             // txtProduit
@@ -50,16 +52,8 @@
             txtProduit.Enabled = false;
             txtProduit.Location = new Point(157, 78);
             txtProduit.Name = "txtProduit";
-            txtProduit.Size = new Size(100, 23);
+            txtProduit.Size = new Size(120, 23);
             txtProduit.TabIndex = 0;
-            // 
-            // txtStock
-            // 
-            txtStock.Enabled = false;
-            txtStock.Location = new Point(157, 135);
-            txtStock.Name = "txtStock";
-            txtStock.Size = new Size(100, 23);
-            txtStock.TabIndex = 1;
             // 
             // button1
             // 
@@ -118,6 +112,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(cbStock);
             pnl_SF.Controls.Add(label4);
             pnl_SF.Controls.Add(label3);
             pnl_SF.Controls.Add(label2);
@@ -125,12 +120,19 @@
             pnl_SF.Controls.Add(btnModifier);
             pnl_SF.Controls.Add(nmQuantite);
             pnl_SF.Controls.Add(button1);
-            pnl_SF.Controls.Add(txtStock);
             pnl_SF.Controls.Add(txtProduit);
-            pnl_SF.Location = new Point(3, 1);
+            pnl_SF.Location = new Point(1, 1);
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(783, 386);
             pnl_SF.TabIndex = 20;
+            // 
+            // cbStock
+            // 
+            cbStock.FormattingEnabled = true;
+            cbStock.Location = new Point(156, 135);
+            cbStock.Name = "cbStock";
+            cbStock.Size = new Size(121, 23);
+            cbStock.TabIndex = 21;
             // 
             // label4
             // 
@@ -156,13 +158,13 @@
             ((System.ComponentModel.ISupportInitialize)bsUpdate).EndInit();
             pnl_SF.ResumeLayout(false);
             pnl_SF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bsStock).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private TextBox txtProduit;
-        private TextBox txtStock;
         private Button button1;
         private NumericUpDown nmQuantite;
         private Button btnModifier;
@@ -172,5 +174,7 @@
         private BindingSource bsUpdate;
         private Panel pnl_SF;
         private Label label4;
+        private ComboBox cbStock;
+        private BindingSource bsStock;
     }
 }

@@ -35,7 +35,7 @@ namespace camouelleon
 
 
             txtProduit.Text = produit;
-            txtStock.Text = stock;
+            cbStock.Text = stock;
             nmQuantite.Text = quantite.ToString();
         }
 
@@ -46,13 +46,25 @@ namespace camouelleon
         }
         private void AjoutStock_Load(object sender, EventArgs e)
         {
-
+            cbStock.ValueMember = "Idstock";
+            cbStock.DisplayMember = "Lblstock";
+            bsStock.DataSource = Modele.ListStock();
+            cbStock.DataSource = bsStock;
         }
 
         private void btnModifier_Click_1(object sender, EventArgs e)
         {
-            bsUpdate.DataSource = Modele.UpdateStockById(txtProduit.Text, Convert.ToInt32(nmQuantite.Value), txtStock.Text);
-            openChildForm(new Stock());
+            bool modificationRéussie = Modele.UpdateStockById(
+                txtProduit.Text,
+                Convert.ToInt32(nmQuantite.Value),
+                Convert.ToInt32(cbStock.SelectedValue)
+            );
+
+            if (modificationRéussie)
+            {
+                openChildForm(new Stock());
+
+            }
         }
     }
 }
