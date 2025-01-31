@@ -310,6 +310,22 @@ namespace camouelleon.Entities
             }
         }
 
+        public static object CommandesFiniesAvecMontant()
+        {
+            return monModel.Commandes
+                .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3))
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit)
+                })
+                .ToList();
+        }
+
+
     }
 }
 
