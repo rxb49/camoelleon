@@ -70,7 +70,20 @@ namespace camouelleon
 
         private void button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new AjoutProduit());
+            openChildForm(new AjoutProduit(this));
+        }
+
+        public void RefreshStockDataGridView()
+        {
+            bsStock.DataSource = Modele.ListAllStock().Select(x => new
+            {
+                Produit = x.IdproduitNavigation.Lblproduit,
+                Stock = x.IdstockNavigation.Lblstock,
+                x.Quantite
+            }).ToList();
+
+            dgvStock.DataSource = bsStock;
+            dgvStock.Refresh();
         }
     }
 }

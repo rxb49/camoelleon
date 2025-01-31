@@ -13,7 +13,7 @@ public partial class Produit
 
     public string Lblproduit { get; set; } = null!;
 
-    public int Prixproduit { get; set; }
+    public int? Prixproduit { get; set; }
 
     public short? Menudujour { get; set; }
 

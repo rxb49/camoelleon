@@ -34,8 +34,8 @@
             button1 = new Button();
             bsStock = new BindingSource(components);
             pnl_SF = new Panel();
-            label2 = new Label();
             button2 = new Button();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsStock).BeginInit();
             pnl_SF.SuspendLayout();
@@ -84,16 +84,6 @@
             pnl_SF.TabIndex = 12;
             pnl_SF.Paint += pnl_SF_Paint;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(116, 346);
-            label2.Name = "label2";
-            label2.Size = new Size(375, 20);
-            label2.TabIndex = 12;
-            label2.Text = "* Double clique sur un produit pour le réapprovisionner";
-            // 
             // button2
             // 
             button2.Location = new Point(662, 107);
@@ -103,6 +93,16 @@
             button2.Text = "Ajouter un produit";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.Location = new Point(116, 346);
+            label2.Name = "label2";
+            label2.Size = new Size(375, 20);
+            label2.TabIndex = 12;
+            label2.Text = "* Double clique sur un produit pour le réapprovisionner";
             // 
             // Stock
             // 
