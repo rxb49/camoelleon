@@ -57,7 +57,7 @@ namespace camouelleon
 
             cb_Type.ValueMember = "ID";
             cb_Type.DisplayMember = "LIBELLE";
-            bsType.DataSource = Modele.TypeProduits();
+            bsType.DataSource = Modele.TypeProduit();
             cb_Type.DataSource = bsType;
 
 

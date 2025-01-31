@@ -532,3 +532,10 @@ C:\Users\Robin\Documents\dev cours\camouelleon-c\camouelleon\camouelleon\obj\Deb
 C:\Users\Robin\Documents\dev cours\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.pdb
 C:\Users\Robin\Documents\dev cours\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.genruntimeconfig.cache
 C:\Users\Robin\Documents\dev cours\camouelleon-c\camouelleon\camouelleon\obj\Debug\net8.0-windows\ref\camouelleon.dll
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.AjoutProduit.resources
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.AjoutStock.resources
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.GestionCommande.resources
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.PriseCommande.resources
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.Stock.resources
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\obj\Debug\net8.0-windows\camouelleon.SuivieCommande.resources
+B:\BTSSIO_2nd_Annee\AP4\camoelleon_csharp\camouelleon\camouelleon\bin\Debug\net8.0-windows\System.Text.Json.dll

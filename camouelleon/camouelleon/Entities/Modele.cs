@@ -29,6 +29,11 @@ namespace camouelleon.Entities
             return monModel.Allergies.ToList();
         }
 
+        public static List<Produit> Produits()
+        {
+            return monModel.Produits.ToList();
+        }
+
         public static List<Unite> listeUnite()
         {
             return monModel.Unites.ToList(); // Assurez-vous que `Unites` contient des données
