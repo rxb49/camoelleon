@@ -325,7 +325,75 @@ namespace camouelleon.Entities
                 .ToList();
         }
 
+        public static Commande GetCommandeById(int idCommande)
+        {
+            return monModel.Commandes
+                .Include(c => c.Liers)
+                .ThenInclude(l => l.IdetatNavigation)
+                .FirstOrDefault(c => c.Idcommande == idCommande);
+        }
+        public static void MettreEtatFactureA5(int idCommande)
+        {
+            // Récupérer la commande spécifique par son ID avec les relations nécessaires
+            var commande = GetCommandeById(idCommande);
+
+            if (commande != null)
+            {
+                // Parcours de chaque relation "Lier" pour vérifier et mettre à jour l'état
+                foreach (var lier in commande.Liers.ToList())  // Utilisation de .ToList() pour éviter modification pendant l'itération
+                {
+                    // Vérification de l'état actuel de la relation
+                    if (lier.IdetatNavigation != null && lier.IdetatNavigation.Idetat == 3)
+                    {
+                        // Suppression de la relation actuelle
+                        monModel.Liers.Remove(lier);
+
+                        // Création d'un nouvel objet Etat pour lier avec l'objet Lier
+                        var nouvelEtat = monModel.Etats.FirstOrDefault(e => e.Idetat == 5); // Récupérer l'état avec Id 5
+
+                        if (nouvelEtat != null)
+                        {
+                            // Création d'une nouvelle instance de Lier avec l'état mis à jour
+                            var nouvelleRelation = new Lier
+                            {
+                                // Assurez-vous de réassocier correctement les entités
+                                Idcommande = lier.Idcommande,
+                                IdetatNavigation = nouvelEtat,
+                                // Vous pouvez ajouter d'autres propriétés nécessaires à Lier ici
+                            };
+
+                            // Ajouter la nouvelle relation dans le modèle
+                            monModel.Liers.Add(nouvelleRelation);
+
+                            // Marquer le nouvel objet "Lier" comme ajouté
+                            monModel.Entry(nouvelleRelation).State = EntityState.Added;
+
+                            // Sauvegarder les modifications dans la base de données
+                            try
+                            {
+                                monModel.SaveChanges(); // Sauvegarder les modifications après réassociation
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Erreur lors de la réassociation de l'état : {ex.Message}");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("L'état avec l'ID 5 n'existe pas dans la base de données.");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Commande non trouvée.");
+            }
+        
 
     }
+
+
+}
 }
 

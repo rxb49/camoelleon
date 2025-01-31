@@ -58,6 +58,7 @@
             dgvStock.Name = "dgvStock";
             dgvStock.Size = new Size(530, 232);
             dgvStock.TabIndex = 1;
+            dgvStock.CellContentClick += dgvStock_CellContentClick;
             dgvStock.CellDoubleClick += dgvStock_CellDoubleClick;
             // 
             // button1

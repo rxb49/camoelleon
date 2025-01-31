@@ -32,15 +32,17 @@
             label1 = new Label();
             dgvFacture = new DataGridView();
             bsCommande = new BindingSource(components);
+            pnl_SF = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
+            pnl_SF.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(306, 34);
+            label1.Location = new Point(305, 33);
             label1.Name = "label1";
             label1.Size = new Size(159, 28);
             label1.TabIndex = 1;
@@ -49,26 +51,38 @@
             // dgvFacture
             // 
             dgvFacture.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFacture.Location = new Point(115, 119);
+            dgvFacture.Location = new Point(114, 118);
             dgvFacture.Name = "dgvFacture";
             dgvFacture.Size = new Size(375, 200);
             dgvFacture.TabIndex = 2;
+            dgvFacture.CellContentDoubleClick += dgvFacture_CellContentDoubleClick;
+            this.dgvFacture.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacture_CellContentDoubleClick);
+
+            // 
+            // pnl_SF
+            // 
+            pnl_SF.Controls.Add(dgvFacture);
+            pnl_SF.Controls.Add(label1);
+            pnl_SF.Location = new Point(1, 0);
+            pnl_SF.Name = "pnl_SF";
+            pnl_SF.Size = new Size(784, 387);
+            pnl_SF.TabIndex = 3;
             // 
             // GestionFacture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1197, 567);
-            Controls.Add(dgvFacture);
-            Controls.Add(label1);
+            ClientSize = new Size(784, 387);
+            Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "GestionFacture";
             Text = "GestionFacture";
             Load += GestionFacture_Load;
             ((System.ComponentModel.ISupportInitialize)dgvFacture).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).EndInit();
+            pnl_SF.ResumeLayout(false);
+            pnl_SF.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -76,5 +90,6 @@
         private Label label1;
         private DataGridView dgvFacture;
         private BindingSource bsCommande;
+        private Panel pnl_SF;
     }
 }
