@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("camouelleon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+633f2622e3ec84489875bbe82504ec16de78c521")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94503cfe1ed1214e89de7a9f781e163c7e2df2b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("camouelleon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("camouelleon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
