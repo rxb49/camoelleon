@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Sockets;
@@ -64,28 +65,67 @@ namespace camouelleon
                     int nbClient = Convert.ToInt32(selectedRow.Cells["Nbclient"].Value);
                     int montantTotal = Convert.ToInt32(selectedRow.Cells["MontantTotal"].Value);
 
-                    StringBuilder factureContenu = new StringBuilder();
-                    factureContenu.AppendLine("".PadRight(50, '='));
-                    factureContenu.AppendLine("                    FACTURE");
-                    factureContenu.AppendLine("".PadRight(50, '='));
-                    factureContenu.AppendLine($"\nFacture N° : {idCommande}");
-                    factureContenu.AppendLine($"Date : {DateTime.Now.ToShortDateString()}\n");
-                    factureContenu.AppendLine("".PadRight(50, '-'));
-                    factureContenu.AppendLine($"\nNombre de clients : {nbClient}");
-                    factureContenu.AppendLine($"Montant total : {montantTotal} EUR\n");
-                    factureContenu.AppendLine("".PadRight(50, '-'));
-                    factureContenu.AppendLine("\nDétails de la commande :");
-                    factureContenu.AppendLine($"Total à payer : {montantTotal} EUR");
-                    factureContenu.AppendLine("\n".PadRight(50, '-'));
-                    factureContenu.AppendLine("\nMerci de votre confiance !");
-                    factureContenu.AppendLine("\n".PadRight(50, '='));
+                    // Créer le contenu HTML de la facture
+                    string htmlContent = $@"
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset='utf-8'>
+                <style>
+                    body {{ font-family: Arial, sans-serif; margin: 40px; }}
+                    .facture-header {{ text-align: center; margin-bottom: 30px; }}
+                    .facture-details {{ margin-bottom: 20px; }}
+                    .facture-table {{ width: 100%; border-collapse: collapse; margin: 20px 0; }}
+                    .facture-table th, .facture-table td {{ 
+                        border: 1px solid #ddd; 
+                        padding: 8px; 
+                        text-align: left; 
+                    }}
+                    .total {{ text-align: right; margin-top: 20px; }}
+                    .footer {{ text-align: center; margin-top: 50px; }}
+                </style>
+            </head>
+            <body>
+                <div class='facture-header'>
+                    <h1>FACTURE</h1>
+                    <h2>N° {idCommande}</h2>
+                    <p>Date: {DateTime.Now.ToShortDateString()}</p>
+                </div>
+                
+                <div class='facture-details'>
+                    <p><strong>Nombre de clients:</strong> {nbClient}</p>
+                </div>
 
+                <table class='facture-table'>
+                    <tr>
+                        <th>Description</th>
+                        <th>Montant</th>
+                    </tr>
+                    <tr>
+                        <td>Total des services</td>
+                        <td>{montantTotal} EUR</td>
+                    </tr>
+                </table>
+
+                <div class='total'>
+                    <h3>Total à payer: {montantTotal} EUR</h3>
+                </div>
+
+                <div class='footer'>
+                    <p>Merci de votre confiance!</p>
+                    <p>Pour toute question, veuillez nous contacter.</p>
+                </div>
+            </body>
+            </html>";
+
+                    // Chemin du fichier dans le dossier Téléchargements
                     string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
-                    string filePath = Path.Combine(downloadsPath, $"Facture_{idCommande}.txt");
+                    string htmlPath = Path.Combine(downloadsPath, $"Facture_{idCommande}.html");
 
-                    File.WriteAllText(filePath, factureContenu.ToString());
+                    // Sauvegarder le fichier HTML
+                    File.WriteAllText(htmlPath, htmlContent, System.Text.Encoding.UTF8);
 
-                    MessageBox.Show($"La facture a été générée avec succès et enregistrée dans le dossier Téléchargements sous le nom 'Facture_{idCommande}.txt'");
+                    MessageBox.Show($"La facture a été générée avec succès et enregistrée dans le dossier Téléchargements sous le nom 'Facture_{idCommande}.html'.");
                     Modele.MettreEtatFactureA5(idCommande);
                     RefreshDataGridView();
                 }
