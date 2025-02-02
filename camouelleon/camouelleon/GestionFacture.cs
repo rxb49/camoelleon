@@ -39,6 +39,12 @@ namespace camouelleon
         {
             bsCommande.DataSource = dgvFacture.DataSource = Modele.CommandesFiniesAvecMontant();
             dgvFacture.DataSource = bsCommande;
+
+            dgvFacture.Columns["Idcommande"].HeaderText = "N° Commande";
+            dgvFacture.Columns["Nbclient"].HeaderText = "Nombre de clients";
+            dgvFacture.Columns["MontantTotal"].HeaderText = "Montant total (€)";
+
+            dgvFacture.AutoResizeColumns();
         }
         private void RefreshDataGridView()
         {
