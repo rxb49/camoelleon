@@ -2349,23 +2349,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rtijou\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Robin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+      "projectUniqueName": "C:\\Users\\Robin\\Documents\\dev cours\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
       "projectName": "camouelleon",
-      "projectPath": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
-      "packagesPath": "C:\\Users\\rtijou\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rtijou\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
+      "projectPath": "C:\\Users\\Robin\\Documents\\dev cours\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+      "packagesPath": "C:\\Users\\Robin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Robin\\Documents\\dev cours\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rtijou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2443,7 +2439,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -33,6 +33,7 @@
             dgvFacture = new DataGridView();
             bsCommande = new BindingSource(components);
             pnl_SF = new Panel();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
             pnl_SF.SuspendLayout();
@@ -56,17 +57,27 @@
             dgvFacture.Size = new Size(375, 200);
             dgvFacture.TabIndex = 2;
             dgvFacture.CellContentDoubleClick += dgvFacture_CellContentDoubleClick;
-            this.dgvFacture.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacture_CellContentDoubleClick);
-
+            dgvFacture.CellDoubleClick += dgvFacture_CellContentDoubleClick;
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(dgvFacture);
             pnl_SF.Controls.Add(label1);
             pnl_SF.Location = new Point(1, 0);
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(784, 387);
             pnl_SF.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.Location = new Point(114, 339);
+            label2.Name = "label2";
+            label2.Size = new Size(375, 20);
+            label2.TabIndex = 13;
+            label2.Text = "* Double clique sur un produit pour le réapprovisionner";
             // 
             // GestionFacture
             // 
@@ -91,5 +102,6 @@
         private DataGridView dgvFacture;
         private BindingSource bsCommande;
         private Panel pnl_SF;
+        private Label label2;
     }
 }
