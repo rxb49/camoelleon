@@ -39,6 +39,8 @@
             gestionDesAdminMenuStrip = new ToolStripMenuItem();
             pnl_SF = new Panel();
             pb_pp = new PictureBox();
+            facturesToolStripMenuItem = new ToolStripMenuItem();
+            aFaireToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_pp).BeginInit();
@@ -48,11 +50,10 @@
             // 
             menuStrip1.BackColor = SystemColors.ControlLight;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { commandeToolStripMenuItem, stockToolStripMenuItem, gestionDesClientsToolStripMenuItem, gestionDesAdminMenuStrip });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { commandeToolStripMenuItem, stockToolStripMenuItem, gestionDesClientsToolStripMenuItem, gestionDesAdminMenuStrip, facturesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(7, 3, 0, 3);
-            menuStrip1.Size = new Size(914, 30);
+            menuStrip1.Size = new Size(800, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -60,27 +61,27 @@
             // 
             commandeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { priseDeCommandeToolStripMenuItem, suivieDesCommandesToolStripMenuItem, gestionDesCommandesToolStripMenuItem });
             commandeToolStripMenuItem.Name = "commandeToolStripMenuItem";
-            commandeToolStripMenuItem.Size = new Size(100, 24);
+            commandeToolStripMenuItem.Size = new Size(82, 20);
             commandeToolStripMenuItem.Text = "Commande";
             // 
             // priseDeCommandeToolStripMenuItem
             // 
             priseDeCommandeToolStripMenuItem.Name = "priseDeCommandeToolStripMenuItem";
-            priseDeCommandeToolStripMenuItem.Size = new Size(254, 26);
+            priseDeCommandeToolStripMenuItem.Size = new Size(204, 22);
             priseDeCommandeToolStripMenuItem.Text = "Prise de commande";
             priseDeCommandeToolStripMenuItem.Click += priseDeCommandeToolStripMenuItem_Click;
             // 
             // suivieDesCommandesToolStripMenuItem
             // 
             suivieDesCommandesToolStripMenuItem.Name = "suivieDesCommandesToolStripMenuItem";
-            suivieDesCommandesToolStripMenuItem.Size = new Size(254, 26);
+            suivieDesCommandesToolStripMenuItem.Size = new Size(204, 22);
             suivieDesCommandesToolStripMenuItem.Text = "Suivie des commandes";
             suivieDesCommandesToolStripMenuItem.Click += suivieDesCommandesToolStripMenuItem_Click;
             // 
             // gestionDesCommandesToolStripMenuItem
             // 
             gestionDesCommandesToolStripMenuItem.Name = "gestionDesCommandesToolStripMenuItem";
-            gestionDesCommandesToolStripMenuItem.Size = new Size(254, 26);
+            gestionDesCommandesToolStripMenuItem.Size = new Size(204, 22);
             gestionDesCommandesToolStripMenuItem.Text = "Gestion des commandes";
             gestionDesCommandesToolStripMenuItem.Click += gestionDesCommandesToolStripMenuItem_Click;
             // 
@@ -88,57 +89,70 @@
             // 
             stockToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { stockToolStripMenuItem1 });
             stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            stockToolStripMenuItem.Size = new Size(59, 24);
+            stockToolStripMenuItem.Size = new Size(48, 20);
             stockToolStripMenuItem.Text = "Stock";
             // 
             // stockToolStripMenuItem1
             // 
             stockToolStripMenuItem1.Name = "stockToolStripMenuItem1";
-            stockToolStripMenuItem1.Size = new Size(128, 26);
+            stockToolStripMenuItem1.Size = new Size(180, 22);
             stockToolStripMenuItem1.Text = "Stock";
             stockToolStripMenuItem1.Click += stockToolStripMenuItem1_Click;
             // 
             // gestionDesClientsToolStripMenuItem
             // 
             gestionDesClientsToolStripMenuItem.Name = "gestionDesClientsToolStripMenuItem";
-            gestionDesClientsToolStripMenuItem.Size = new Size(145, 24);
+            gestionDesClientsToolStripMenuItem.Size = new Size(116, 20);
             gestionDesClientsToolStripMenuItem.Text = "gestion des clients";
             // 
             // gestionDesAdminMenuStrip
             // 
             gestionDesAdminMenuStrip.Name = "gestionDesAdminMenuStrip";
-            gestionDesAdminMenuStrip.Size = new Size(205, 24);
+            gestionDesAdminMenuStrip.Size = new Size(164, 20);
             gestionDesAdminMenuStrip.Text = "gestion des administrateurs";
             // 
             // pnl_SF
             // 
             pnl_SF.Controls.Add(pb_pp);
-            pnl_SF.Location = new Point(0, 36);
-            pnl_SF.Margin = new Padding(3, 4, 3, 4);
+            pnl_SF.Location = new Point(0, 27);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(914, 568);
+            pnl_SF.Size = new Size(800, 426);
             pnl_SF.TabIndex = 1;
             pnl_SF.Paint += pnl_SF_Paint;
             // 
             // pb_pp
             // 
             pb_pp.ImageLocation = "B:\\BTSSIO_2nd_Annee\\AP4\\camoelleon_csharp\\camouelleon\\camouelleon\\Images\\logo_fond_blanc_text.png";
-            pb_pp.Location = new Point(115, 25);
+            pb_pp.Location = new Point(101, 19);
+            pb_pp.Margin = new Padding(3, 2, 3, 2);
             pb_pp.Name = "pb_pp";
-            pb_pp.Size = new Size(639, 518);
+            pb_pp.Size = new Size(559, 388);
             pb_pp.SizeMode = PictureBoxSizeMode.StretchImage;
             pb_pp.TabIndex = 9;
             pb_pp.TabStop = false;
             // 
+            // facturesToolStripMenuItem
+            // 
+            facturesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aFaireToolStripMenuItem });
+            facturesToolStripMenuItem.Name = "facturesToolStripMenuItem";
+            facturesToolStripMenuItem.Size = new Size(63, 20);
+            facturesToolStripMenuItem.Text = "Factures";
+            // 
+            // aFaireToolStripMenuItem
+            // 
+            aFaireToolStripMenuItem.Name = "aFaireToolStripMenuItem";
+            aFaireToolStripMenuItem.Size = new Size(180, 22);
+            aFaireToolStripMenuItem.Text = "A faire";
+            aFaireToolStripMenuItem.Click += aFaireToolStripMenuItem_Click;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(pnl_SF);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             menuStrip1.ResumeLayout(false);
@@ -162,5 +176,7 @@
         private Panel pnl_SF;
         private ToolStripMenuItem stockToolStripMenuItem1;
         private PictureBox pb_pp;
+        private ToolStripMenuItem facturesToolStripMenuItem;
+        private ToolStripMenuItem aFaireToolStripMenuItem;
     }
 }

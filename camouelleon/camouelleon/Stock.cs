@@ -85,5 +85,10 @@ namespace camouelleon
             dgvStock.DataSource = bsStock;
             dgvStock.Refresh();
         }
+
+        private void dgvStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

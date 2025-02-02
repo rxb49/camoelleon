@@ -53,5 +53,10 @@ namespace camouelleon
         {
 
         }
+
+        private void aFaireToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new GestionFacture());
+        }
     }
 }

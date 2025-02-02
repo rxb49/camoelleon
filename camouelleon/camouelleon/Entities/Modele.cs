@@ -310,6 +310,76 @@ namespace camouelleon.Entities
             }
         }
 
+        public static object CommandesFiniesAvecMontant()
+        {
+            return monModel.Commandes
+                .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3))
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit)
+                })
+                .ToList();
+        }
+
+        public static Commande GetCommandeById(int idCommande)
+        {
+            return monModel.Commandes
+                .Include(c => c.Liers)
+                .ThenInclude(l => l.IdetatNavigation)
+                .FirstOrDefault(c => c.Idcommande == idCommande);
+        }
+        public static void MettreEtatFactureA5(int idCommande)
+        {
+            var commande = GetCommandeById(idCommande);
+
+            if (commande != null)
+            {
+                foreach (var lier in commande.Liers.ToList()) 
+                {
+                    if (lier.IdetatNavigation != null && lier.IdetatNavigation.Idetat == 3)
+                    {
+                        monModel.Liers.Remove(lier);
+
+                        var nouvelEtat = monModel.Etats.FirstOrDefault(e => e.Idetat == 5);
+
+                        if (nouvelEtat != null)
+                        {
+                            var nouvelleRelation = new Lier
+                            {
+                                Idcommande = lier.Idcommande,
+                                IdetatNavigation = nouvelEtat,
+                            };
+                            monModel.Liers.Add(nouvelleRelation);
+                            monModel.Entry(nouvelleRelation).State = EntityState.Added;
+                            try
+                            {
+                                monModel.SaveChanges();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Erreur lors de la réassociation de l'état : {ex.Message}");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("L'état avec l'ID 5 n'existe pas dans la base de données.");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Commande non trouvée.");
+            }
+        
+
     }
+
+
+}
 }
 
