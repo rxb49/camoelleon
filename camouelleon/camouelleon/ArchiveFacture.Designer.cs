@@ -52,9 +52,9 @@
             // dgvArchive
             // 
             dgvArchive.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvArchive.Location = new Point(169, 104);
+            dgvArchive.Location = new Point(86, 100);
             dgvArchive.Name = "dgvArchive";
-            dgvArchive.Size = new Size(416, 229);
+            dgvArchive.Size = new Size(551, 229);
             dgvArchive.TabIndex = 23;
             dgvArchive.MouseDoubleClick += dgvArchive_CellContentDoubleClick;
             // 

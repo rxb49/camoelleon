@@ -10,6 +10,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.Marshalling.IIUnknownCacheStrategy;
 
 namespace camouelleon
 {
@@ -44,6 +45,12 @@ namespace camouelleon
             dgvFacture.Columns["Idcommande"].HeaderText = "N° Commande";
             dgvFacture.Columns["Nbclient"].HeaderText = "Nombre de clients";
             dgvFacture.Columns["MontantTotal"].HeaderText = "Montant total (€)";
+            dgvFacture.Columns["IdTable"].HeaderText = "N° Table";
+            dgvFacture.Columns["Zone"].HeaderText = "N° Table";
+            dgvFacture.Columns["Zone"].HeaderText = "Zone";
+            dgvFacture.Columns["NbPlaces"].HeaderText = "Nombre de places";
+
+
 
             dgvFacture.AutoResizeColumns();
         }
@@ -71,7 +78,8 @@ namespace camouelleon
                     MessageBoxIcon.Question
                 );
 
-                    if (result == DialogResult.Yes) {
+                    if (result == DialogResult.Yes)
+                    {
                         // Créer le contenu HTML de la facture
                         string htmlContent = $@"
                             <!DOCTYPE html>
@@ -136,13 +144,18 @@ namespace camouelleon
                         Modele.MettreEtatFactureA5(idCommande);
                         RefreshDataGridView();
                     }
-                        
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Erreur : {ex.Message}");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -316,14 +316,26 @@ namespace camouelleon.Entities
                 .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3))
                 .Include(c => c.Attribuers)
                     .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)
                 .Select(c => new
                 {
                     c.Idcommande,
                     c.Nbclient,
-                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit)
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+
                 })
                 .ToList();
         }
+
+
+
+
+
+
 
         public static object CommandesFiniesAvecFacture()
         {
@@ -331,11 +343,17 @@ namespace camouelleon.Entities
                 .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 5))
                 .Include(c => c.Attribuers)
                     .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)
                 .Select(c => new
                 {
                     c.Idcommande,
                     c.Nbclient,
-                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit)
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+
                 })
                 .ToList();
         }

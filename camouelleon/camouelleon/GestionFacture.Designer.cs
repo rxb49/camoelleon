@@ -33,6 +33,7 @@
             dgvFacture = new DataGridView();
             bsCommande = new BindingSource(components);
             pnl_SF = new Panel();
+            button1 = new Button();
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
@@ -52,15 +53,16 @@
             // dgvFacture
             // 
             dgvFacture.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFacture.Location = new Point(114, 118);
+            dgvFacture.Location = new Point(41, 116);
             dgvFacture.Name = "dgvFacture";
-            dgvFacture.Size = new Size(375, 200);
+            dgvFacture.Size = new Size(555, 200);
             dgvFacture.TabIndex = 2;
             dgvFacture.CellContentDoubleClick += dgvFacture_CellContentDoubleClick;
             dgvFacture.CellDoubleClick += dgvFacture_CellContentDoubleClick;
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(button1);
             pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(dgvFacture);
             pnl_SF.Controls.Add(label1);
@@ -68,6 +70,17 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(784, 387);
             pnl_SF.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.ForeColor = Color.Red;
+            button1.Location = new Point(689, 40);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 23);
+            button1.TabIndex = 23;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -103,5 +116,6 @@
         private BindingSource bsCommande;
         private Panel pnl_SF;
         private Label label2;
+        private Button button1;
     }
 }

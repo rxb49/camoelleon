@@ -35,6 +35,10 @@ namespace camouelleon
             dgvArchive.Columns["Idcommande"].HeaderText = "N° Commande";
             dgvArchive.Columns["Nbclient"].HeaderText = "Nombre de clients";
             dgvArchive.Columns["MontantTotal"].HeaderText = "Montant total (€)";
+            dgvArchive.Columns["IdTable"].HeaderText = "N° Table";
+            dgvArchive.Columns["Zone"].HeaderText = "N° Table";
+            dgvArchive.Columns["Zone"].HeaderText = "Zone";
+            dgvArchive.Columns["NbPlaces"].HeaderText = "Nombre de places";
 
             dgvArchive.AutoResizeColumns();
         }
