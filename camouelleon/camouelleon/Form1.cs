@@ -58,5 +58,10 @@ namespace camouelleon
         {
             openChildForm(new GestionFacture());
         }
+
+        private void archiveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new ArchiveFacture());
+        }
     }
 }

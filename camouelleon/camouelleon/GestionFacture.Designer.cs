@@ -75,9 +75,9 @@
             label2.Font = new Font("Segoe UI", 11F);
             label2.Location = new Point(114, 339);
             label2.Name = "label2";
-            label2.Size = new Size(375, 20);
+            label2.Size = new Size(357, 20);
             label2.TabIndex = 13;
-            label2.Text = "* Double clique sur un produit pour le réapprovisionner";
+            label2.Text = "* Double clique une commande pour créer la facture";
             // 
             // GestionFacture
             // 

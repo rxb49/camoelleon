@@ -325,6 +325,23 @@ namespace camouelleon.Entities
                 .ToList();
         }
 
+        public static object CommandesFiniesAvecFacture()
+        {
+            return monModel.Commandes
+                .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 5))
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit)
+                })
+                .ToList();
+        }
+
+
+
         public static Commande GetCommandeById(int idCommande)
         {
             return monModel.Commandes
@@ -375,11 +392,67 @@ namespace camouelleon.Entities
             {
                 MessageBox.Show("Commande non trouvée.");
             }
-        
+        }
+
+        public static void MettreEtatFactureA3(int idCommande)
+        {
+            try
+            {
+                var commande = GetCommandeById(idCommande);
+                if (commande == null)
+                {
+                    MessageBox.Show($"Commande {idCommande} non trouvée.");
+                    return;
+                }
+
+
+                bool etatModifie = false;
+                foreach (var lier in commande.Liers.ToList())
+                {
+                    if (lier.IdetatNavigation?.Idetat == 5)
+                    {
+                        var nouvelEtat = monModel.Etats.FirstOrDefault(e => e.Idetat == 3);
+                        if (nouvelEtat == null)
+                        {
+                            MessageBox.Show("L'état avec l'ID 3 n'existe pas.");
+                            continue;
+                        }
+
+                        monModel.Liers.Remove(lier);
+                        var nouvelleRelation = new Lier
+                        {
+                            Idcommande = idCommande,
+                            IdetatNavigation = nouvelEtat
+                        };
+                        monModel.Liers.Add(nouvelleRelation);
+                        etatModifie = true;
+                    }
+                }
+
+                if (etatModifie)
+                {
+                    try
+                    {
+                        monModel.SaveChanges();
+                        MessageBox.Show($"Commande {idCommande} mise à jour avec succès");
+                    }
+                    catch (Exception saveEx)
+                    {
+                        MessageBox.Show($"Erreur de sauvegarde : {saveEx.Message}");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Aucune modification d'état possible");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur générale : {ex.Message}");
+            }
+        }
+
 
     }
-
-
-}
 }
 
