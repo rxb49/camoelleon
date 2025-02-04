@@ -52,6 +52,10 @@ namespace camouelleon.Entities
         {
             return monModel.Etats.ToList();
         }
+        public static List<Table> Table()
+        {
+            return monModel.Tables.ToList();
+        }
 
         public static List<Typeproduit> TypeProduit()
         {
@@ -122,6 +126,97 @@ namespace camouelleon.Entities
                   .Include(f => f.Factures)
                   .Where(c => c.Factures.Any(f => f.Montant >= montant))
                   .ToList();
+        }
+
+        public static List<object> FactureAPayeByMontant(decimal montant)
+        {
+            return monModel.Commandes
+               .Include(c => c.Liers)
+                 .ThenInclude(l => l.IdetatNavigation)
+               .Include(c => c.Attribuers)
+                 .ThenInclude(a => a.IdproduitNavigation)
+               .Include(c => c.Idtables)
+               .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3) &&
+                           c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit) >= montant)
+               .Select(c => new
+               {
+                   c.Idcommande,
+                   c.Nbclient,
+                   MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                   IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                   Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                   NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+               })
+               .Cast<object>()
+               .ToList();
+        }
+
+        public static List<object> FacturePayeByMontant(decimal montant)
+        {
+            return monModel.Commandes
+               .Include(c => c.Liers)
+                 .ThenInclude(l => l.IdetatNavigation)
+               .Include(c => c.Attribuers)
+                 .ThenInclude(a => a.IdproduitNavigation)
+               .Include(c => c.Idtables)
+
+               .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 5) &&
+                           c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit) >= montant)
+               .Select(c => new
+               {
+                   c.Idcommande,
+                   c.Nbclient,
+                   MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                   IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                   Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                   NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+               })
+               .Cast<object>()
+               .ToList();
+        }
+
+        public static List<object> FactureAPayeByTable(int tableId)
+        {
+            return monModel.Commandes
+                .Include(c => c.Liers)
+                    .ThenInclude(l => l.IdetatNavigation)
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)  // Inclure la relation avec les tables
+                .Where(c => c.Idtables.Any(t => t.Idtable == tableId) && c.Liers.Any(l => l.IdetatNavigation.Idetat == 3))  // Filtrer par table et état = 3
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+                })
+                .Cast<object>()
+                .ToList();
+        }
+
+        public static List<object> FacturePayeByTable(int tableId)
+        {
+            return monModel.Commandes
+                .Include(c => c.Liers)
+                    .ThenInclude(l => l.IdetatNavigation)
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)  // Inclure la relation avec les tables
+                .Where(c => c.Idtables.Any(t => t.Idtable == tableId) && c.Liers.Any(l => l.IdetatNavigation.Idetat == 5))  // Filtrer par table et état = 3
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+                })
+                .Cast<object>()
+                .ToList();
         }
 
 
@@ -316,14 +411,49 @@ namespace camouelleon.Entities
                 .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3))
                 .Include(c => c.Attribuers)
                     .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)
                 .Select(c => new
                 {
                     c.Idcommande,
                     c.Nbclient,
-                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit)
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+
                 })
                 .ToList();
         }
+
+
+
+
+
+
+
+        public static object CommandesFiniesAvecFacture()
+        {
+            return monModel.Commandes
+                .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 5))
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+
+                })
+                .ToList();
+        }
+
+
 
         public static Commande GetCommandeById(int idCommande)
         {
@@ -375,11 +505,68 @@ namespace camouelleon.Entities
             {
                 MessageBox.Show("Commande non trouvée.");
             }
-        
+        }
+
+        public static void MettreEtatFactureA3(int idCommande)
+        {
+            try
+            {
+                var commande = GetCommandeById(idCommande);
+                if (commande == null)
+                {
+                    MessageBox.Show($"Commande {idCommande} non trouvée.");
+                    return;
+                }
+
+
+                bool etatModifie = false;
+                foreach (var lier in commande.Liers.ToList())
+                {
+                    if (lier.IdetatNavigation?.Idetat == 5)
+                    {
+                        var nouvelEtat = monModel.Etats.FirstOrDefault(e => e.Idetat == 3);
+                        if (nouvelEtat == null)
+                        {
+                            MessageBox.Show("L'état avec l'ID 3 n'existe pas.");
+                            continue;
+                        }
+
+                        monModel.Liers.Remove(lier);
+                        var nouvelleRelation = new Lier
+                        {
+                            Idcommande = idCommande,
+                            IdetatNavigation = nouvelEtat
+                        };
+                        monModel.Liers.Add(nouvelleRelation);
+                        etatModifie = true;
+                    }
+                }
+
+                if (etatModifie)
+                {
+                    try
+                    {
+                        monModel.SaveChanges();
+                        MessageBox.Show($"Commande {idCommande} mise à jour avec succès");
+                    }
+                    catch (Exception saveEx)
+                    {
+                        MessageBox.Show($"Erreur de sauvegarde : {saveEx.Message}");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Aucune modification d'état possible");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur générale : {ex.Message}");
+            }
+        }
+
+
 
     }
-
-
-}
 }
 

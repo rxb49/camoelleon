@@ -33,10 +33,19 @@
             dgvFacture = new DataGridView();
             bsCommande = new BindingSource(components);
             pnl_SF = new Panel();
+            cbTable = new ComboBox();
+            nmMontant = new NumericUpDown();
+            button1 = new Button();
             label2 = new Label();
+            bsMontant = new BindingSource(components);
+            bsTable = new BindingSource(components);
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
             pnl_SF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsMontant).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsTable).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -52,15 +61,19 @@
             // dgvFacture
             // 
             dgvFacture.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFacture.Location = new Point(114, 118);
+            dgvFacture.Location = new Point(41, 116);
             dgvFacture.Name = "dgvFacture";
-            dgvFacture.Size = new Size(375, 200);
+            dgvFacture.Size = new Size(555, 200);
             dgvFacture.TabIndex = 2;
             dgvFacture.CellContentDoubleClick += dgvFacture_CellContentDoubleClick;
             dgvFacture.CellDoubleClick += dgvFacture_CellContentDoubleClick;
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(button2);
+            pnl_SF.Controls.Add(cbTable);
+            pnl_SF.Controls.Add(nmMontant);
+            pnl_SF.Controls.Add(button1);
             pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(dgvFacture);
             pnl_SF.Controls.Add(label1);
@@ -69,15 +82,53 @@
             pnl_SF.Size = new Size(784, 387);
             pnl_SF.TabIndex = 3;
             // 
+            // cbTable
+            // 
+            cbTable.FormattingEnabled = true;
+            cbTable.Location = new Point(627, 171);
+            cbTable.Name = "cbTable";
+            cbTable.Size = new Size(121, 23);
+            cbTable.TabIndex = 25;
+            cbTable.SelectedIndexChanged += cbTable_SelectedIndexChanged;
+            // 
+            // nmMontant
+            // 
+            nmMontant.Location = new Point(628, 126);
+            nmMontant.Name = "nmMontant";
+            nmMontant.Size = new Size(120, 23);
+            nmMontant.TabIndex = 24;
+            nmMontant.ValueChanged += nmMontant_ValueChanged;
+            // 
+            // button1
+            // 
+            button1.ForeColor = Color.Red;
+            button1.Location = new Point(689, 40);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 23);
+            button1.TabIndex = 23;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F);
             label2.Location = new Point(114, 339);
             label2.Name = "label2";
-            label2.Size = new Size(375, 20);
+            label2.Size = new Size(357, 20);
             label2.TabIndex = 13;
-            label2.Text = "* Double clique sur un produit pour le réapprovisionner";
+            label2.Text = "* Double clique une commande pour créer la facture";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(632, 82);
+            button2.Name = "button2";
+            button2.Size = new Size(116, 23);
+            button2.TabIndex = 26;
+            button2.Text = "Tout afficher";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // GestionFacture
             // 
@@ -93,6 +144,9 @@
             ((System.ComponentModel.ISupportInitialize)bsCommande).EndInit();
             pnl_SF.ResumeLayout(false);
             pnl_SF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsMontant).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -103,5 +157,11 @@
         private BindingSource bsCommande;
         private Panel pnl_SF;
         private Label label2;
+        private Button button1;
+        private NumericUpDown nmMontant;
+        private BindingSource bsMontant;
+        private ComboBox cbTable;
+        private BindingSource bsTable;
+        private Button button2;
     }
 }
