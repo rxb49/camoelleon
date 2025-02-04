@@ -41,6 +41,12 @@ namespace camouelleon
             dgvArchive.Columns["NbPlaces"].HeaderText = "Nombre de places";
 
             dgvArchive.AutoResizeColumns();
+            nmMontant.Value = 0;
+
+            bsTable.DataSource = Modele.Table();
+            cbTable.DisplayMember = "Idtable";
+            cbTable.ValueMember = "Idtable";
+            cbTable.DataSource = bsTable;
         }
 
         private void RefreshDataGridView()
@@ -84,6 +90,26 @@ namespace camouelleon
                 MessageBox.Show("Aucune commande ne correspond au montant sélectionné.", "Filtrage", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+            dgvArchive.AutoResizeColumns();
+        }
+
+        private void cbFacture_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedTableId = (int)cbTable.SelectedValue;
+
+            // Filtrer les commandes en fonction de la table sélectionnée
+            var filteredFactures = Modele.FacturePayeByTable(selectedTableId);
+
+            // Afficher les données filtrées dans la DataGridView
+            bsArchive.DataSource = dgvArchive.DataSource = filteredFactures;
+            dgvArchive.DataSource = bsArchive;
+
+            if (bsArchive.Count == 0)
+            {
+                MessageBox.Show("Aucune commande ne correspond au montant sélectionné.", "Filtrage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            // Redimensionner les colonnes
             dgvArchive.AutoResizeColumns();
         }
     }

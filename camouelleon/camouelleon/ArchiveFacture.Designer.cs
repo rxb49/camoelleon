@@ -30,19 +30,23 @@
         {
             components = new System.ComponentModel.Container();
             pnl_SF = new Panel();
+            cbTable = new ComboBox();
+            nmMontant = new NumericUpDown();
             dgvArchive = new DataGridView();
             button1 = new Button();
             label4 = new Label();
             bsArchive = new BindingSource(components);
-            nmMontant = new NumericUpDown();
+            bsTable = new BindingSource(components);
             pnl_SF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvArchive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsArchive).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsTable).BeginInit();
             SuspendLayout();
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(cbTable);
             pnl_SF.Controls.Add(nmMontant);
             pnl_SF.Controls.Add(dgvArchive);
             pnl_SF.Controls.Add(button1);
@@ -51,6 +55,23 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(783, 386);
             pnl_SF.TabIndex = 0;
+            // 
+            // cbTable
+            // 
+            cbTable.FormattingEnabled = true;
+            cbTable.Location = new Point(656, 178);
+            cbTable.Name = "cbTable";
+            cbTable.Size = new Size(121, 23);
+            cbTable.TabIndex = 25;
+            cbTable.SelectedIndexChanged += cbFacture_SelectedIndexChanged;
+            // 
+            // nmMontant
+            // 
+            nmMontant.Location = new Point(657, 135);
+            nmMontant.Name = "nmMontant";
+            nmMontant.Size = new Size(120, 23);
+            nmMontant.TabIndex = 24;
+            nmMontant.ValueChanged += nmMontant_ValueChanged;
             // 
             // dgvArchive
             // 
@@ -82,14 +103,6 @@
             label4.TabIndex = 21;
             label4.Text = "Archive des factures";
             // 
-            // nmMontant
-            // 
-            nmMontant.Location = new Point(657, 135);
-            nmMontant.Name = "nmMontant";
-            nmMontant.Size = new Size(120, 23);
-            nmMontant.TabIndex = 24;
-            nmMontant.ValueChanged += nmMontant_ValueChanged;
-            // 
             // ArchiveFacture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -102,9 +115,10 @@
             Load += ArchiveFacture_Load;
             pnl_SF.ResumeLayout(false);
             pnl_SF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvArchive).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsArchive).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nmMontant).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -116,5 +130,7 @@
         private BindingSource bsArchive;
         private DataGridView dgvArchive;
         private NumericUpDown nmMontant;
+        private ComboBox cbTable;
+        private BindingSource bsTable;
     }
 }

@@ -33,15 +33,18 @@
             dgvFacture = new DataGridView();
             bsCommande = new BindingSource(components);
             pnl_SF = new Panel();
+            cbTable = new ComboBox();
             nmMontant = new NumericUpDown();
             button1 = new Button();
             label2 = new Label();
             bsMontant = new BindingSource(components);
+            bsTable = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsMontant).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsTable).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -66,6 +69,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(cbTable);
             pnl_SF.Controls.Add(nmMontant);
             pnl_SF.Controls.Add(button1);
             pnl_SF.Controls.Add(label2);
@@ -75,6 +79,15 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(784, 387);
             pnl_SF.TabIndex = 3;
+            // 
+            // cbTable
+            // 
+            cbTable.FormattingEnabled = true;
+            cbTable.Location = new Point(627, 171);
+            cbTable.Name = "cbTable";
+            cbTable.Size = new Size(121, 23);
+            cbTable.TabIndex = 25;
+            cbTable.SelectedIndexChanged += cbTable_SelectedIndexChanged;
             // 
             // nmMontant
             // 
@@ -121,6 +134,7 @@
             pnl_SF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nmMontant).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsMontant).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -134,5 +148,7 @@
         private Button button1;
         private NumericUpDown nmMontant;
         private BindingSource bsMontant;
+        private ComboBox cbTable;
+        private BindingSource bsTable;
     }
 }

@@ -52,6 +52,10 @@ namespace camouelleon.Entities
         {
             return monModel.Etats.ToList();
         }
+        public static List<Table> Table()
+        {
+            return monModel.Tables.ToList();
+        }
 
         public static List<Typeproduit> TypeProduit()
         {
@@ -171,6 +175,49 @@ namespace camouelleon.Entities
                .ToList();
         }
 
+        public static List<object> FactureAPayeByTable(int tableId)
+        {
+            return monModel.Commandes
+                .Include(c => c.Liers)
+                    .ThenInclude(l => l.IdetatNavigation)
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)  // Inclure la relation avec les tables
+                .Where(c => c.Idtables.Any(t => t.Idtable == tableId) && c.Liers.Any(l => l.IdetatNavigation.Idetat == 3))  // Filtrer par table et état = 3
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+                })
+                .Cast<object>()
+                .ToList();
+        }
+
+        public static List<object> FacturePayeByTable(int tableId)
+        {
+            return monModel.Commandes
+                .Include(c => c.Liers)
+                    .ThenInclude(l => l.IdetatNavigation)
+                .Include(c => c.Attribuers)
+                    .ThenInclude(a => a.IdproduitNavigation)
+                .Include(c => c.Idtables)  // Inclure la relation avec les tables
+                .Where(c => c.Idtables.Any(t => t.Idtable == tableId) && c.Liers.Any(l => l.IdetatNavigation.Idetat == 5))  // Filtrer par table et état = 3
+                .Select(c => new
+                {
+                    c.Idcommande,
+                    c.Nbclient,
+                    MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                    IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                    Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+                })
+                .Cast<object>()
+                .ToList();
+        }
 
 
         public static List<Ranger> ListAllStock()
