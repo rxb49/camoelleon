@@ -51,6 +51,7 @@ namespace camouelleon
             dgvFacture.Columns["NbPlaces"].HeaderText = "Nombre de places";
             dgvFacture.AutoResizeColumns();
 
+
             bsTable.DataSource = Modele.Table();
             cbTable.DisplayMember = "Idtable";
             cbTable.ValueMember = "Idtable";
@@ -195,6 +196,12 @@ namespace camouelleon
 
             // Redimensionner les colonnes
             dgvFacture.AutoResizeColumns();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bsCommande.DataSource = dgvFacture.DataSource = Modele.CommandesFiniesAvecMontant();
+            dgvFacture.DataSource = bsCommande;
         }
     }
 }

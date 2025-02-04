@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             pnl_SF = new Panel();
+            button2 = new Button();
             cbTable = new ComboBox();
             nmMontant = new NumericUpDown();
             dgvArchive = new DataGridView();
@@ -46,6 +47,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(button2);
             pnl_SF.Controls.Add(cbTable);
             pnl_SF.Controls.Add(nmMontant);
             pnl_SF.Controls.Add(dgvArchive);
@@ -55,6 +57,16 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(783, 386);
             pnl_SF.TabIndex = 0;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(656, 91);
+            button2.Name = "button2";
+            button2.Size = new Size(121, 23);
+            button2.TabIndex = 27;
+            button2.Text = "Tout afficher";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // cbTable
             // 
@@ -132,5 +144,6 @@
         private NumericUpDown nmMontant;
         private ComboBox cbTable;
         private BindingSource bsTable;
+        private Button button2;
     }
 }

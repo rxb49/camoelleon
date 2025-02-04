@@ -39,6 +39,7 @@
             label2 = new Label();
             bsMontant = new BindingSource(components);
             bsTable = new BindingSource(components);
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
             pnl_SF.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(button2);
             pnl_SF.Controls.Add(cbTable);
             pnl_SF.Controls.Add(nmMontant);
             pnl_SF.Controls.Add(button1);
@@ -118,6 +120,16 @@
             label2.TabIndex = 13;
             label2.Text = "* Double clique une commande pour créer la facture";
             // 
+            // button2
+            // 
+            button2.Location = new Point(632, 82);
+            button2.Name = "button2";
+            button2.Size = new Size(116, 23);
+            button2.TabIndex = 26;
+            button2.Text = "Tout afficher";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // GestionFacture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -150,5 +162,6 @@
         private BindingSource bsMontant;
         private ComboBox cbTable;
         private BindingSource bsTable;
+        private Button button2;
     }
 }

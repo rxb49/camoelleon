@@ -112,5 +112,11 @@ namespace camouelleon
             // Redimensionner les colonnes
             dgvArchive.AutoResizeColumns();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bsArchive.DataSource = dgvArchive.DataSource = Modele.CommandesFiniesAvecFacture();
+            dgvArchive.DataSource = bsArchive;
+        }
     }
 }
