@@ -33,11 +33,15 @@
             dgvFacture = new DataGridView();
             bsCommande = new BindingSource(components);
             pnl_SF = new Panel();
+            nmMontant = new NumericUpDown();
             button1 = new Button();
             label2 = new Label();
+            bsMontant = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
             pnl_SF.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsMontant).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -62,6 +66,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(nmMontant);
             pnl_SF.Controls.Add(button1);
             pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(dgvFacture);
@@ -70,6 +75,14 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(784, 387);
             pnl_SF.TabIndex = 3;
+            // 
+            // nmMontant
+            // 
+            nmMontant.Location = new Point(628, 126);
+            nmMontant.Name = "nmMontant";
+            nmMontant.Size = new Size(120, 23);
+            nmMontant.TabIndex = 24;
+            nmMontant.ValueChanged += nmMontant_ValueChanged;
             // 
             // button1
             // 
@@ -106,6 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)bsCommande).EndInit();
             pnl_SF.ResumeLayout(false);
             pnl_SF.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsMontant).EndInit();
             ResumeLayout(false);
         }
 
@@ -117,5 +132,7 @@
         private Panel pnl_SF;
         private Label label2;
         private Button button1;
+        private NumericUpDown nmMontant;
+        private BindingSource bsMontant;
     }
 }

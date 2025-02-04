@@ -34,13 +34,16 @@
             button1 = new Button();
             label4 = new Label();
             bsArchive = new BindingSource(components);
+            nmMontant = new NumericUpDown();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvArchive).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsArchive).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
             SuspendLayout();
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(nmMontant);
             pnl_SF.Controls.Add(dgvArchive);
             pnl_SF.Controls.Add(button1);
             pnl_SF.Controls.Add(label4);
@@ -79,6 +82,14 @@
             label4.TabIndex = 21;
             label4.Text = "Archive des factures";
             // 
+            // nmMontant
+            // 
+            nmMontant.Location = new Point(657, 135);
+            nmMontant.Name = "nmMontant";
+            nmMontant.Size = new Size(120, 23);
+            nmMontant.TabIndex = 24;
+            nmMontant.ValueChanged += nmMontant_ValueChanged;
+            // 
             // ArchiveFacture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -93,6 +104,7 @@
             pnl_SF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvArchive).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsArchive).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nmMontant).EndInit();
             ResumeLayout(false);
         }
 
@@ -103,5 +115,6 @@
         private Button button1;
         private BindingSource bsArchive;
         private DataGridView dgvArchive;
+        private NumericUpDown nmMontant;
     }
 }

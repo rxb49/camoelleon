@@ -72,5 +72,19 @@ namespace camouelleon
             }
         }
 
+        private void nmMontant_ValueChanged(object sender, EventArgs e)
+        {
+            decimal montantFiltre = nmMontant.Value;
+
+            bsArchive.DataSource = Modele.FacturePayeByMontant(montantFiltre);
+            dgvArchive.DataSource = bsArchive;
+
+            if (bsArchive.Count == 0)
+            {
+                MessageBox.Show("Aucune commande ne correspond au montant sélectionné.", "Filtrage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            dgvArchive.AutoResizeColumns();
+        }
     }
 }

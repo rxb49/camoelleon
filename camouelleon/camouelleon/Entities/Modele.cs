@@ -124,6 +124,54 @@ namespace camouelleon.Entities
                   .ToList();
         }
 
+        public static List<object> FactureAPayeByMontant(decimal montant)
+        {
+            return monModel.Commandes
+               .Include(c => c.Liers)
+                 .ThenInclude(l => l.IdetatNavigation)
+               .Include(c => c.Attribuers)
+                 .ThenInclude(a => a.IdproduitNavigation)
+               .Include(c => c.Idtables)
+               .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3) &&
+                           c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit) >= montant)
+               .Select(c => new
+               {
+                   c.Idcommande,
+                   c.Nbclient,
+                   MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                   IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                   Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                   NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+               })
+               .Cast<object>()
+               .ToList();
+        }
+
+        public static List<object> FacturePayeByMontant(decimal montant)
+        {
+            return monModel.Commandes
+               .Include(c => c.Liers)
+                 .ThenInclude(l => l.IdetatNavigation)
+               .Include(c => c.Attribuers)
+                 .ThenInclude(a => a.IdproduitNavigation)
+               .Include(c => c.Idtables)
+
+               .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 5) &&
+                           c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit) >= montant)
+               .Select(c => new
+               {
+                   c.Idcommande,
+                   c.Nbclient,
+                   MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
+                   IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
+                   Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
+                   NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
+               })
+               .Cast<object>()
+               .ToList();
+        }
+
+
 
         public static List<Ranger> ListAllStock()
         {
@@ -469,6 +517,7 @@ namespace camouelleon.Entities
                 MessageBox.Show($"Erreur générale : {ex.Message}");
             }
         }
+
 
 
     }
