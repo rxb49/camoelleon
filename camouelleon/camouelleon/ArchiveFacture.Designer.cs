@@ -30,6 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             pnl_SF = new Panel();
+            Table = new Label();
+            Montant = new Label();
             button2 = new Button();
             cbTable = new ComboBox();
             nmMontant = new NumericUpDown();
@@ -38,8 +40,6 @@
             label4 = new Label();
             bsArchive = new BindingSource(components);
             bsTable = new BindingSource(components);
-            Montant = new Label();
-            Table = new Label();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvArchive).BeginInit();
@@ -61,6 +61,24 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(900, 386);
             pnl_SF.TabIndex = 0;
+            // 
+            // Table
+            // 
+            Table.AutoSize = true;
+            Table.Location = new Point(656, 191);
+            Table.Name = "Table";
+            Table.Size = new Size(35, 15);
+            Table.TabIndex = 29;
+            Table.Text = "Table";
+            // 
+            // Montant
+            // 
+            Montant.AutoSize = true;
+            Montant.Location = new Point(660, 129);
+            Montant.Name = "Montant";
+            Montant.Size = new Size(53, 15);
+            Montant.TabIndex = 28;
+            Montant.Text = "Montant";
             // 
             // button2
             // 
@@ -91,6 +109,7 @@
             // 
             // dgvArchive
             // 
+            dgvArchive.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvArchive.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvArchive.Location = new Point(86, 100);
             dgvArchive.Name = "dgvArchive";
@@ -118,24 +137,6 @@
             label4.Size = new Size(185, 28);
             label4.TabIndex = 21;
             label4.Text = "Archive des factures";
-            // 
-            // Montant
-            // 
-            Montant.AutoSize = true;
-            Montant.Location = new Point(660, 129);
-            Montant.Name = "Montant";
-            Montant.Size = new Size(53, 15);
-            Montant.TabIndex = 28;
-            Montant.Text = "Montant";
-            // 
-            // Table
-            // 
-            Table.AutoSize = true;
-            Table.Location = new Point(656, 191);
-            Table.Name = "Table";
-            Table.Size = new Size(35, 15);
-            Table.TabIndex = 29;
-            Table.Text = "Table";
             // 
             // ArchiveFacture
             // 

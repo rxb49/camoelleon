@@ -62,6 +62,7 @@
             // 
             // dgvFacture
             // 
+            dgvFacture.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFacture.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvFacture.Location = new Point(41, 116);
             dgvFacture.Name = "dgvFacture";

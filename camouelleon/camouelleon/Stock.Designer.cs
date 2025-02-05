@@ -53,6 +53,7 @@
             // 
             // dgvStock
             // 
+            dgvStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStock.Location = new Point(116, 94);
             dgvStock.Name = "dgvStock";
