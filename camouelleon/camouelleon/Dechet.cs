@@ -16,6 +16,47 @@ namespace camouelleon
         public Dechet()
         {
             InitializeComponent();
+            bsProduit.DataSource = Modele.Produits();
+            cbProduit.DisplayMember = "Lblproduit";
+            cbProduit.ValueMember = "Idproduit";
+            cbProduit.DataSource = bsProduit;
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Récupérer le produit sélectionné dans le ComboBox
+                var produit = (Produit)cbProduit.SelectedItem;
+
+                // Récupérer la quantité sélectionnée dans le NumericUpDown
+                int quantite = (int)nmQuantite.Value;
+
+                // Récupérer la date sélectionnée dans le DateTimePicker
+                DateOnly date = DateOnly.FromDateTime(dtpDate.Value);
+
+                // Appeler la méthode AjouterDechet
+                bool success = Modele.AjouterDechet(produit, quantite, date);
+
+                // Afficher un message en fonction du résultat
+                if (success)
+                {
+                    MessageBox.Show("Déchet ajouté avec succès.");
+                }
+                else
+                {
+                    MessageBox.Show("Erreur lors de l'ajout du déchet.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur : {ex.Message}");
+            }
+        }
+
+        private void nmQuantite_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

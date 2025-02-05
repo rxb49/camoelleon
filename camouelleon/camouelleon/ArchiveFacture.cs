@@ -29,21 +29,19 @@ namespace camouelleon
 
         private void ArchiveFacture_Load(object sender, EventArgs e)
         {
-            bsArchive.DataSource = dgvArchive.DataSource = Modele.CommandesFiniesAvecFacture();
+            bsArchive.DataSource = dgvArchive.DataSource = Modele.CommandesFiniesAvecMontant();
             dgvArchive.DataSource = bsArchive;
 
             dgvArchive.Columns["Idcommande"].HeaderText = "N° Commande";
             dgvArchive.Columns["Nbclient"].HeaderText = "Nombre de clients";
             dgvArchive.Columns["MontantTotal"].HeaderText = "Montant total (€)";
             dgvArchive.Columns["IdTable"].HeaderText = "N° Table";
-            dgvArchive.Columns["Zone"].HeaderText = "N° Table";
             dgvArchive.Columns["Zone"].HeaderText = "Zone";
             dgvArchive.Columns["NbPlaces"].HeaderText = "Nombre de places";
 
-            dgvArchive.AutoResizeColumns();
             nmMontant.Value = 0;
-            Modele.Table().Insert(0, new Table { Idtable = -1, Idzone = 1 });
 
+            Modele.Table().Insert(0, new Table { Idtable = -1, Idzone = 1 });
             bsTable.DataSource = Modele.Table();
             cbTable.DisplayMember = "Idtable";
             cbTable.ValueMember = "Idtable";

@@ -419,29 +419,25 @@ namespace camouelleon.Entities
         public static object CommandesFiniesAvecMontant()
         {
             return monModel.Commandes
-                .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3))
+                .Where(c => c.Liers.Any(l => l.IdetatNavigation.Idetat == 3)) // Filtrage des commandes avec état 3
                 .Include(c => c.Attribuers)
                     .ThenInclude(a => a.IdproduitNavigation)
-                .Include(c => c.Idtables)
+                .Include(c => c.Liers) // Inclure Liers pour accéder à Dateheure
+                .Include(c => c.Idtables) // Inclure les tables liées
                 .Select(c => new
                 {
                     c.Idcommande,
                     c.Nbclient,
                     MontantTotal = c.Attribuers.Sum(a => a.Quantite * a.IdproduitNavigation.Prixproduit),
 
+                    // IdTable, Zone et NbPlaces avec string.Join pour gérer plusieurs tables
                     IdTable = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idtable)) : "Aucune",
                     Zone = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Idzone)) : "Non défini",
-                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini"
-
+                    NbPlaces = c.Idtables.Any() ? string.Join(", ", c.Idtables.Select(t => t.Nbplace)) : "Non défini",
+                
                 })
                 .ToList();
         }
-
-
-
-
-
-
 
         public static object CommandesFiniesAvecFacture()
         {
@@ -575,6 +571,62 @@ namespace camouelleon.Entities
                 MessageBox.Show($"Erreur générale : {ex.Message}");
             }
         }
+
+
+        public static bool AjouterDechet(Produit produit, int quantite, DateOnly date)
+        {
+            bool vretour = true;
+            try
+            {
+                // Récupérer la quantité disponible dans le stock pour ce produit
+                var stockProduit = monModel.Rangers
+                    .FirstOrDefault(r => r.Idproduit == produit.Idproduit); // Trouver le stock du produit
+
+                // Vérifier si le produit existe dans le stock
+                if (stockProduit == null)
+                {
+                    MessageBox.Show("Le produit n'existe pas dans le stock.");
+                    return false;
+                }
+
+                // Si la quantité demandée est supérieure à la quantité en stock, afficher un message d'erreur
+                if (quantite > stockProduit.Quantite)
+                {
+                    MessageBox.Show("Quantité insuffisante en stock.");
+                    return false;
+                }
+
+                // Créer un nouveau déchet
+                Dechet dechet = new Dechet
+                {
+                    Quantite = quantite,
+                    Datejeter = date
+                };
+
+                // Ajouter le produit à la collection de produits du déchet
+                dechet.Idproduits.Add(produit);
+                monModel.Dechets.Add(dechet);
+
+                // Mise à jour de la quantité du produit dans le stock
+                stockProduit.Quantite -= quantite;  // Réduire la quantité en stock
+
+                // Marquer l'entité Ranger comme modifiée
+                monModel.Entry(stockProduit).State = EntityState.Modified;
+
+                // Sauvegarder les modifications dans la base de données
+                monModel.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout du déchet : {ex.Message}");
+                vretour = false;
+            }
+
+            return vretour;
+        }
+
+
+
 
     }
 }
