@@ -40,9 +40,9 @@
             facturesToolStripMenuItem = new ToolStripMenuItem();
             aFaireToolStripMenuItem = new ToolStripMenuItem();
             archiveToolStripMenuItem = new ToolStripMenuItem();
+            déchetsToolStripMenuItem = new ToolStripMenuItem();
             pnl_SF = new Panel();
             pb_pp = new PictureBox();
-            déchetsToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_pp).BeginInit();
@@ -134,6 +134,13 @@
             archiveToolStripMenuItem.Text = "Archive";
             archiveToolStripMenuItem.Click += archiveToolStripMenuItem_Click;
             // 
+            // déchetsToolStripMenuItem
+            // 
+            déchetsToolStripMenuItem.Name = "déchetsToolStripMenuItem";
+            déchetsToolStripMenuItem.Size = new Size(61, 20);
+            déchetsToolStripMenuItem.Text = "Déchets";
+            déchetsToolStripMenuItem.Click += déchetsToolStripMenuItem_Click;
+            // 
             // pnl_SF
             // 
             pnl_SF.Controls.Add(pb_pp);
@@ -154,13 +161,6 @@
             pb_pp.TabIndex = 9;
             pb_pp.TabStop = false;
             // 
-            // déchetsToolStripMenuItem
-            // 
-            déchetsToolStripMenuItem.Name = "déchetsToolStripMenuItem";
-            déchetsToolStripMenuItem.Size = new Size(61, 20);
-            déchetsToolStripMenuItem.Text = "Déchets";
-            déchetsToolStripMenuItem.Click += déchetsToolStripMenuItem_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -170,7 +170,10 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
+            StartPosition = FormStartPosition.Manual;
             Text = "Form1";
+            WindowState = FormWindowState.Maximized;
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pnl_SF.ResumeLayout(false);

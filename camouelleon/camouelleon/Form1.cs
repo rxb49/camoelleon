@@ -5,6 +5,11 @@ namespace camouelleon
         public Form1()
         {
             InitializeComponent();
+
+            this.WindowState = FormWindowState.Maximized;  // Maximiser la fenêtre
+
+            // Adapter le formulaire à la taille de l'écran principal
+            this.Bounds = Screen.PrimaryScreen.Bounds;
         }
 
         public Form activeForm = null;
@@ -14,12 +19,21 @@ namespace camouelleon
                 activeForm.Close();
 
             activeForm = formEnfant;
+
             formEnfant.TopLevel = false;
             formEnfant.FormBorderStyle = FormBorderStyle.None;
-            formEnfant.Dock = DockStyle.Fill;
+            formEnfant.Dock = DockStyle.None; 
+
             pnl_SF.Controls.Add(formEnfant);
             pnl_SF.Tag = formEnfant;
+
+            int xPos = (pnl_SF.ClientSize.Width - formEnfant.Width) / 2;
+            int yPos = (pnl_SF.ClientSize.Height - formEnfant.Height) / 2;
+
+            formEnfant.Location = new Point(xPos, yPos);
+
             formEnfant.BringToFront();
+
             formEnfant.Show();
         }
 
@@ -67,6 +81,12 @@ namespace camouelleon
         private void déchetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new Dechet());
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            pnl_SF.Location = new Point(0, menuStrip1.Height); // Déplacer le panneau juste sous la navbar
+            pnl_SF.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - menuStrip1.Height); // Ajuster la taille du panneau
         }
     }
 }

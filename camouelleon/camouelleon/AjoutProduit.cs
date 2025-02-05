@@ -31,6 +31,9 @@ namespace camouelleon
         public AjoutProduit()
         {
             InitializeComponent();
+            this.Bounds = Screen.PrimaryScreen.Bounds;
+
+
         }
 
         private Stock parentForm;
@@ -130,5 +133,9 @@ namespace camouelleon
 
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
