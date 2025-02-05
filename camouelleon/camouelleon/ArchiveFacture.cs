@@ -42,11 +42,14 @@ namespace camouelleon
 
             dgvArchive.AutoResizeColumns();
             nmMontant.Value = 0;
+            Modele.Table().Insert(0, new Table { Idtable = -1, Idzone = 1 });
 
             bsTable.DataSource = Modele.Table();
             cbTable.DisplayMember = "Idtable";
             cbTable.ValueMember = "Idtable";
             cbTable.DataSource = bsTable;
+            cbTable.Text = "Sélectionner une table";
+
         }
 
         private void RefreshDataGridView()
@@ -95,21 +98,27 @@ namespace camouelleon
 
         private void cbFacture_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbTable.SelectedValue == null) return;
+
             var selectedTableId = (int)cbTable.SelectedValue;
 
-            // Filtrer les commandes en fonction de la table sélectionnée
-            var filteredFactures = Modele.FacturePayeByTable(selectedTableId);
-
-            // Afficher les données filtrées dans la DataGridView
-            bsArchive.DataSource = dgvArchive.DataSource = filteredFactures;
-            dgvArchive.DataSource = bsArchive;
+            // Si "Toutes les tables" est sélectionné
+            if (selectedTableId == -1)
+            {
+                bsArchive.DataSource = dgvArchive.DataSource = Modele.CommandesFiniesAvecMontant();
+            }
+            else
+            {
+                // Filtrer les commandes en fonction de la table sélectionnée
+                var filteredFactures = Modele.FactureAPayeByTable(selectedTableId);
+                bsArchive.DataSource = dgvArchive.DataSource = filteredFactures;
+            }
 
             if (bsArchive.Count == 0)
             {
                 MessageBox.Show("Aucune commande ne correspond au montant sélectionné.", "Filtrage", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // Redimensionner les colonnes
             dgvArchive.AutoResizeColumns();
         }
 

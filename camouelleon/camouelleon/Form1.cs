@@ -63,5 +63,10 @@ namespace camouelleon
         {
             openChildForm(new ArchiveFacture());
         }
+
+        private void déchetsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Dechet());
+        }
     }
 }
