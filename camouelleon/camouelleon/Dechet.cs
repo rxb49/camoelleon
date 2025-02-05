@@ -15,13 +15,27 @@ namespace camouelleon
     {
         public Dechet()
         {
+
             InitializeComponent();
+
+            bsDechet.DataSource = dgvDechets.DataSource = Modele.Dechets();
+            dgvDechets.DataSource = bsDechet;
+            dgvDechets.Columns["Idproduits"].Visible = false;  // Masquer la colonne par son nom
+
+
             bsProduit.DataSource = Modele.Produits();
             cbProduit.DisplayMember = "Lblproduit";
             cbProduit.ValueMember = "Idproduit";
             cbProduit.DataSource = bsProduit;
         }
 
+        private void RefreshDataGridView()
+        {
+            bsDechet.DataSource = Modele.Dechets();
+
+            dgvDechets.DataSource = bsDechet;
+            dgvDechets.Refresh();
+        }
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             try
@@ -42,6 +56,7 @@ namespace camouelleon
                 if (success)
                 {
                     MessageBox.Show("Déchet ajouté avec succès.");
+                    RefreshDataGridView();
                 }
                 else
                 {
@@ -57,6 +72,11 @@ namespace camouelleon
         private void nmQuantite_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

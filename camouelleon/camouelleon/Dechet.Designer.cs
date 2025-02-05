@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvDechets = new DataGridView();
             cbProduit = new ComboBox();
             nmQuantite = new NumericUpDown();
             dtpDate = new DateTimePicker();
@@ -40,9 +40,12 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            bsDechet = new BindingSource(components);
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvDechets).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nmQuantite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsProduit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsDechet).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -55,13 +58,13 @@
             label1.TabIndex = 0;
             label1.Text = "Déchets";
             // 
-            // dataGridView1
+            // dgvDechets
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(35, 117);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(493, 216);
-            dataGridView1.TabIndex = 1;
+            dgvDechets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDechets.Location = new Point(35, 117);
+            dgvDechets.Name = "dgvDechets";
+            dgvDechets.Size = new Size(493, 216);
+            dgvDechets.TabIndex = 1;
             // 
             // cbProduit
             // 
@@ -133,11 +136,23 @@
             label5.TabIndex = 9;
             label5.Text = "Date";
             // 
+            // button1
+            // 
+            button1.ForeColor = Color.Red;
+            button1.Location = new Point(899, 36);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 23);
+            button1.TabIndex = 23;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Dechet
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 500);
+            Controls.Add(button1);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -146,14 +161,15 @@
             Controls.Add(dtpDate);
             Controls.Add(nmQuantite);
             Controls.Add(cbProduit);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvDechets);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Dechet";
             Text = "Dechet";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDechets).EndInit();
             ((System.ComponentModel.ISupportInitialize)nmQuantite).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsProduit).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsDechet).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -161,7 +177,7 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvDechets;
         private ComboBox cbProduit;
         private NumericUpDown nmQuantite;
         private DateTimePicker dtpDate;
@@ -171,5 +187,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private BindingSource bsDechet;
+        private Button button1;
     }
 }
