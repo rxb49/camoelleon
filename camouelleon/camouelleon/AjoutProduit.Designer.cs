@@ -123,6 +123,7 @@
             btnAjout.TabIndex = 22;
             btnAjout.Text = "Ajouter le produit";
             btnAjout.UseVisualStyleBackColor = true;
+            btnAjout.Click += btnAjout_Click_1;
             // 
             // cmbUnite
             // 

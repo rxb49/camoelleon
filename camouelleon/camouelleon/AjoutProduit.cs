@@ -50,7 +50,34 @@ namespace camouelleon
             this.Close();
         }
 
-        private void btnAjout_Click(object sender, EventArgs e)
+
+        private void AjoutProduit_Load(object sender, EventArgs e)
+        {
+            cmbUnite.ValueMember = "Idunite";
+            cmbUnite.DisplayMember = "Lblunite";
+            bsUnite.DataSource = Modele.listeUnite();
+            cmbUnite.DataSource = bsUnite;
+
+            cbType.ValueMember = "Id";
+            cbType.DisplayMember = "Libelle";
+            bsType.DataSource = Modele.TypeProduit();
+            cbType.DataSource = bsType;
+
+            cbStock.ValueMember = "Idstock";
+            cbStock.DisplayMember = "Lblstock";
+            bsStock.DataSource = Modele.ListStock();
+            cbStock.DataSource = bsStock;
+
+
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAjout_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -108,34 +135,6 @@ namespace camouelleon
             {
                 MessageBox.Show($"Erreur : {ex.Message}\n{ex.InnerException?.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-
-
-        private void AjoutProduit_Load(object sender, EventArgs e)
-        {
-            cmbUnite.ValueMember = "Idunite";
-            cmbUnite.DisplayMember = "Lblunite";
-            bsUnite.DataSource = Modele.listeUnite();
-            cmbUnite.DataSource = bsUnite;
-
-            cbType.ValueMember = "Id";
-            cbType.DisplayMember = "Libelle";
-            bsType.DataSource = Modele.TypeProduit();
-            cbType.DataSource = bsType;
-
-            cbStock.ValueMember = "Idstock";
-            cbStock.DisplayMember = "Lblstock";
-            bsStock.DataSource = Modele.ListStock();
-            cbStock.DataSource = bsStock;
-
-
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
