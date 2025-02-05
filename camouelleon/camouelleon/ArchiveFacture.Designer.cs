@@ -38,6 +38,8 @@
             label4 = new Label();
             bsArchive = new BindingSource(components);
             bsTable = new BindingSource(components);
+            Montant = new Label();
+            Table = new Label();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvArchive).BeginInit();
@@ -47,6 +49,8 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(Table);
+            pnl_SF.Controls.Add(Montant);
             pnl_SF.Controls.Add(button2);
             pnl_SF.Controls.Add(cbTable);
             pnl_SF.Controls.Add(nmMontant);
@@ -55,14 +59,14 @@
             pnl_SF.Controls.Add(label4);
             pnl_SF.Location = new Point(0, 0);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(783, 386);
+            pnl_SF.Size = new Size(900, 386);
             pnl_SF.TabIndex = 0;
             // 
             // button2
             // 
             button2.Location = new Point(656, 91);
             button2.Name = "button2";
-            button2.Size = new Size(121, 23);
+            button2.Size = new Size(187, 23);
             button2.TabIndex = 27;
             button2.Text = "Tout afficher";
             button2.UseVisualStyleBackColor = true;
@@ -71,17 +75,17 @@
             // cbTable
             // 
             cbTable.FormattingEnabled = true;
-            cbTable.Location = new Point(656, 178);
+            cbTable.Location = new Point(657, 209);
             cbTable.Name = "cbTable";
-            cbTable.Size = new Size(121, 23);
+            cbTable.Size = new Size(187, 23);
             cbTable.TabIndex = 25;
             cbTable.SelectedIndexChanged += cbFacture_SelectedIndexChanged;
             // 
             // nmMontant
             // 
-            nmMontant.Location = new Point(657, 135);
+            nmMontant.Location = new Point(656, 153);
             nmMontant.Name = "nmMontant";
-            nmMontant.Size = new Size(120, 23);
+            nmMontant.Size = new Size(186, 23);
             nmMontant.TabIndex = 24;
             nmMontant.ValueChanged += nmMontant_ValueChanged;
             // 
@@ -115,11 +119,29 @@
             label4.TabIndex = 21;
             label4.Text = "Archive des factures";
             // 
+            // Montant
+            // 
+            Montant.AutoSize = true;
+            Montant.Location = new Point(660, 129);
+            Montant.Name = "Montant";
+            Montant.Size = new Size(53, 15);
+            Montant.TabIndex = 28;
+            Montant.Text = "Montant";
+            // 
+            // Table
+            // 
+            Table.AutoSize = true;
+            Table.Location = new Point(656, 191);
+            Table.Name = "Table";
+            Table.Size = new Size(35, 15);
+            Table.TabIndex = 29;
+            Table.Text = "Table";
+            // 
             // ArchiveFacture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(783, 386);
+            ClientSize = new Size(900, 386);
             Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ArchiveFacture";
@@ -145,5 +167,7 @@
         private ComboBox cbTable;
         private BindingSource bsTable;
         private Button button2;
+        private Label Table;
+        private Label Montant;
     }
 }

@@ -33,13 +33,15 @@
             dgvFacture = new DataGridView();
             bsCommande = new BindingSource(components);
             pnl_SF = new Panel();
+            Table = new Label();
+            Montant = new Label();
+            button2 = new Button();
             cbTable = new ComboBox();
             nmMontant = new NumericUpDown();
             button1 = new Button();
             label2 = new Label();
             bsMontant = new BindingSource(components);
             bsTable = new BindingSource(components);
-            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFacture).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsCommande).BeginInit();
             pnl_SF.SuspendLayout();
@@ -70,6 +72,8 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(Table);
+            pnl_SF.Controls.Add(Montant);
             pnl_SF.Controls.Add(button2);
             pnl_SF.Controls.Add(cbTable);
             pnl_SF.Controls.Add(nmMontant);
@@ -79,23 +83,51 @@
             pnl_SF.Controls.Add(label1);
             pnl_SF.Location = new Point(1, 0);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(784, 387);
+            pnl_SF.Size = new Size(900, 387);
             pnl_SF.TabIndex = 3;
+            // 
+            // Table
+            // 
+            Table.AutoSize = true;
+            Table.Location = new Point(627, 191);
+            Table.Name = "Table";
+            Table.Size = new Size(35, 15);
+            Table.TabIndex = 31;
+            Table.Text = "Table";
+            // 
+            // Montant
+            // 
+            Montant.AutoSize = true;
+            Montant.Location = new Point(627, 135);
+            Montant.Name = "Montant";
+            Montant.Size = new Size(53, 15);
+            Montant.TabIndex = 30;
+            Montant.Text = "Montant";
+            // 
+            // button2
+            // 
+            button2.Location = new Point(627, 82);
+            button2.Name = "button2";
+            button2.Size = new Size(202, 23);
+            button2.TabIndex = 26;
+            button2.Text = "Tout afficher";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // cbTable
             // 
             cbTable.FormattingEnabled = true;
-            cbTable.Location = new Point(627, 171);
+            cbTable.Location = new Point(628, 209);
             cbTable.Name = "cbTable";
-            cbTable.Size = new Size(121, 23);
+            cbTable.Size = new Size(202, 23);
             cbTable.TabIndex = 25;
             cbTable.SelectedIndexChanged += cbTable_SelectedIndexChanged;
             // 
             // nmMontant
             // 
-            nmMontant.Location = new Point(628, 126);
+            nmMontant.Location = new Point(627, 153);
             nmMontant.Name = "nmMontant";
-            nmMontant.Size = new Size(120, 23);
+            nmMontant.Size = new Size(201, 23);
             nmMontant.TabIndex = 24;
             nmMontant.ValueChanged += nmMontant_ValueChanged;
             // 
@@ -120,21 +152,11 @@
             label2.TabIndex = 13;
             label2.Text = "* Double clique une commande pour créer la facture";
             // 
-            // button2
-            // 
-            button2.Location = new Point(632, 82);
-            button2.Name = "button2";
-            button2.Size = new Size(116, 23);
-            button2.TabIndex = 26;
-            button2.Text = "Tout afficher";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // GestionFacture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 387);
+            ClientSize = new Size(900, 387);
             Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "GestionFacture";
@@ -163,5 +185,7 @@
         private ComboBox cbTable;
         private BindingSource bsTable;
         private Button button2;
+        private Label Table;
+        private Label Montant;
     }
 }

@@ -67,6 +67,11 @@ namespace camouelleon.Entities
             return monModel.Stocks.ToList();
         }
 
+        public static List<Dechet> Dechets()
+        {
+            return monModel.Dechets.ToList();
+        }
+
         public static List<Commande> CommandeWithEtat()
         {
             return monModel.Commandes.Include(c => c.Liers)
@@ -81,6 +86,12 @@ namespace camouelleon.Entities
         public static List<Produit> GetProduitByType(int type)
         {
             List<Produit> lesPorduit = monModel.Produits.Where(p => p.Idtype == type).ToList();
+            return lesPorduit;
+        }
+
+        public static List<Produit> GetProduitById(int id)
+        {
+            List<Produit> lesPorduit = monModel.Produits.Where(p => p.Idproduit == id).ToList();
             return lesPorduit;
         }
 
@@ -564,8 +575,6 @@ namespace camouelleon.Entities
                 MessageBox.Show($"Erreur générale : {ex.Message}");
             }
         }
-
-
 
     }
 }

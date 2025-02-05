@@ -39,9 +39,10 @@
             gestionDesAdminMenuStrip = new ToolStripMenuItem();
             facturesToolStripMenuItem = new ToolStripMenuItem();
             aFaireToolStripMenuItem = new ToolStripMenuItem();
+            archiveToolStripMenuItem = new ToolStripMenuItem();
+            déchetsToolStripMenuItem = new ToolStripMenuItem();
             pnl_SF = new Panel();
             pb_pp = new PictureBox();
-            archiveToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_pp).BeginInit();
@@ -51,7 +52,7 @@
             // 
             menuStrip1.BackColor = SystemColors.ControlLight;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { commandeToolStripMenuItem, stockToolStripMenuItem, gestionDesClientsToolStripMenuItem, gestionDesAdminMenuStrip, facturesToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { commandeToolStripMenuItem, stockToolStripMenuItem, gestionDesClientsToolStripMenuItem, gestionDesAdminMenuStrip, facturesToolStripMenuItem, déchetsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -122,9 +123,23 @@
             // aFaireToolStripMenuItem
             // 
             aFaireToolStripMenuItem.Name = "aFaireToolStripMenuItem";
-            aFaireToolStripMenuItem.Size = new Size(180, 22);
+            aFaireToolStripMenuItem.Size = new Size(114, 22);
             aFaireToolStripMenuItem.Text = "A faire";
             aFaireToolStripMenuItem.Click += aFaireToolStripMenuItem_Click;
+            // 
+            // archiveToolStripMenuItem
+            // 
+            archiveToolStripMenuItem.Name = "archiveToolStripMenuItem";
+            archiveToolStripMenuItem.Size = new Size(114, 22);
+            archiveToolStripMenuItem.Text = "Archive";
+            archiveToolStripMenuItem.Click += archiveToolStripMenuItem_Click;
+            // 
+            // déchetsToolStripMenuItem
+            // 
+            déchetsToolStripMenuItem.Name = "déchetsToolStripMenuItem";
+            déchetsToolStripMenuItem.Size = new Size(61, 20);
+            déchetsToolStripMenuItem.Text = "Déchets";
+            déchetsToolStripMenuItem.Click += déchetsToolStripMenuItem_Click;
             // 
             // pnl_SF
             // 
@@ -146,13 +161,6 @@
             pb_pp.TabIndex = 9;
             pb_pp.TabStop = false;
             // 
-            // archiveToolStripMenuItem
-            // 
-            archiveToolStripMenuItem.Name = "archiveToolStripMenuItem";
-            archiveToolStripMenuItem.Size = new Size(180, 22);
-            archiveToolStripMenuItem.Text = "Archive";
-            archiveToolStripMenuItem.Click += archiveToolStripMenuItem_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -162,7 +170,10 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
+            StartPosition = FormStartPosition.Manual;
             Text = "Form1";
+            WindowState = FormWindowState.Maximized;
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pnl_SF.ResumeLayout(false);
@@ -187,5 +198,6 @@
         private ToolStripMenuItem facturesToolStripMenuItem;
         private ToolStripMenuItem aFaireToolStripMenuItem;
         private ToolStripMenuItem archiveToolStripMenuItem;
+        private ToolStripMenuItem déchetsToolStripMenuItem;
     }
 }
