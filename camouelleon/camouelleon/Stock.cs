@@ -45,7 +45,10 @@ namespace camouelleon
             {
                 Produit = x.IdproduitNavigation.Lblproduit,
                 Stock = x.IdstockNavigation.Lblstock,
-                x.Quantite
+                x.Quantite,
+                Allergie = x.IdproduitNavigation.Idallergies.Any()
+                    ? string.Join(", ", x.IdproduitNavigation.Idallergies.Select(a => a.Lblallergie))
+                    : "Aucune allergie"
             }).ToList();
             dgvStock.DataSource = bsStock;
         }
@@ -79,7 +82,10 @@ namespace camouelleon
             {
                 Produit = x.IdproduitNavigation.Lblproduit,
                 Stock = x.IdstockNavigation.Lblstock,
-                x.Quantite
+                x.Quantite,
+                Allergie = x.IdproduitNavigation.Idallergies.Any()
+                            ? string.Join(", ", x.IdproduitNavigation.Idallergies.Select(a => a.Lblallergie))
+                            : "Aucune allergie" // Affiche "Aucune allergie" si aucune allergie n'est associée
             }).ToList();
 
             dgvStock.DataSource = bsStock;
