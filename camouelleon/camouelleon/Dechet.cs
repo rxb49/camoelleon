@@ -23,6 +23,10 @@ namespace camouelleon
             dgvDechets.DataSource = bsDechet;
             dgvDechets.Columns["Idproduits"].Visible = false;
 
+            // Modifier les noms des colonnes de la DataGridView
+            dgvDechets.Columns["Datejeter"].HeaderText = "Date du déchet";
+            dgvDechets.Columns["Iddechet"].HeaderText = "Déchet";
+
             // Associer les produits au ComboBox
             bsProduit.DataSource = Modele.Produits();
             cbProduit.DisplayMember = "Lblproduit";

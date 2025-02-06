@@ -121,6 +121,7 @@
             // 
             // dgvArchive
             // 
+            dgvArchive.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvArchive.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvArchive.Location = new Point(22, 151);
             dgvArchive.Name = "dgvArchive";

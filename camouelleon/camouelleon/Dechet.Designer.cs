@@ -60,6 +60,7 @@
             // 
             // dgvDechets
             // 
+            dgvDechets.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDechets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDechets.Enabled = false;
             dgvDechets.Location = new Point(12, 154);
