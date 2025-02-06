@@ -298,7 +298,6 @@ namespace camouelleon.Entities
                 return false;
             }
         }
-
         public static Produit RecupererProduit(string produit)
         {
             Produit monProduit = new Produit();

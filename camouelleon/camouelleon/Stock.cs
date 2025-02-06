@@ -41,6 +41,8 @@ namespace camouelleon
 
         private void Stock_Load(object sender, EventArgs e)
         {
+            FilterStockByProductName(""); // Par défaut, pas de filtre
+
             bsStock.DataSource = Modele.ListAllStock().Select(x => new
             {
                 Produit = x.IdproduitNavigation.Lblproduit,
@@ -92,9 +94,33 @@ namespace camouelleon
             dgvStock.Refresh();
         }
 
+        private void FilterStockByProductName(string searchText)
+        {
+            var filteredStock = Modele.ListAllStock()
+                .Where(x => x.IdproduitNavigation.Lblproduit.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                .Select(x => new
+                {
+                    Produit = x.IdproduitNavigation.Lblproduit,
+                    Stock = x.IdstockNavigation.Lblstock,
+                    x.Quantite,
+                    Allergie = x.IdproduitNavigation.Idallergies.Any()
+                                ? string.Join(", ", x.IdproduitNavigation.Idallergies.Select(a => a.Lblallergie))
+                                : "Aucune allergie"
+                }).ToList();
+
+            bsStock.DataSource = filteredStock;
+            dgvStock.DataSource = bsStock;
+        }
+
         private void dgvStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtSearchProduit_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtSearchProduit.Text.Trim(); // Récupérer le texte entré par l'utilisateur
+            FilterStockByProductName(searchText); // Appliquer le filtre
         }
     }
 }

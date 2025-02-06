@@ -40,6 +40,7 @@
             label4 = new Label();
             bsArchive = new BindingSource(components);
             bsTable = new BindingSource(components);
+            label2 = new Label();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nmMontant).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvArchive).BeginInit();
@@ -49,6 +50,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(Table);
             pnl_SF.Controls.Add(Montant);
             pnl_SF.Controls.Add(button2);
@@ -137,6 +139,16 @@
             label4.TabIndex = 21;
             label4.Text = "Archive des factures";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.Location = new Point(86, 344);
+            label2.Name = "label2";
+            label2.Size = new Size(357, 20);
+            label2.TabIndex = 30;
+            label2.Text = "* Double clique une commande pour créer la facture";
+            // 
             // ArchiveFacture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -169,5 +181,6 @@
         private Button button2;
         private Label Table;
         private Label Montant;
+        private Label label2;
     }
 }
