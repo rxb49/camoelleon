@@ -72,6 +72,8 @@ namespace camouelleon.Entities
             return monModel.Dechets.ToList();
         }
 
+
+
         public static List<Commande> CommandeWithEtat()
         {
             return monModel.Commandes.Include(c => c.Liers)
@@ -332,25 +334,34 @@ namespace camouelleon.Entities
             return monStock;
         }
 
-        public static bool AddProduit(int lblunite, string produit, string type, int prix, int stock)
+        public static bool AddProduit(int lblunite, string produit, string type, int prix, int stock, int allergie)
         {
             bool vretour = true;
             if (produit == "")
             {
                 MessageBox.Show("Entrez un nom de produit");
             }
-            if(prix <= 0)
+            if (prix <= 0)
             {
                 MessageBox.Show("Rentrez une valeur supérieur à 0");
-            }else
+            }
+            else
             {
                 Produit newProduit;
                 Typeproduit typeProduit = monModel.Typeproduits.FirstOrDefault(t => t.Id == Convert.ToInt32(type));
                 Unite unite = monModel.Unites.FirstOrDefault(u => u.Idunite == lblunite);
-
+                Allergie allergieProduit = monModel.Allergies.FirstOrDefault(a => a.Idallergie == allergie); // Cherche l'allergie
 
                 try
                 {
+                    // Si l'allergie n'existe pas, on retourne une erreur
+                    if (allergieProduit == null)
+                    {
+                        MessageBox.Show("L'allergie sélectionnée n'existe pas.");
+                        return false;
+                    }
+
+                    // Création du produit
                     newProduit = new Produit();
                     newProduit.Idunite = unite.Idunite;
                     newProduit.Lblunite = unite.Lblunite;
@@ -359,15 +370,20 @@ namespace camouelleon.Entities
                     newProduit.Menudujour = 0;
                     newProduit.Idtype = typeProduit.Id;
 
+                    // Ajouter l'allergie au produit
+                    newProduit.Idallergies.Add(allergieProduit);
+
+                    // Sauvegarde du produit dans la base de données
                     monModel.Produits.Add(newProduit);
                     monModel.SaveChanges();
 
+                    // Création du stock pour ce produit
                     Ranger unrangement = new Ranger();
                     unrangement.Idstock = stock;
                     unrangement.Idproduit = newProduit.Idproduit;
                     unrangement.Quantite = 0;
 
-
+                    // Sauvegarde du stock dans la base de données
                     monModel.Rangers.Add(unrangement);
                     monModel.SaveChanges();
                 }
@@ -377,9 +393,10 @@ namespace camouelleon.Entities
                     vretour = false;
                 }
             }
-            
+
             return vretour;
         }
+
 
         public static bool AddProduitToStock(string produit, int stock)
         {
@@ -623,6 +640,14 @@ namespace camouelleon.Entities
             }
 
             return vretour;
+        }
+
+
+        public static List<Dechet> DechetsWithNameProduit()
+        {
+            return monModel.Dechets
+                .Include(d => d.Idproduits) // Charge les produits liés aux déchets
+                .ToList();
         }
 
 

@@ -30,6 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             pnl_SF = new Panel();
+            label7 = new Label();
+            cbAllergie = new ComboBox();
             cbStock = new ComboBox();
             label6 = new Label();
             cbType = new ComboBox();
@@ -47,16 +49,20 @@
             bsUnite = new BindingSource(components);
             bsType = new BindingSource(components);
             bsStock = new BindingSource(components);
+            bsAllergie = new BindingSource(components);
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nmPrix).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsProduit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsUnite).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsType).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsStock).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bsAllergie).BeginInit();
             SuspendLayout();
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label7);
+            pnl_SF.Controls.Add(cbAllergie);
             pnl_SF.Controls.Add(cbStock);
             pnl_SF.Controls.Add(label6);
             pnl_SF.Controls.Add(cbType);
@@ -75,6 +81,25 @@
             pnl_SF.Name = "pnl_SF";
             pnl_SF.Size = new Size(800, 370);
             pnl_SF.TabIndex = 2;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.None;
+            label7.AutoSize = true;
+            label7.Location = new Point(105, 306);
+            label7.Name = "label7";
+            label7.Size = new Size(53, 15);
+            label7.TabIndex = 28;
+            label7.Text = "Allergie :";
+            // 
+            // cbAllergie
+            // 
+            cbAllergie.FormattingEnabled = true;
+            cbAllergie.Location = new Point(284, 306);
+            cbAllergie.Name = "cbAllergie";
+            cbAllergie.Size = new Size(121, 23);
+            cbAllergie.TabIndex = 27;
+            cbAllergie.SelectedIndexChanged += cbAllergie_SelectedIndexChanged;
             // 
             // cbStock
             // 
@@ -117,7 +142,7 @@
             // btnAjout
             // 
             btnAjout.Anchor = AnchorStyles.None;
-            btnAjout.Location = new Point(189, 306);
+            btnAjout.Location = new Point(191, 335);
             btnAjout.Name = "btnAjout";
             btnAjout.Size = new Size(113, 31);
             btnAjout.TabIndex = 22;
@@ -222,6 +247,7 @@
             ((System.ComponentModel.ISupportInitialize)bsUnite).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsType).EndInit();
             ((System.ComponentModel.ISupportInitialize)bsStock).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bsAllergie).EndInit();
             ResumeLayout(false);
         }
 
@@ -244,5 +270,8 @@
         private Label label2;
         private Button button1;
         private Label label1;
+        private Label label7;
+        private ComboBox cbAllergie;
+        private BindingSource bsAllergie;
     }
 }

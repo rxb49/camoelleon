@@ -1,4 +1,5 @@
 ﻿using camouelleon.Entities;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +19,11 @@ namespace camouelleon
 
             InitializeComponent();
 
-            bsDechet.DataSource = dgvDechets.DataSource = Modele.Dechets();
+            bsDechet.DataSource = Modele.Dechets();
             dgvDechets.DataSource = bsDechet;
-            dgvDechets.Columns["Idproduits"].Visible = false;  // Masquer la colonne par son nom
+            dgvDechets.Columns["Idproduits"].Visible = false;
 
-
+            // Associer les produits au ComboBox
             bsProduit.DataSource = Modele.Produits();
             cbProduit.DisplayMember = "Lblproduit";
             cbProduit.ValueMember = "Idproduit";

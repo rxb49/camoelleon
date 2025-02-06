@@ -68,6 +68,11 @@ namespace camouelleon
             bsStock.DataSource = Modele.ListStock();
             cbStock.DataSource = bsStock;
 
+            cbAllergie.ValueMember = "Idallergie";
+            cbAllergie.DisplayMember = "Lblallergie";
+            bsAllergie.DataSource = Modele.Allergies();
+            cbAllergie.DataSource = bsAllergie;
+
 
 
         }
@@ -117,7 +122,8 @@ namespace camouelleon
                     txtProduit.Text.Trim(),
                     Convert.ToString(cbType.SelectedValue),
                     prix,
-                    Convert.ToInt32(cbStock.SelectedValue)
+                    Convert.ToInt32(cbStock.SelectedValue),
+                    Convert.ToInt32(cbAllergie.SelectedValue)
                 );
 
                 if (success)
@@ -135,6 +141,11 @@ namespace camouelleon
             {
                 MessageBox.Show($"Erreur : {ex.Message}\n{ex.InnerException?.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cbAllergie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
