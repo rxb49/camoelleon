@@ -69,6 +69,18 @@ namespace camouelleon
             cbStock.DataSource = bsStock;
 
 
+            var allergies = Modele.Allergies().ToList();
+
+            // Ajouter l'option "Aucune allergie" au début de la liste
+            allergies.Insert(0, new Allergie { Idallergie = 0, Lblallergie = "Aucune allergie" });
+
+            // Lier la liste modifiée à la ComboBox
+            bsAllergie.DataSource = allergies;
+            cbAllergie.DisplayMember = "Lblallergie";
+            cbAllergie.ValueMember = "Idallergie";
+            cbAllergie.DataSource = bsAllergie;
+
+
 
         }
 
@@ -112,12 +124,22 @@ namespace camouelleon
                     return;
                 }
 
+                // Récupérer la valeur sélectionnée dans la ComboBox des allergies
+                int allergieId = Convert.ToInt32(cbAllergie.SelectedValue);
+
+                // Si "Aucune allergie" est sélectionnée (id spécial, par exemple 0), on ne passe aucune allergie
+                if (allergieId == 0) // "Aucune allergie"
+                {
+                    allergieId = -1; // Vous pouvez passer -1 ou null selon votre modèle pour indiquer qu'il n'y a pas d'allergie
+                }
+
                 bool success = Modele.AddProduit(
                     Convert.ToInt32(cmbUnite.SelectedValue),
                     txtProduit.Text.Trim(),
                     Convert.ToString(cbType.SelectedValue),
                     prix,
-                    Convert.ToInt32(cbStock.SelectedValue)
+                    Convert.ToInt32(cbStock.SelectedValue),
+                    allergieId // Passer l'ID de l'allergie ou -1 pour aucune allergie
                 );
 
                 if (success)
@@ -135,6 +157,11 @@ namespace camouelleon
             {
                 MessageBox.Show($"Erreur : {ex.Message}\n{ex.InnerException?.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cbAllergie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

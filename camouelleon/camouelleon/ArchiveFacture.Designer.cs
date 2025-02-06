@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             pnl_SF = new Panel();
+            label2 = new Label();
             Table = new Label();
             Montant = new Label();
             button2 = new Button();
@@ -49,6 +50,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label2);
             pnl_SF.Controls.Add(Table);
             pnl_SF.Controls.Add(Montant);
             pnl_SF.Controls.Add(button2);
@@ -59,13 +61,23 @@
             pnl_SF.Controls.Add(label4);
             pnl_SF.Location = new Point(0, 0);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(900, 386);
+            pnl_SF.Size = new Size(900, 500);
             pnl_SF.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.Location = new Point(22, 443);
+            label2.Name = "label2";
+            label2.Size = new Size(357, 20);
+            label2.TabIndex = 30;
+            label2.Text = "* Double clique une commande pour créer la facture";
             // 
             // Table
             // 
             Table.AutoSize = true;
-            Table.Location = new Point(656, 191);
+            Table.Location = new Point(639, 296);
             Table.Name = "Table";
             Table.Size = new Size(35, 15);
             Table.TabIndex = 29;
@@ -74,7 +86,7 @@
             // Montant
             // 
             Montant.AutoSize = true;
-            Montant.Location = new Point(660, 129);
+            Montant.Location = new Point(639, 234);
             Montant.Name = "Montant";
             Montant.Size = new Size(53, 15);
             Montant.TabIndex = 28;
@@ -82,7 +94,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(656, 91);
+            button2.Location = new Point(697, 170);
             button2.Name = "button2";
             button2.Size = new Size(187, 23);
             button2.TabIndex = 27;
@@ -93,7 +105,7 @@
             // cbTable
             // 
             cbTable.FormattingEnabled = true;
-            cbTable.Location = new Point(657, 209);
+            cbTable.Location = new Point(698, 288);
             cbTable.Name = "cbTable";
             cbTable.Size = new Size(187, 23);
             cbTable.TabIndex = 25;
@@ -101,7 +113,7 @@
             // 
             // nmMontant
             // 
-            nmMontant.Location = new Point(656, 153);
+            nmMontant.Location = new Point(697, 232);
             nmMontant.Name = "nmMontant";
             nmMontant.Size = new Size(186, 23);
             nmMontant.TabIndex = 24;
@@ -110,9 +122,9 @@
             // dgvArchive
             // 
             dgvArchive.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvArchive.Location = new Point(86, 100);
+            dgvArchive.Location = new Point(22, 151);
             dgvArchive.Name = "dgvArchive";
-            dgvArchive.Size = new Size(551, 229);
+            dgvArchive.Size = new Size(590, 265);
             dgvArchive.TabIndex = 23;
             dgvArchive.MouseDoubleClick += dgvArchive_CellContentDoubleClick;
             // 
@@ -131,7 +143,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 15F);
-            label4.Location = new Point(282, 36);
+            label4.Location = new Point(342, 36);
             label4.Name = "label4";
             label4.Size = new Size(185, 28);
             label4.TabIndex = 21;
@@ -141,7 +153,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 386);
+            ClientSize = new Size(900, 500);
             Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ArchiveFacture";
@@ -169,5 +181,6 @@
         private Button button2;
         private Label Table;
         private Label Montant;
+        private Label label2;
     }
 }

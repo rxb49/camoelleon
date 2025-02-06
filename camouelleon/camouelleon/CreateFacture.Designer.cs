@@ -41,15 +41,15 @@
             // 
             // txtCommande
             // 
-            txtCommande.Location = new Point(234, 110);
+            txtCommande.Location = new Point(324, 144);
             txtCommande.Name = "txtCommande";
-            txtCommande.Size = new Size(100, 23);
+            txtCommande.Size = new Size(203, 23);
             txtCommande.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(108, 113);
+            label1.Location = new Point(213, 147);
             label1.Name = "label1";
             label1.Size = new Size(89, 15);
             label1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(159, 173);
+            label2.Location = new Point(213, 207);
             label2.Name = "label2";
             label2.Size = new Size(55, 15);
             label2.TabIndex = 3;
@@ -66,15 +66,15 @@
             // 
             // txtClient
             // 
-            txtClient.Location = new Point(234, 170);
+            txtClient.Location = new Point(324, 204);
             txtClient.Name = "txtClient";
-            txtClient.Size = new Size(100, 23);
+            txtClient.Size = new Size(203, 23);
             txtClient.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(159, 238);
+            label3.Location = new Point(215, 272);
             label3.Name = "label3";
             label3.Size = new Size(53, 15);
             label3.TabIndex = 5;
@@ -82,9 +82,9 @@
             // 
             // txtMontant
             // 
-            txtMontant.Location = new Point(234, 230);
+            txtMontant.Location = new Point(324, 264);
             txtMontant.Name = "txtMontant";
-            txtMontant.Size = new Size(100, 23);
+            txtMontant.Size = new Size(203, 23);
             txtMontant.TabIndex = 4;
             // 
             // pnl_SF
@@ -98,14 +98,14 @@
             pnl_SF.Controls.Add(txtCommande);
             pnl_SF.Location = new Point(0, 1);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(784, 387);
+            pnl_SF.Size = new Size(900, 500);
             pnl_SF.TabIndex = 6;
             // 
             // BtnGenererFacture
             // 
-            BtnGenererFacture.Location = new Point(373, 302);
+            BtnGenererFacture.Location = new Point(399, 350);
             BtnGenererFacture.Name = "BtnGenererFacture";
-            BtnGenererFacture.Size = new Size(75, 23);
+            BtnGenererFacture.Size = new Size(111, 36);
             BtnGenererFacture.TabIndex = 6;
             BtnGenererFacture.Text = "Generer";
             BtnGenererFacture.UseVisualStyleBackColor = true;
@@ -115,7 +115,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 387);
+            ClientSize = new Size(900, 500);
             Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CreateFacture";

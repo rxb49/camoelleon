@@ -50,15 +50,15 @@
             // txtProduit
             // 
             txtProduit.Enabled = false;
-            txtProduit.Location = new Point(157, 78);
+            txtProduit.Location = new Point(275, 188);
             txtProduit.Name = "txtProduit";
-            txtProduit.Size = new Size(120, 23);
+            txtProduit.Size = new Size(226, 23);
             txtProduit.TabIndex = 0;
             // 
             // button1
             // 
             button1.ForeColor = Color.Red;
-            button1.Location = new Point(640, 53);
+            button1.Location = new Point(795, 33);
             button1.Name = "button1";
             button1.Size = new Size(25, 23);
             button1.TabIndex = 14;
@@ -68,16 +68,16 @@
             // 
             // nmQuantite
             // 
-            nmQuantite.Location = new Point(157, 186);
+            nmQuantite.Location = new Point(275, 296);
             nmQuantite.Name = "nmQuantite";
-            nmQuantite.Size = new Size(120, 23);
+            nmQuantite.Size = new Size(226, 23);
             nmQuantite.TabIndex = 15;
             // 
             // btnModifier
             // 
-            btnModifier.Location = new Point(317, 281);
+            btnModifier.Location = new Point(383, 387);
             btnModifier.Name = "btnModifier";
-            btnModifier.Size = new Size(118, 50);
+            btnModifier.Size = new Size(118, 45);
             btnModifier.TabIndex = 16;
             btnModifier.Text = "Modifier le stock";
             btnModifier.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(72, 81);
+            label1.Location = new Point(190, 191);
             label1.Name = "label1";
             label1.Size = new Size(52, 15);
             label1.TabIndex = 17;
@@ -95,7 +95,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(72, 138);
+            label2.Location = new Point(190, 248);
             label2.Name = "label2";
             label2.Size = new Size(42, 15);
             label2.TabIndex = 18;
@@ -104,7 +104,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(72, 188);
+            label3.Location = new Point(190, 298);
             label3.Name = "label3";
             label3.Size = new Size(59, 15);
             label3.TabIndex = 19;
@@ -123,22 +123,22 @@
             pnl_SF.Controls.Add(txtProduit);
             pnl_SF.Location = new Point(1, 1);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(783, 386);
+            pnl_SF.Size = new Size(900, 500);
             pnl_SF.TabIndex = 20;
             // 
             // cbStock
             // 
             cbStock.FormattingEnabled = true;
-            cbStock.Location = new Point(156, 135);
+            cbStock.Location = new Point(274, 245);
             cbStock.Name = "cbStock";
-            cbStock.Size = new Size(121, 23);
+            cbStock.Size = new Size(227, 23);
             cbStock.TabIndex = 21;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 15F);
-            label4.Location = new Point(317, 24);
+            label4.Location = new Point(395, 84);
             label4.Name = "label4";
             label4.Size = new Size(158, 28);
             label4.TabIndex = 20;
@@ -148,7 +148,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 387);
+            ClientSize = new Size(900, 500);
             Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AjoutStock";

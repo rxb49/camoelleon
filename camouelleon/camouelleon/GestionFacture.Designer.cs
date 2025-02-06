@@ -64,9 +64,9 @@
             // 
             dgvFacture.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFacture.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFacture.Location = new Point(41, 116);
+            dgvFacture.Location = new Point(41, 119);
             dgvFacture.Name = "dgvFacture";
-            dgvFacture.Size = new Size(555, 200);
+            dgvFacture.Size = new Size(580, 260);
             dgvFacture.TabIndex = 2;
             dgvFacture.CellContentDoubleClick += dgvFacture_CellContentDoubleClick;
             dgvFacture.CellDoubleClick += dgvFacture_CellContentDoubleClick;
@@ -84,13 +84,13 @@
             pnl_SF.Controls.Add(label1);
             pnl_SF.Location = new Point(1, 0);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(900, 387);
+            pnl_SF.Size = new Size(900, 500);
             pnl_SF.TabIndex = 3;
             // 
             // Table
             // 
             Table.AutoSize = true;
-            Table.Location = new Point(627, 191);
+            Table.Location = new Point(655, 285);
             Table.Name = "Table";
             Table.Size = new Size(35, 15);
             Table.TabIndex = 31;
@@ -99,7 +99,7 @@
             // Montant
             // 
             Montant.AutoSize = true;
-            Montant.Location = new Point(627, 135);
+            Montant.Location = new Point(655, 229);
             Montant.Name = "Montant";
             Montant.Size = new Size(53, 15);
             Montant.TabIndex = 30;
@@ -107,7 +107,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(627, 82);
+            button2.Location = new Point(655, 176);
             button2.Name = "button2";
             button2.Size = new Size(202, 23);
             button2.TabIndex = 26;
@@ -118,7 +118,7 @@
             // cbTable
             // 
             cbTable.FormattingEnabled = true;
-            cbTable.Location = new Point(628, 209);
+            cbTable.Location = new Point(656, 303);
             cbTable.Name = "cbTable";
             cbTable.Size = new Size(202, 23);
             cbTable.TabIndex = 25;
@@ -126,7 +126,7 @@
             // 
             // nmMontant
             // 
-            nmMontant.Location = new Point(627, 153);
+            nmMontant.Location = new Point(655, 247);
             nmMontant.Name = "nmMontant";
             nmMontant.Size = new Size(201, 23);
             nmMontant.TabIndex = 24;
@@ -147,7 +147,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F);
-            label2.Location = new Point(114, 339);
+            label2.Location = new Point(41, 408);
             label2.Name = "label2";
             label2.Size = new Size(357, 20);
             label2.TabIndex = 13;
@@ -157,7 +157,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 387);
+            ClientSize = new Size(900, 500);
             Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "GestionFacture";

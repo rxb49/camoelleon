@@ -61,22 +61,23 @@
             // dgvDechets
             // 
             dgvDechets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDechets.Location = new Point(35, 117);
+            dgvDechets.Enabled = false;
+            dgvDechets.Location = new Point(12, 154);
             dgvDechets.Name = "dgvDechets";
-            dgvDechets.Size = new Size(493, 216);
+            dgvDechets.Size = new Size(594, 272);
             dgvDechets.TabIndex = 1;
             // 
             // cbProduit
             // 
             cbProduit.FormattingEnabled = true;
-            cbProduit.Location = new Point(652, 137);
+            cbProduit.Location = new Point(713, 208);
             cbProduit.Name = "cbProduit";
             cbProduit.Size = new Size(200, 23);
             cbProduit.TabIndex = 2;
             // 
             // nmQuantite
             // 
-            nmQuantite.Location = new Point(652, 196);
+            nmQuantite.Location = new Point(713, 267);
             nmQuantite.Name = "nmQuantite";
             nmQuantite.Size = new Size(200, 23);
             nmQuantite.TabIndex = 3;
@@ -84,18 +85,18 @@
             // 
             // dtpDate
             // 
-            dtpDate.Location = new Point(652, 248);
+            dtpDate.Location = new Point(713, 319);
             dtpDate.Name = "dtpDate";
             dtpDate.Size = new Size(200, 23);
             dtpDate.TabIndex = 4;
             // 
             // btnAjouter
             // 
-            btnAjouter.Location = new Point(710, 317);
+            btnAjouter.Location = new Point(750, 381);
             btnAjouter.Name = "btnAjouter";
-            btnAjouter.Size = new Size(75, 23);
+            btnAjouter.Size = new Size(135, 26);
             btnAjouter.TabIndex = 5;
-            btnAjouter.Text = "button1";
+            btnAjouter.Text = "Ajouter le déchet";
             btnAjouter.UseVisualStyleBackColor = true;
             btnAjouter.Click += btnAjouter_Click;
             // 
@@ -103,7 +104,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F);
-            label2.Location = new Point(674, 69);
+            label2.Location = new Point(735, 140);
             label2.Name = "label2";
             label2.Size = new Size(168, 28);
             label2.TabIndex = 6;
@@ -112,7 +113,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(558, 140);
+            label3.Location = new Point(638, 208);
             label3.Name = "label3";
             label3.Size = new Size(46, 15);
             label3.TabIndex = 7;
@@ -121,7 +122,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(558, 198);
+            label4.Location = new Point(638, 269);
             label4.Name = "label4";
             label4.Size = new Size(53, 15);
             label4.TabIndex = 8;
@@ -130,7 +131,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(558, 254);
+            label5.Location = new Point(638, 325);
             label5.Name = "label5";
             label5.Size = new Size(31, 15);
             label5.TabIndex = 9;
