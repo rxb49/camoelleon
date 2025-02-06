@@ -79,14 +79,14 @@
             pnl_SF.Dock = DockStyle.Fill;
             pnl_SF.Location = new Point(0, 0);
             pnl_SF.Name = "pnl_SF";
-            pnl_SF.Size = new Size(800, 370);
+            pnl_SF.Size = new Size(900, 500);
             pnl_SF.TabIndex = 2;
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
-            label7.Location = new Point(105, 306);
+            label7.Location = new Point(155, 371);
             label7.Name = "label7";
             label7.Size = new Size(53, 15);
             label7.TabIndex = 28;
@@ -95,9 +95,9 @@
             // cbAllergie
             // 
             cbAllergie.FormattingEnabled = true;
-            cbAllergie.Location = new Point(284, 306);
+            cbAllergie.Location = new Point(334, 368);
             cbAllergie.Name = "cbAllergie";
-            cbAllergie.Size = new Size(121, 23);
+            cbAllergie.Size = new Size(233, 23);
             cbAllergie.TabIndex = 27;
             cbAllergie.SelectedIndexChanged += cbAllergie_SelectedIndexChanged;
             // 
@@ -105,16 +105,16 @@
             // 
             cbStock.Anchor = AnchorStyles.None;
             cbStock.FormattingEnabled = true;
-            cbStock.Location = new Point(284, 260);
+            cbStock.Location = new Point(334, 325);
             cbStock.Name = "cbStock";
-            cbStock.Size = new Size(121, 23);
+            cbStock.Size = new Size(233, 23);
             cbStock.TabIndex = 26;
             // 
             // label6
             // 
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
-            label6.Location = new Point(105, 263);
+            label6.Location = new Point(155, 328);
             label6.Name = "label6";
             label6.Size = new Size(42, 15);
             label6.TabIndex = 25;
@@ -124,16 +124,16 @@
             // 
             cbType.Anchor = AnchorStyles.None;
             cbType.FormattingEnabled = true;
-            cbType.Location = new Point(284, 220);
+            cbType.Location = new Point(334, 285);
             cbType.Name = "cbType";
-            cbType.Size = new Size(121, 23);
+            cbType.Size = new Size(233, 23);
             cbType.TabIndex = 24;
             // 
             // label5
             // 
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Location = new Point(105, 223);
+            label5.Location = new Point(155, 288);
             label5.Name = "label5";
             label5.Size = new Size(96, 15);
             label5.TabIndex = 23;
@@ -142,7 +142,7 @@
             // btnAjout
             // 
             btnAjout.Anchor = AnchorStyles.None;
-            btnAjout.Location = new Point(191, 335);
+            btnAjout.Location = new Point(292, 435);
             btnAjout.Name = "btnAjout";
             btnAjout.Size = new Size(113, 31);
             btnAjout.TabIndex = 22;
@@ -154,32 +154,32 @@
             // 
             cmbUnite.Anchor = AnchorStyles.None;
             cmbUnite.FormattingEnabled = true;
-            cmbUnite.Location = new Point(285, 128);
+            cmbUnite.Location = new Point(335, 193);
             cmbUnite.Name = "cmbUnite";
-            cmbUnite.Size = new Size(121, 23);
+            cmbUnite.Size = new Size(232, 23);
             cmbUnite.TabIndex = 21;
             // 
             // nmPrix
             // 
             nmPrix.Anchor = AnchorStyles.None;
-            nmPrix.Location = new Point(284, 176);
+            nmPrix.Location = new Point(334, 241);
             nmPrix.Name = "nmPrix";
-            nmPrix.Size = new Size(122, 23);
+            nmPrix.Size = new Size(233, 23);
             nmPrix.TabIndex = 20;
             // 
             // txtProduit
             // 
             txtProduit.Anchor = AnchorStyles.None;
-            txtProduit.Location = new Point(284, 81);
+            txtProduit.Location = new Point(334, 146);
             txtProduit.Name = "txtProduit";
-            txtProduit.Size = new Size(122, 23);
+            txtProduit.Size = new Size(233, 23);
             txtProduit.TabIndex = 19;
             // 
             // label4
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Location = new Point(105, 184);
+            label4.Location = new Point(155, 249);
             label4.Name = "label4";
             label4.Size = new Size(32, 15);
             label4.TabIndex = 18;
@@ -189,7 +189,7 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Location = new Point(105, 137);
+            label3.Location = new Point(155, 202);
             label3.Name = "label3";
             label3.Size = new Size(41, 15);
             label3.TabIndex = 17;
@@ -199,7 +199,7 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(105, 83);
+            label2.Location = new Point(155, 148);
             label2.Name = "label2";
             label2.Size = new Size(99, 15);
             label2.TabIndex = 16;
@@ -209,7 +209,7 @@
             // 
             button1.Anchor = AnchorStyles.None;
             button1.ForeColor = Color.Red;
-            button1.Location = new Point(670, 34);
+            button1.Location = new Point(748, 65);
             button1.Name = "button1";
             button1.Size = new Size(26, 23);
             button1.TabIndex = 15;
@@ -222,7 +222,7 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(297, 34);
+            label1.Location = new Point(334, 45);
             label1.Name = "label1";
             label1.Size = new Size(175, 28);
             label1.TabIndex = 14;
@@ -232,7 +232,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 370);
+            ClientSize = new Size(900, 500);
             Controls.Add(pnl_SF);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AjoutProduit";

@@ -37,6 +37,7 @@
             txtSearchProduit = new TextBox();
             button2 = new Button();
             label2 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bsStock).BeginInit();
             pnl_SF.SuspendLayout();
@@ -76,6 +77,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label3);
             pnl_SF.Controls.Add(txtSearchProduit);
             pnl_SF.Controls.Add(button2);
             pnl_SF.Controls.Add(label2);
@@ -90,7 +92,7 @@
             // 
             // txtSearchProduit
             // 
-            txtSearchProduit.Location = new Point(116, 107);
+            txtSearchProduit.Location = new Point(247, 108);
             txtSearchProduit.Name = "txtSearchProduit";
             txtSearchProduit.Size = new Size(285, 23);
             txtSearchProduit.TabIndex = 14;
@@ -115,6 +117,15 @@
             label2.Size = new Size(375, 20);
             label2.TabIndex = 12;
             label2.Text = "* Double clique sur un produit pour le réapprovisionner";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(116, 111);
+            label3.Name = "label3";
+            label3.Size = new Size(125, 15);
+            label3.TabIndex = 15;
+            label3.Text = "Rechercher un produit";
             // 
             // Stock
             // 
@@ -143,5 +154,6 @@
         private Label label2;
         private Button button2;
         private TextBox txtSearchProduit;
+        private Label label3;
     }
 }
