@@ -3,46 +3,48 @@ name: Build and Deploy .exe
 on:
   push:
     branches:
-      - main
+      - main # Déclenche le workflow pour chaque push vers la branche 'main'
 
 jobs:
-  build-and-deploy:
-    runs-on: windows-latest
+  build:
+    runs-on: windows-latest # CHANGÉ de ubuntu-latest à windows-latest
 
     steps:
+      # Étape 1 : Check-out du code source depuis GitHub
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Étape 2 : Installer les outils nécessaires pour construire l'application (ex : .NET SDK)
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: "8.0.300"
+          dotnet-version: "8.0.300" # Choisis la version de .NET qui correspond à ton projet
 
+      # Étape 3 : Restaurer les dépendances du projet
       - name: Restore dependencies
-        run: dotnet restore camouelleon/camouelleon.sln
+        run: ls # Spécifie le chemin du fichier .sln
 
+      # Étape 3 : Restaurer les dépendances du projet
+      - name: Restore dependencies
+        run: ls camouelleon # Spécifie le chemin du fichier .sln
+
+      # Étape 3 : Restaurer les dépendances du projet
+      - name: Restore dependencies
+        run: dotnet restore camouelleon/camouelleon.sln # Spécifie le chemin du fichier .sln
+
+      # Étape 4 : Construire l'application et générer le fichier .exe
       - name: Build and publish application
         run: dotnet publish camouelleon/camouelleon.sln -c Release -r win-x64 --self-contained -o ./publish
 
       - name: Create ZIP archive
         run: powershell Compress-Archive -Path ./publish/* -DestinationPath camouelleon.zip
 
-      - name: Test connectivitys
-        run: |
-          Test-NetConnection -ComputerName "${{ secrets.SERVER_IP }}" -Port 22
-
-      - name: Install WinSCP via Chocolatey
-        run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force
-          iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-          choco install winscp.portable --no-progress -y
-
-      - name: Upload ZIP via SCP with WinSCP
-        run: |
-          echo "$env:PRIVATE_KEY" > key.ppk
-          & "C:\ProgramData\chocolatey\lib\winscp.portable\tools\WinSCP.com" /log=log.txt /command `
-            "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" `
-            "put camouelleon.zip /var/www/telechargement/" `
-            "exit"
-        env:
-          PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+      - name: Upload ZIP to server
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: 22
+          source: "camouelleon.zip"
+          target: "/var/www/telechargement/"
