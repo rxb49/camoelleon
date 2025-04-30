@@ -27,7 +27,7 @@ jobs:
       - name: Create ZIP archive
         run: powershell Compress-Archive -Path ./publish/* -DestinationPath camouelleon.zip
 
-      - name: Test connectivity
+      - name: Test connectivitys
         run: |
           Test-NetConnection -ComputerName "${{ secrets.SERVER_IP }}" -Port 22
 
