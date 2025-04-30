@@ -6,11 +6,8 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: windows-latest
-
-    outputs:
-      zip-path: ${{ steps.zip.outputs.zip-path }}
 
     steps:
       - name: Checkout code
@@ -28,33 +25,19 @@ jobs:
         run: dotnet publish camouelleon/camouelleon.sln -c Release -r win-x64 --self-contained -o ./publish
 
       - name: Create ZIP archive
-        id: zip
+        run: powershell Compress-Archive -Path ./publish/* -DestinationPath camouelleon.zip
+
+      - name: Install WinSCP CLI
         run: |
-          powershell Compress-Archive -Path ./publish/* -DestinationPath camouelleon.zip
-          echo "zip-path=camouelleon.zip" >> $env:GITHUB_ENV
+          Invoke-WebRequest -Uri "https://cdn.winscp.net/files/WinSCP-6.3.2-Portable.zip" -OutFile "winscp.zip"
+          Expand-Archive winscp.zip -DestinationPath .\winscp
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: camouelleon-zip
-          path: camouelleon.zip
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: camouelleon-zip
-
-      - name: Upload ZIP to server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: 22
-          source: "camouelleon.zip"
-          target: "/var/www/telechargement/"
+      - name: Upload ZIP via SCP with WinSCP
+        run: |
+          echo "$env:PRIVATE_KEY" > key.ppk
+          .\winscp\WinSCP.com /log=log.txt /command `
+            "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" `
+            "put camouelleon.zip /var/www/telechargement/" `
+            "exit"
+        env:
+          PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
