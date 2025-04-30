@@ -10,34 +10,37 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      # 1. Récupération du code source
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # 2. Installation du SDK .NET
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '8.0.300'
 
+      # 3. Restauration des dépendances
       - name: Restore dependencies
         run: dotnet restore camouelleon/camouelleon.sln
 
+      # 4. Compilation en .exe
       - name: Build and publish application
         run: dotnet publish camouelleon/camouelleon.sln -c Release -r win-x64 --self-contained -o ./publish
 
+      # 5. Création d'une archive ZIP
       - name: Create ZIP archive
         run: powershell Compress-Archive -Path ./publish/* -DestinationPath camouelleon.zip
 
-      - name: Install WinSCP CLI
-        run: |
-          Invoke-WebRequest -Uri "https://cdn.winscp.net/files/WinSCP-6.3.2-Portable.zip" -OutFile "winscp.zip"
-          Expand-Archive winscp.zip -DestinationPath .\winscp
+      # 6. Installation de WinSCP avec Chocolatey
+      - name: Install WinSCP
+        run: choco install winscp -y
 
-      - name: Upload ZIP via SCP with WinSCP
+      # 7. Envoi du fichier via SCP (avec clé PPK depuis secret GitHub)
+      - name: Upload ZIP via SCP using WinSCP
         run: |
-          echo "$env:PRIVATE_KEY" > key.ppk
-          .\winscp\WinSCP.com /log=log.txt /command `
-            "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" `
-            "put camouelleon.zip /var/www/telechargement/" `
-            "exit"
+          Set-Content -Path key.ppk -Value "$env:PRIVATE_KEY"
+          $cmd = '"C:\Program Files (x86)\WinSCP\WinSCP.com" /log=log.txt /command "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" "put camouelleon.zip /var/www/telechargement/" "exit"'
+          iex $cmd
         env:
           PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
