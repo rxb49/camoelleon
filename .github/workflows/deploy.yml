@@ -27,18 +27,16 @@ jobs:
       - name: Create ZIP archive
         run: powershell Compress-Archive -Path ./publish/* -DestinationPath camouelleon.zip
 
-      - name: Install WinSCP CLI
+      - name: Install WinSCP via Chocolatey
         run: |
-          $ProgressPreference = 'SilentlyContinue'
-          Invoke-WebRequest -Uri "https://cdn.winscp.net/files/WinSCP-6.3.2-Portable.zip" `
-            -OutFile "winscp.zip" `
-            -Headers @{ "User-Agent" = "Mozilla/5.0" }
-          Expand-Archive winscp.zip -DestinationPath .\winscp
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+          choco install winscp.portable --no-progress -y
 
       - name: Upload ZIP via SCP with WinSCP
         run: |
           echo "$env:PRIVATE_KEY" > key.ppk
-          .\winscp\WinSCP.com /log=log.txt /command `
+          WinSCP.com /log=log.txt /command `
             "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" `
             "put camouelleon.zip /var/www/telechargement/" `
             "exit"
