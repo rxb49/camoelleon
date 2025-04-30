@@ -20,6 +20,15 @@ jobs:
         with:
           dotnet-version: '8.0.300'  # Choisis la version de .NET qui correspond à ton projet
 
+
+      # Étape 3 : Restaurer les dépendances du projet
+      - name: Restore dependencies
+        run: ls  # Spécifie le chemin du fichier .sln
+        
+      # Étape 3 : Restaurer les dépendances du projet
+      - name: Restore dependencies
+        run: ls camouelleon  # Spécifie le chemin du fichier .sln
+
       # Étape 3 : Restaurer les dépendances du projet
       - name: Restore dependencies
         run: dotnet restore camouelleon/camouelleon.sln  # Spécifie le chemin du fichier .sln
