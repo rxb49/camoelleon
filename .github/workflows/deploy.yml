@@ -22,7 +22,11 @@ jobs:
 
       # Étape 3 : Restaurer les dépendances du projet
       - name: Restore dependencies
-        run: cd camouelleon/camouelleon
+        run: cd camouelleon
+
+        # Étape 3 : Restaurer les dépendances du projet
+      - name: Restore dependencies
+        run: cd camouelleon
 
       # Étape 3 : Restaurer les dépendances du projet
       - name: Restore dependencies
