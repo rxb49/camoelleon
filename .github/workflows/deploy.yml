@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # Utilise un environnement Windows pour construire le .exe
+    runs-on: ubuntu-latest  # Utilise un environnement Windows pour construire le .exe
 
     steps:
       # Étape 1 : Check-out du code source depuis GitHub
@@ -38,13 +38,16 @@ jobs:
         run: dotnet publish camouelleon/camouelleon.sln -c Release -r win-x64 --self-contained -o ./publish
 
 
-      # Étape 5 : Déployer le fichier .exe sur ton serveur via scp
-      - name: Deploy .exe to server
-        uses: appleboy/ssh-action@v0.1.0
+      - name: Create ZIP archive
+        run: zip -r camouelleon.zip ./publish
+
+
+      - name: Upload ZIP to server
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 22
-          source: "./publish/YourApp.exe"
-          target: "/var/www/telechargement/camoelleon.exe"
+          source: "camouelleon.zip"
+          target: "/var/www/telechargement/"
