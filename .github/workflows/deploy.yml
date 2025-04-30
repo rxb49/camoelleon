@@ -35,7 +35,7 @@ jobs:
 
       # Étape 4 : Construire l'application et générer le fichier .exe
       - name: Build and publish application
-        run: dotnet publish camouelleon/camouelleon/camouelleon.sln -c Release -r win-x64 --self-contained -o ./publish
+        run: dotnet publish camouelleon/camouelleon.sln -c Release -r win-x64 --self-contained -o ./publish
 
 
       # Étape 5 : Déployer le fichier .exe sur ton serveur via scp
