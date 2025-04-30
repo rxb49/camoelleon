@@ -43,6 +43,7 @@
             déchetsToolStripMenuItem = new ToolStripMenuItem();
             pnl_SF = new Panel();
             pb_pp = new PictureBox();
+            label1 = new Label();
             menuStrip1.SuspendLayout();
             pnl_SF.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_pp).BeginInit();
@@ -143,6 +144,7 @@
             // 
             // pnl_SF
             // 
+            pnl_SF.Controls.Add(label1);
             pnl_SF.Controls.Add(pb_pp);
             pnl_SF.Location = new Point(0, 27);
             pnl_SF.Name = "pnl_SF";
@@ -160,6 +162,17 @@
             pb_pp.SizeMode = PictureBoxSizeMode.StretchImage;
             pb_pp.TabIndex = 9;
             pb_pp.TabStop = false;
+            pb_pp.Click += pb_pp_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(356, 206);
+            label1.Name = "label1";
+            label1.Size = new Size(132, 15);
+            label1.TabIndex = 10;
+            label1.Text = "Test integration continu";
+            label1.Click += label1_Click;
             // 
             // Form1
             // 
@@ -177,6 +190,7 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pnl_SF.ResumeLayout(false);
+            pnl_SF.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pb_pp).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -199,5 +213,6 @@
         private ToolStripMenuItem aFaireToolStripMenuItem;
         private ToolStripMenuItem archiveToolStripMenuItem;
         private ToolStripMenuItem déchetsToolStripMenuItem;
+        private Label label1;
     }
 }

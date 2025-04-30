@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {}
+    "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {
+    "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+        "projectUniqueName": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
         "projectName": "camouelleon",
-        "projectPath": "C:\\Users\\admin\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Documents\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
+        "projectPath": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\camouelleon.csproj",
+        "packagesPath": "C:\\Users\\rtijou\\.nuget\\packages\\",
+        "outputPath": "P:\\AP\\AP4\\camouelleon-c\\camouelleon\\camouelleon\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rtijou\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -91,7 +95,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

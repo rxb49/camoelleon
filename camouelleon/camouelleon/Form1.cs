@@ -22,7 +22,7 @@ namespace camouelleon
 
             formEnfant.TopLevel = false;
             formEnfant.FormBorderStyle = FormBorderStyle.None;
-            formEnfant.Dock = DockStyle.None; 
+            formEnfant.Dock = DockStyle.None;
 
             pnl_SF.Controls.Add(formEnfant);
             pnl_SF.Tag = formEnfant;
@@ -87,6 +87,16 @@ namespace camouelleon
         {
             pnl_SF.Location = new Point(0, menuStrip1.Height); // Déplacer le panneau juste sous la navbar
             pnl_SF.Size = new Size(this.ClientSize.Width, this.ClientSize.Height - menuStrip1.Height); // Ajuster la taille du panneau
+        }
+
+        private void pb_pp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
