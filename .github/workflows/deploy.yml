@@ -29,7 +29,10 @@ jobs:
 
       - name: Install WinSCP CLI
         run: |
-          Invoke-WebRequest -Uri "https://cdn.winscp.net/files/WinSCP-6.3.2-Portable.zip" -OutFile "winscp.zip"
+          $ProgressPreference = 'SilentlyContinue'
+          Invoke-WebRequest -Uri "https://cdn.winscp.net/files/WinSCP-6.3.2-Portable.zip" `
+            -OutFile "winscp.zip" `
+            -Headers @{ "User-Agent" = "Mozilla/5.0" }
           Expand-Archive winscp.zip -DestinationPath .\winscp
 
       - name: Upload ZIP via SCP with WinSCP
