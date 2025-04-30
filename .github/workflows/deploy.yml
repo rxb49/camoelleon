@@ -22,6 +22,10 @@ jobs:
 
       # Étape 3 : Restaurer les dépendances du projet
       - name: Restore dependencies
+        run: cd camoelleon/camoelleon 
+
+      # Étape 3 : Restaurer les dépendances du projet
+      - name: Restore dependencies
         run: dotnet restore
 
       # Étape 4 : Construire l'application et générer le fichier .exe
