@@ -32,10 +32,8 @@ jobs:
 
       - name: Upload ZIP via SCP with WinSCP
         run: |
-          echo "$env:PRIVATE_KEY" > key.ppk
-          "C:\Program Files (x86)\WinSCP\WinSCP.com" /log=log.txt /command `
-            "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" `
-            "put camouelleon.zip /var/www/telechargement/" `
-            "exit"
+          Set-Content -Path key.ppk -Value "$env:PRIVATE_KEY"
+          $cmd = '"C:\Program Files (x86)\WinSCP\WinSCP.com" /log=log.txt /command "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" "put camouelleon.zip /var/www/telechargement/" "exit"'
+          iex $cmd
         env:
           PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
