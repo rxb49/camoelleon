@@ -18,7 +18,7 @@ jobs:
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '8.0.300'
+          dotnet-version: "8.0.300"
 
       # 3. Restauration des dépendances
       - name: Restore dependencies
@@ -29,7 +29,7 @@ jobs:
         run: dotnet publish camouelleon/camouelleon.sln -c Release -r win-x64 --self-contained -o ./publish
 
       # 5. Création d'une archive ZIP
-      - name: Create ZIP archive
+      - name: Creation ZIP archive
         run: powershell Compress-Archive -Path ./publish/* -DestinationPath camouelleon.zip
 
       # 6. Installation de WinSCP avec Chocolatey
@@ -46,4 +46,3 @@ jobs:
             "exit"
         env:
           PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-
