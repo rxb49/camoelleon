@@ -36,7 +36,7 @@ jobs:
       - name: Upload ZIP via SCP with WinSCP
         run: |
           echo "$env:PRIVATE_KEY" > key.ppk
-          WinSCP.com /log=log.txt /command `
+          & "C:\ProgramData\chocolatey\lib\winscp.portable\tools\WinSCP.com" /log=log.txt /command `
             "open scp://${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}/ -privatekey=key.ppk -hostkey=* -rawsettings Compression=1" `
             "put camouelleon.zip /var/www/telechargement/" `
             "exit"
