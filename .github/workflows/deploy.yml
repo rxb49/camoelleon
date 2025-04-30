@@ -22,19 +22,8 @@ jobs:
 
       # Étape 3 : Restaurer les dépendances du projet
       - name: Restore dependencies
-        run: ls
-
-      # Étape 3 : Restaurer les dépendances du projet
-      - name: Restore dependencies
-        run: cd camouelleon/camouelleon
-
-        # Étape 3 : Restaurer les dépendances du projet
-      - name: Restore dependencies
-        run: ls
-
-      # Étape 3 : Restaurer les dépendances du projet
-      - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore camouelleon/camouelleon.sln  # Spécifie le chemin du fichier .sln
+        working-directory: camouelleon
 
       # Étape 4 : Construire l'application et générer le fichier .exe
       - name: Build .exe
